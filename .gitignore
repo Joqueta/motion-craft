@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Editors
+.idea
+*.swp
+*.swo
+
+# Node / Strapi (motion_craft)
+node_modules/
+motion_craft/.env
+motion_craft/.tmp/
+motion_craft/.strapi/
+motion_craft/.strapi-updater.json
+motion_craft/.strapi-cloud.json
+motion_craft/dist/
+motion_craft/build/
+motion_craft/exports/
+motion_craft/public/uploads/*
+!motion_craft/public/uploads/.gitkeep
+*.sqlite
+*.sqlite3
+*.log

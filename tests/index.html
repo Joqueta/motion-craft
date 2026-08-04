@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Tests — Vanilla-Engine</title>
+    <link rel="stylesheet" href="../styles/base.css" />
+    <style>
+      body {
+        padding: 2rem;
+      }
+      main {
+        max-width: 820px;
+        margin: 0 auto;
+      }
+      .summary {
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius-sm);
+        font-weight: 600;
+      }
+      .summary--pass {
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+      .summary--fail {
+        background: var(--danger);
+        color: #fff;
+      }
+      .result {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        padding: 0.2rem 0;
+      }
+      .result--pass {
+        color: var(--success);
+      }
+      .result--fail {
+        color: var(--danger);
+      }
+      section {
+        margin-bottom: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Tests du moteur Vanilla-Engine</h1>
+      <div id="results"></div>
+    </main>
+    <script type="module">
+      import { run } from "./runner.js";
+      import "./interpolate.test.js";
+      import "./store.test.js";
+      import "./props.test.js";
+      import "./render.test.js";
+      import "./router.test.js";
+      import "./http.test.js";
+      import "./workflow.test.js";
+
+      run(document.getElementById("results"));
+    </script>
+  </body>
+</html>

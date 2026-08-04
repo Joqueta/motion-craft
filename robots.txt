@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /connexion
+Disallow: /demo/
+Disallow: /tests/
+
+Sitemap: https://exemple.fr/sitemap.xml
