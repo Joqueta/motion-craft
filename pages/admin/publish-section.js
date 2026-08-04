@@ -77,7 +77,7 @@ export default function PublishSection() {
         label: "URL du CMS Strapi",
         inputType: "url",
         value: config.cmsUrl,
-        hint: "Exemple : http://localhost:1337 ou https://cms.mon-domaine.fr",
+        hint: "Exemple : https://motion-craft-production-7f1e.up.railway.app",
         onInput: (value) => updateConfig({ cmsUrl: value }),
       }),
       {
@@ -91,7 +91,7 @@ export default function PublishSection() {
               ["class", ["button", "button--primary"]],
               ["disabled", status === "saving" || session?.role === "reader"],
             ],
-            events: [["click", () => publishContent().catch(() => {})]],
+            events: [["click", () => publishContent().catch(() => { })]],
             children: [status === "saving" ? "Publication…" : "Publier vers le CMS"],
           },
           {
