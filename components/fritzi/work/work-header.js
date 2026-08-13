@@ -15,7 +15,9 @@ export function WorkHeader(props) {
 
     section.innerHTML = `
     <h1 class="work-header__title">${props.title}</h1>
-    <span class="work-header__badge">${props.eyebrow}</span>
+    <span class="work-header__badge-wrap">
+      <span class="work-header__badge">${props.eyebrow}</span>
+    </span>
   `;
 
     return section;

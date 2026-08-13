@@ -8,50 +8,118 @@
 }
 
 .work-header__title {
-    font-size: clamp(3rem, 12vw, 7rem);
-    font-weight: 800;
-    margin: 0 0 2.5rem;
-    letter-spacing: -0.01em;
+    color: #FFF;
+    font-family: "Hanken Grotesk";
+    font-size: 10.3125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .work-header__badge {
-    display: inline-block;
-    padding: 0.5rem 1.2rem;
-    border-top: 1px solid var(--color-cream-dim);
-    border-bottom: 1px solid var(--color-cream-dim);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-cream-dim);
+    color: #FFF;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.work__col--left {
+    justify-self: end;
+}
+
+.work__col--right {
+    justify-self: start;
+}
+
+.work-header__badge-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    margin-top: 2rem;
+}
+
+.work-header__badge-wrap::before {
+    content: "";
+    position: absolute;
+}
+
+.work-header__badge-wrap::after {
+    content: "";
+    position: absolute;
+}
+
+.work-header__badge-wrap::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    background: url(../../assets/fritzi/home/angle-top.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.work-header__badge-wrap::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    background: url(../../assets/fritzi/home/angle-top.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    rotate: 180deg;
 }
 
 /* ===== Carousel ===== */
 .carousel {
     position: relative;
     background: var(--color-olive);
-    padding: 0 var(--gutter) 5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    padding: 0 0 5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
 }
 
 .carousel__track {
     display: flex;
     gap: 2rem;
-    overflow-x: auto;
+    padding: 0 var(--gutter);
+    overflow-x: visible;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding-bottom: 0.5rem;
-    flex: 1;
-
-    /* masque la scrollbar tout en gardant le scroll natif accessible */
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-cream-dim) transparent;
 }
 
 .carousel__item {
-    flex: 0 0 clamp(240px, 32vw, 380px);
+    position: relative;
+    flex: 0 0 calc((100% - 2 * 2rem) / 2.5);
     scroll-snap-align: start;
+}
+
+.carousel__item:first-child::before {
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.carousel__item:last-child::before {
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    pointer-events: none;
 }
 
 .work-card__frame {
@@ -60,7 +128,7 @@
 
 .work-card__image {
     width: 100%;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 4;
     object-fit: cover;
     border-radius: 2px;
 }
@@ -100,19 +168,14 @@
 
 /* ===== Responsive ===== */
 @media (max-width: 640px) {
-    .carousel {
-        gap: 0.5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+    @media (max-width: 640px) {
+        .carousel {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
 
-    .carousel__arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
-    }
-
-    .carousel__item {
-        flex-basis: 70vw;
+        .carousel__item {
+            flex: 0 0 85vw;
+        }
     }
 }

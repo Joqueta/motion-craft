@@ -27,34 +27,13 @@ export function ProjectCarousel(props) {
         track.appendChild(card);
     });
 
-    const prevBtn = document.createElement("button");
-    prevBtn.type = "button";
-    prevBtn.className = "carousel__arrow carousel__arrow--prev";
-    prevBtn.setAttribute("aria-label", "Projet précédent");
-    prevBtn.textContent = "←";
-
-    const nextBtn = document.createElement("button");
-    nextBtn.type = "button";
-    nextBtn.className = "carousel__arrow carousel__arrow--next";
-    nextBtn.setAttribute("aria-label", "Projet suivant");
-    nextBtn.textContent = "→";
-
-    function scrollByCard(direction) {
+    track.addEventListener("keydown", (event) => {
         const card = track.querySelector(".carousel__item");
         if (!card) return;
         const cardWidth = card.getBoundingClientRect().width;
         const gap = parseFloat(getComputedStyle(track).columnGap || "0");
-        track.scrollBy({ left: direction * (cardWidth + gap), behavior: "smooth" });
-    }
-
-    prevBtn.addEventListener("click", () => scrollByCard(-1));
-    nextBtn.addEventListener("click", () => scrollByCard(1));
-
-    track.addEventListener("keydown", (event) => {
-        if (event.key === "ArrowRight") scrollByCard(1);
-        if (event.key === "ArrowLeft") scrollByCard(-1);
     });
 
-    wrapper.append(prevBtn, track, nextBtn);
+    wrapper.append(track);
     return wrapper;
 }
