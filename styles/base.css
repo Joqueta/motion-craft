@@ -439,3 +439,66 @@ textarea.field__control {
 .field-row .field {
   flex: 1;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0f0f10;
+  color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.hub {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.hub__title {
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.hub__subtitle {
+  color: #999;
+  margin: 0 0 3rem;
+}
+
+.hub__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2.5rem 1.5rem;
+  background: #1a1a1c;
+  border: 1px solid #2a2a2c;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-4px);
+  border-color: #555;
+}
+
+.hub-card__name {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.hub-card__cta {
+  font-size: 0.85rem;
+  color: #999;
+}
