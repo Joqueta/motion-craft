@@ -1,0 +1,118 @@
+@import url("./home.css");
+
+/* ===== Work header ===== */
+.work-header {
+    background: var(--color-olive);
+    padding: 3rem var(--gutter) 4rem;
+    text-align: center;
+}
+
+.work-header__title {
+    font-size: clamp(3rem, 12vw, 7rem);
+    font-weight: 800;
+    margin: 0 0 2.5rem;
+    letter-spacing: -0.01em;
+}
+
+.work-header__badge {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border-top: 1px solid var(--color-cream-dim);
+    border-bottom: 1px solid var(--color-cream-dim);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-cream-dim);
+}
+
+/* ===== Carousel ===== */
+.carousel {
+    position: relative;
+    background: var(--color-olive);
+    padding: 0 var(--gutter) 5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.carousel__track {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 0.5rem;
+    flex: 1;
+
+    /* masque la scrollbar tout en gardant le scroll natif accessible */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-cream-dim) transparent;
+}
+
+.carousel__item {
+    flex: 0 0 clamp(240px, 32vw, 380px);
+    scroll-snap-align: start;
+}
+
+.work-card__frame {
+    display: block;
+}
+
+.work-card__image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.work-card__meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    margin-top: 0.7rem;
+}
+
+.work-card__client {
+    font-weight: 700;
+}
+
+.work-card__label {
+    color: var(--color-cream-dim);
+}
+
+.carousel__arrow {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--color-cream-dim);
+    background: transparent;
+    color: var(--color-cream);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.carousel__arrow:hover {
+    background: var(--color-cream);
+    color: var(--color-olive);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+    .carousel {
+        gap: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .carousel__arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    .carousel__item {
+        flex-basis: 70vw;
+    }
+}
