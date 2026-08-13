@@ -1,0 +1,114 @@
+@import url("./home.css");
+
+/* ===== Contact Hero ===== */
+.contact-hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #0c0c0c;
+    padding: 2rem var(--gutter) 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.contact-hero__portrait {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.05);
+    opacity: 0.5;
+}
+
+.contact-hero__heading {
+    position: absolute;
+    top: 8%;
+    left: 6%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(3rem, 11vw, 7rem);
+    font-weight: 800;
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    color: rgba(240, 240, 240, 0.18);
+    pointer-events: none;
+}
+
+.contact-hero__heading span:last-child {
+    align-self: flex-end;
+    margin-right: 2vw;
+}
+
+/* ===== Contact form ===== */
+.contact-form {
+    position: relative;
+    z-index: 1;
+    max-width: 460px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.contact-form__field label {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+}
+
+.contact-form__field input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(237, 233, 221, 0.5);
+    padding: 0.3rem 0;
+    font-size: 0.8rem;
+    color: var(--color-cream);
+    font-family: inherit;
+}
+
+.contact-form__field input::placeholder {
+    color: var(--color-cream-dim);
+}
+
+.contact-form__field input:focus {
+    outline: none;
+    border-bottom-color: var(--color-cream);
+}
+
+.contact-form__error {
+    display: block;
+    min-height: 1.1em;
+    font-size: 0.65rem;
+    color: var(--color-accent);
+    margin-top: 0.3rem;
+}
+
+.contact-form__submit-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.contact-form__status {
+    font-size: 0.7rem;
+    color: var(--color-cream-dim);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 720px) {
+    .contact-hero__heading {
+        position: static;
+        margin-bottom: 3rem;
+    }
+
+    .contact-form {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Démo EyeFocus</title>
+    <link rel="stylesheet" href="./styles/eye-focus.css" />
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+        }
+
+        .demo-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .demo-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(1) contrast(1.05);
+            opacity: 0.6;
+        }
+
+        .demo-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ccc;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo-hero" data-eye-focus-container>
+        <img src="../assets/fritzi/home/about-me-close.svg" alt="Portrait de démonstration" />
+        <p class="demo-hint">Approche le curseur du centre de l'image pour voir l'effet</p>
+    </div>
+
+    <script type="module">
+        import { EyeFocus } from "../components/fritzi/eye-focus.js";
+
+        section.setAttribute("data-eye-focus-container", "");
+        section.appendChild(
+            EyeFocus({ xPercent: 42, yPercent: 38, triggerRadius: 150 })
+        );
+
+    </script>
+</body>
+
+</html>

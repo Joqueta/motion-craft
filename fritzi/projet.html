@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fritzi — Projet</title>
+    <link rel="stylesheet" href="../styles/fritzi/project-detail.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <a class="back-to-hub" href="../index.html">← Retour</a>
+
+    <div id="app"></div>
+
+    <script type="module">
+        import { ProjectDetailPage } from "../pages/fritzi/project-detail.js";
+
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get("slug");
+
+        const app = document.getElementById("app");
+        ProjectDetailPage(slug).then((pageEl) => app.appendChild(pageEl));
+    </script>
+</body>
+
+</html>

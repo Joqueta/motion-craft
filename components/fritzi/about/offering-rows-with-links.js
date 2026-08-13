@@ -1,0 +1,47 @@
+/**
+ * Ligne "offering" avec liste de projets liés (utilisée sur About, contrairement
+ * à la version simple de la Home).
+ * @param {Object} props
+ * @param {string} props.number
+ * @param {string} props.title
+ * @param {string} props.tools
+ * @param {Array<{label: string, slug: string}>} props.relatedWork
+ * @returns {HTMLElement}
+ */
+export function OfferingRowWithLinks(props) {
+    validateProps(props);
+
+    const row = document.createElement("div");
+    row.className = "offering-row";
+
+    row.innerHTML = `
+    <span class="offering-row__number">${props.number}</span>
+    <div class="offering-row__body">
+      <div class="offering-row__top">
+        <h3 class="offering-row__title">${props.title}</h3>
+        <span class="offering-row__related-label">Related work ↓</span>
+      </div>
+      <div class="offering-row__bottom">
+        <p class="offering-row__tools">${props.tools}</p>
+        <ul class="offering-row__links">
+          ${props.relatedWork
+            .map(
+                (item) =>
+                    `<li><a href="./projet.html?slug=${item.slug}">${item.label}</a></li>`
+            )
+            .join("")}
+        </ul>
+      </div>
+    </div>
+  `;
+
+    return row;
+}
+
+function validateProps(props) {
+    const required = ["number", "title", "tools", "relatedWork"];
+    const missing = required.filter((key) => !props[key]);
+    if (missing.length > 0) {
+        throw new Error(`[OfferingRowWithLinks] Props manquantes: ${missing.join(", ")}`);
+    }
+}
