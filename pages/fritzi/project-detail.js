@@ -6,7 +6,7 @@ import { ProjectOverview } from "../../components/fritzi/projet/projet-overview.
 import { TextImageBlock } from "../../components/fritzi/projet/text-image.js";
 import { ProjectChallenge } from "../../components/fritzi/projet/challenge.js";
 import { NextProject } from "../../components/fritzi/projet/next-project.js";
-import { ContactFooter } from "../../components/fritzi/home/contact-footer.js";
+import { ContactFooter } from "../../components/fritzi/contact-footer.js";
 
 import { profileMock } from "../../mocks/fritzi/profile-mock.js";
 import { contactMock } from "../../mocks/fritzi/content-mock.js";
@@ -52,7 +52,7 @@ export async function ProjectDetailPage(slug) {
         page.appendChild(ProjectOverview(project.overview));
         page.appendChild(
             TextImageBlock({
-                heading: project.discovery.heading,
+                eyebrow: project.discovery.eyebrow,
                 paragraphs: project.discovery.paragraphs,
                 image: project.discovery.image,
                 order: "text-first"
@@ -61,8 +61,9 @@ export async function ProjectDetailPage(slug) {
         page.appendChild(ProjectChallenge(project.challenge));
         page.appendChild(
             TextImageBlock({
+                eyebrow: project.outcome.eyebrow,
                 heading: project.outcome.heading,
-                paragraphs: [project.outcome.eyebrow, ...project.outcome.paragraphs].filter(Boolean),
+                paragraphs: project.outcome.paragraphs,
                 image: project.outcome.image,
                 order: "image-first"
             })

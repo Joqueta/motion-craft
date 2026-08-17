@@ -8,18 +8,17 @@ import { OfferingRowWithLinks } from "./offering-rows-with-links.js";
  * @returns {HTMLElement}
  */
 export function AboutSkillsSection(props) {
-    if (!props?.content || !Array.isArray(props?.offerings)) {
-        throw new Error("[AboutSkillsSection] props.content et props.offerings sont requis");
-    }
-    const { content, offerings } = props;
+  if (!props?.content || !Array.isArray(props?.offerings)) {
+    throw new Error("[AboutSkillsSection] props.content et props.offerings sont requis");
+  }
+  const { content, offerings } = props;
 
-    const section = document.createElement("section");
-    section.className = "skills";
+  const section = document.createElement("section");
+  section.className = "skills";
 
-    section.innerHTML = `
+  section.innerHTML = `
     <div class="skills__intro">
-      <span class="skills__eyebrow">${content.eyebrow}</span>
-      <h2 class="skills__heading">${content.heading.replace("skills", "<em>skills</em>")}</h2>
+    <h2 class="skills__heading">${content.line1} ${content.connector} <em>${content.line2}</em></h2>
       ${content.paragraphs.map((p) => `<p class="skills__paragraph">${p}</p>`).join("")}
       <a class="btn btn--outline" href="#">${content.cvLabel}</a>
     </div>
@@ -27,10 +26,10 @@ export function AboutSkillsSection(props) {
     <img class="skills__image" src="${content.offeringsImage.url}" alt="${content.offeringsImage.alt}" />
   `;
 
-    const list = document.createElement("div");
-    list.className = "skills__list";
-    offerings.forEach((offering) => list.appendChild(OfferingRowWithLinks(offering)));
-    section.appendChild(list);
+  const list = document.createElement("div");
+  list.className = "skills__list";
+  offerings.forEach((offering) => list.appendChild(OfferingRowWithLinks(offering)));
+  section.appendChild(list);
 
-    return section;
+  return section;
 }

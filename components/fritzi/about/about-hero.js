@@ -18,17 +18,15 @@ export function AboutHero(props) {
   section.className = "about-hero";
 
   section.innerHTML = `
-    <img class="about-hero__portrait" src="${props.portrait.url}" alt="${props.portrait.alt}" />
-
-    <h1 class="about-hero__heading" aria-hidden="true">
-      <span>About</span><span>Me</span>
-    </h1>
-
-    <p class="about-hero__role">${props.role.replace(/\s+/g, "<br />")}</p>
-
-    <div class="about-hero__location">
-      <span class="about-hero__location-label">${props.locationLabel}</span>
-      <span class="about-hero__location-value">${props.location}</span>
+    <div class="about-hero__row">
+     
+    </div>
+    <div class="about-hero__role">
+      <p class="about-hero__role">${props.role.replace(/\s+/g, "<br />")}</p>
+      <div class="about-hero__location">
+        <span class="about-hero__location-label">${props.locationLabel}</span>
+        <span class="about-hero__location-value">${props.location}</span>
+      </div>
     </div>
 
     <div class="about-hero__bio">
@@ -40,7 +38,7 @@ export function AboutHero(props) {
 }
 
 function validateAboutHeroProps(props) {
-  const required = ["role", "locationLabel", "location", "portrait", "paragraphs"];
+  const required = ["role", "locationLabel", "location", "paragraphs"];
   const missing = required.filter((key) => !props[key]);
   if (missing.length > 0) {
     throw new Error(`[AboutHero] Props manquantes: ${missing.join(", ")}`);

@@ -8,13 +8,13 @@
  * @returns {HTMLElement}
  */
 export function ProjectOverview(props) {
-    validateOverviewProps(props);
+  validateOverviewProps(props);
 
-    const section = document.createElement("section");
-    section.className = "project-overview";
+  const section = document.createElement("section");
+  section.className = "project-overview";
 
-    section.innerHTML = `
-    <span class="project-overview__side-label">${props.sideLabel}</span>
+  section.innerHTML = `
+    <span class="project-overview__side-label"></span>
     <div class="project-overview__content">
       <span class="project-overview__eyebrow">${props.eyebrow}</span>
       <h2 class="project-overview__heading">${props.heading}</h2>
@@ -22,13 +22,13 @@ export function ProjectOverview(props) {
     </div>
   `;
 
-    return section;
+  return section;
 }
 
 function validateOverviewProps(props) {
-    const required = ["sideLabel", "eyebrow", "heading", "paragraphs"];
-    const missing = required.filter((key) => !props[key]);
-    if (missing.length > 0) {
-        throw new Error(`[ProjectOverview] Props manquantes: ${missing.join(", ")}`);
-    }
+  const required = ["sideLabel", "eyebrow", "heading", "paragraphs"];
+  const missing = required.filter((key) => !props[key]);
+  if (missing.length > 0) {
+    throw new Error(`[ProjectOverview] Props manquantes: ${missing.join(", ")}`);
+  }
 }
