@@ -24,3 +24,6 @@ motion_craft/public/uploads/*
 *.sqlite
 *.sqlite3
 *.log
+
+# Worktrees for isolated feature work
+.worktrees/
