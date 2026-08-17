@@ -27,3 +27,6 @@ motion_craft/public/uploads/*
 
 # Worktrees for isolated feature work
 .worktrees/
+
+# Subagent-driven-development scratch state (ledgers, briefs, reports)
+.superpowers/
