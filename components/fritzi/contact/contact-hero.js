@@ -5,19 +5,16 @@
  * @returns {HTMLElement}
  */
 export function ContactHero(props) {
-    if (!props?.portrait?.url) {
-        throw new Error("[ContactHero] props.portrait.url est requis");
-    }
+  if (!props?.portrait?.url) {
+    throw new Error("[ContactHero] props.portrait.url est requis");
+  }
 
-    const section = document.createElement("section");
-    section.className = "contact-hero";
+  const section = document.createElement("section");
+  section.className = "contact-hero";
 
-    section.innerHTML = `
-    <img class="contact-hero__portrait" src="${props.portrait.url}" alt="${props.portrait.alt}" />
-    <h1 class="contact-hero__heading" aria-hidden="true">
-      <span>Contact</span><span>Me</span>
-    </h1>
+  section.innerHTML = `
+
   `;
 
-    return section;
+  return section;
 }
