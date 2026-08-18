@@ -477,6 +477,35 @@ export interface ApiFritziAboutFritziAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFritziContactFritziContact extends Struct.SingleTypeSchema {
+  collectionName: 'fritzi_contact';
+  info: {
+    description: 'Contenu sp\u00E9cifique \u00E0 la page Contact';
+    displayName: 'Fritzi Contact';
+    pluralName: 'fritzi-contacts';
+    singularName: 'fritzi-contact';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroPortrait: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fritzi-contact.fritzi-contact'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFritziHomeFritziHome extends Struct.SingleTypeSchema {
   collectionName: 'fritzi_home';
   info: {
@@ -1074,6 +1103,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::fritzi-about.fritzi-about': ApiFritziAboutFritziAbout;
+      'api::fritzi-contact.fritzi-contact': ApiFritziContactFritziContact;
       'api::fritzi-home.fritzi-home': ApiFritziHomeFritziHome;
       'api::fritzi-profile.fritzi-profile': ApiFritziProfileFritziProfile;
       'plugin::content-releases.release': PluginContentReleasesRelease;
