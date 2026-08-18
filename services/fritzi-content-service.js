@@ -176,6 +176,8 @@ export async function fetchContactData() {
 }
 
 export async function fetchProjectDetail(slug) {
+  if (!slug) throw new Error("Slug de projet manquant");
+
   const [match, list] = await Promise.all([
     client.find("fritzi-projects", {
       filters: { slug: { $eq: slug } },
