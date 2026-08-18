@@ -591,6 +591,51 @@ export interface ApiFritziProfileFritziProfile extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFritziProjectFritziProject
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'fritzi_projects';
+  info: {
+    description: 'Projets affich\u00E9s sur Home, Work et la page d\u00E9tail';
+    displayName: 'Fritzi Project';
+    pluralName: 'fritzi-projects';
+    singularName: 'fritzi-project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    challenge: Schema.Attribute.Component<'fritzi.challenge', false>;
+    client: Schema.Attribute.String & Schema.Attribute.Required;
+    cover: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    discovery: Schema.Attribute.Component<'fritzi.text-image-block', false>;
+    eyebrow: Schema.Attribute.String & Schema.Attribute.Required;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    heroImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fritzi-project.fritzi-project'
+    > &
+      Schema.Attribute.Private;
+    meta: Schema.Attribute.Component<'fritzi.meta-item', true>;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    outcome: Schema.Attribute.Component<'fritzi.text-image-block', false>;
+    overview: Schema.Attribute.Component<'fritzi.overview', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1106,6 +1151,7 @@ declare module '@strapi/strapi' {
       'api::fritzi-contact.fritzi-contact': ApiFritziContactFritziContact;
       'api::fritzi-home.fritzi-home': ApiFritziHomeFritziHome;
       'api::fritzi-profile.fritzi-profile': ApiFritziProfileFritziProfile;
+      'api::fritzi-project.fritzi-project': ApiFritziProjectFritziProject;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
