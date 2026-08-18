@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "fritzi_about",
+  "info": {
+    "singularName": "fritzi-about",
+    "pluralName": "fritzi-abouts",
+    "displayName": "Fritzi About",
+    "description": "Contenu spécifique à la page About"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "heroRole": { "type": "string", "required": true },
+    "heroLocationLabel": { "type": "string", "required": true },
+    "heroLocation": { "type": "string", "required": true },
+    "heroPortrait": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true },
+    "heroParagraphs": { "type": "json", "required": true },
+    "offerings": { "type": "component", "repeatable": true, "component": "fritzi.offering" }
+  }
+}

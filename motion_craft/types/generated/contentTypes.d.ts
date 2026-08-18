@@ -443,6 +443,40 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFritziAboutFritziAbout extends Struct.SingleTypeSchema {
+  collectionName: 'fritzi_about';
+  info: {
+    description: 'Contenu sp\u00E9cifique \u00E0 la page About';
+    displayName: 'Fritzi About';
+    pluralName: 'fritzi-abouts';
+    singularName: 'fritzi-about';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroLocation: Schema.Attribute.String & Schema.Attribute.Required;
+    heroLocationLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    heroParagraphs: Schema.Attribute.JSON & Schema.Attribute.Required;
+    heroPortrait: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    heroRole: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fritzi-about.fritzi-about'
+    > &
+      Schema.Attribute.Private;
+    offerings: Schema.Attribute.Component<'fritzi.offering', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFritziHomeFritziHome extends Struct.SingleTypeSchema {
   collectionName: 'fritzi_home';
   info: {
@@ -1039,6 +1073,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::fritzi-about.fritzi-about': ApiFritziAboutFritziAbout;
       'api::fritzi-home.fritzi-home': ApiFritziHomeFritziHome;
       'api::fritzi-profile.fritzi-profile': ApiFritziProfileFritziProfile;
       'plugin::content-releases.release': PluginContentReleasesRelease;
