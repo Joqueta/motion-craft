@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "fritzi_home",
+  "info": {
+    "singularName": "fritzi-home",
+    "pluralName": "fritzi-homes",
+    "displayName": "Fritzi Home",
+    "description": "Contenu spécifique à la page d'accueil"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "aboutHeading": { "type": "string", "required": true },
+    "quoteLead": { "type": "string", "required": true },
+    "quoteHighlight1": { "type": "string", "required": true },
+    "quoteConnector": { "type": "string", "required": true },
+    "quoteHighlight2": { "type": "string", "required": true },
+    "quoteTail": { "type": "string", "required": true },
+    "aboutCaption": { "type": "text", "required": true },
+    "aboutPortrait": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true },
+    "skillsEyebrow": { "type": "string", "required": true },
+    "skillsLine1": { "type": "string", "required": true },
+    "skillsConnector": { "type": "string", "required": true },
+    "skillsLine2": { "type": "string", "required": true },
+    "skillsParagraphs": { "type": "json", "required": true },
+    "cvLabel": { "type": "string", "required": true },
+    "offeringsImage": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true },
+    "offerings": { "type": "component", "repeatable": true, "component": "fritzi.offering" }
+  }
+}

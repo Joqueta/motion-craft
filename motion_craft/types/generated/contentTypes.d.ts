@@ -443,6 +443,51 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFritziHomeFritziHome extends Struct.SingleTypeSchema {
+  collectionName: 'fritzi_home';
+  info: {
+    description: "Contenu sp\u00E9cifique \u00E0 la page d'accueil";
+    displayName: 'Fritzi Home';
+    pluralName: 'fritzi-homes';
+    singularName: 'fritzi-home';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    aboutCaption: Schema.Attribute.Text & Schema.Attribute.Required;
+    aboutHeading: Schema.Attribute.String & Schema.Attribute.Required;
+    aboutPortrait: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    cvLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fritzi-home.fritzi-home'
+    > &
+      Schema.Attribute.Private;
+    offerings: Schema.Attribute.Component<'fritzi.offering', true>;
+    offeringsImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    quoteConnector: Schema.Attribute.String & Schema.Attribute.Required;
+    quoteHighlight1: Schema.Attribute.String & Schema.Attribute.Required;
+    quoteHighlight2: Schema.Attribute.String & Schema.Attribute.Required;
+    quoteLead: Schema.Attribute.String & Schema.Attribute.Required;
+    quoteTail: Schema.Attribute.String & Schema.Attribute.Required;
+    skillsConnector: Schema.Attribute.String & Schema.Attribute.Required;
+    skillsEyebrow: Schema.Attribute.String & Schema.Attribute.Required;
+    skillsLine1: Schema.Attribute.String & Schema.Attribute.Required;
+    skillsLine2: Schema.Attribute.String & Schema.Attribute.Required;
+    skillsParagraphs: Schema.Attribute.JSON & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFritziProfileFritziProfile extends Struct.SingleTypeSchema {
   collectionName: 'fritzi_profile';
   info: {
@@ -994,6 +1039,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::fritzi-home.fritzi-home': ApiFritziHomeFritziHome;
       'api::fritzi-profile.fritzi-profile': ApiFritziProfileFritziProfile;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
