@@ -8,24 +8,7 @@ import { ProjectChallenge } from "../../components/fritzi/projet/challenge.js";
 import { NextProject } from "../../components/fritzi/projet/next-project.js";
 import { ContactFooter } from "../../components/fritzi/contact-footer.js";
 
-import { profileMock } from "../../mocks/fritzi/profile-mock.js";
-import { contactMock } from "../../mocks/fritzi/content-mock.js";
-import { projectDetailMock } from "../../mocks/fritzi/project-detail-mock.js";
-/**
- * Simule un futur fetch Strapi filtré par slug
- * (à remplacer par lib/cms.js -> fetchOne("fritzi-projects", slug))
- */
-function fakeFetchProjectDetail(slug) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (slug && slug !== projectDetailMock.slug) {
-                reject(new Error(`Projet "${slug}" introuvable`));
-                return;
-            }
-            resolve(projectDetailMock);
-        }, 200);
-    });
-}
+import { fetchProjectDetail, fetchProfile, fetchContactInfo } from "../../services/fritzi-content-service.js";
 
 /**
  * Rendu de la page détail projet.
@@ -38,10 +21,14 @@ export async function ProjectDetailPage(slug) {
     page.innerHTML = `<p class="loading">Chargement…</p>`;
 
     try {
-        const project = await fakeFetchProjectDetail(slug);
+        const [project, profile, contact] = await Promise.all([
+            fetchProjectDetail(slug),
+            fetchProfile(),
+            fetchContactInfo(),
+        ]);
         page.innerHTML = "";
 
-        page.appendChild(Nav({ logo: profileMock.logo, year: profileMock.year }));
+        page.appendChild(Nav({ logo: profile.logo, year: profile.year }));
         page.appendChild(
             ProjectSubbar({ eyebrow: project.eyebrow, closeHref: "../index.html" })
         );
@@ -68,8 +55,8 @@ export async function ProjectDetailPage(slug) {
                 order: "image-first"
             })
         );
-        page.appendChild(NextProject(project.nextProject));
-        page.appendChild(ContactFooter(contactMock));
+        if (project.nextProject) page.appendChild(NextProject(project.nextProject));
+        page.appendChild(ContactFooter(contact));
     } catch (error) {
         page.innerHTML = `<p class="error">Erreur de chargement : ${error.message}</p>`;
         console.error("[ProjectDetailPage]", error);
