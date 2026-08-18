@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_fritzi_meta_items",
+  "info": { "displayName": "Meta item", "icon": "list" },
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "value": { "type": "string", "required": true }
+  }
+}

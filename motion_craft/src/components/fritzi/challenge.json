@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_fritzi_challenges",
+  "info": { "displayName": "Challenge", "icon": "alert" },
+  "attributes": {
+    "eyebrow": { "type": "string", "required": true },
+    "heading": { "type": "text", "required": true },
+    "paragraphs": { "type": "json", "required": true },
+    "backgroundImage": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true }
+  }
+}

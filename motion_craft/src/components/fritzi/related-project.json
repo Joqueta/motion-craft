@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_fritzi_related_projects",
+  "info": { "displayName": "Related project", "icon": "link" },
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "slug": { "type": "string", "required": true }
+  }
+}
