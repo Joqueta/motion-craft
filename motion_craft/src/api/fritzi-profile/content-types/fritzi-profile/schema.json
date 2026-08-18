@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "fritzi_profile",
+  "info": {
+    "singularName": "fritzi-profile",
+    "pluralName": "fritzi-profiles",
+    "displayName": "Fritzi Profile",
+    "description": "Identité et coordonnées partagées entre les pages fritzi"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": { "type": "string", "required": true },
+    "lastName": { "type": "string", "required": true },
+    "role": { "type": "string", "required": true },
+    "bio": { "type": "text", "required": true },
+    "statusLabel": { "type": "string" },
+    "statusActive": { "type": "boolean", "default": true },
+    "location": { "type": "string" },
+    "year": { "type": "string" },
+    "email": { "type": "email", "required": true },
+    "linkedin": { "type": "string" },
+    "instagram": { "type": "string" },
+    "contactHeading": { "type": "json" }
+  }
+}
