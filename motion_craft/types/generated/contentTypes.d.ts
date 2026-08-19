@@ -477,6 +477,39 @@ export interface ApiFritziAboutFritziAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFritziAuditLogFritziAuditLog
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'fritzi_audit_logs';
+  info: {
+    description: "Journal des cr\u00E9ations/modifications/suppressions faites dans l'admin Strapi";
+    displayName: 'Fritzi Audit Log';
+    pluralName: 'fritzi-audit-logs';
+    singularName: 'fritzi-audit-log';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    action: Schema.Attribute.String & Schema.Attribute.Required;
+    at: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    author: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fritzi-audit-log.fritzi-audit-log'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    target: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFritziContactFritziContact extends Struct.SingleTypeSchema {
   collectionName: 'fritzi_contact';
   info: {
@@ -629,6 +662,10 @@ export interface ApiFritziProjectFritziProject
     overview: Schema.Attribute.Component<'fritzi.overview', false>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    state: Schema.Attribute.Enumeration<
+      ['draft', 'review', 'published', 'archived']
+    > &
+      Schema.Attribute.DefaultTo<'draft'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1148,6 +1185,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::fritzi-about.fritzi-about': ApiFritziAboutFritziAbout;
+      'api::fritzi-audit-log.fritzi-audit-log': ApiFritziAuditLogFritziAuditLog;
       'api::fritzi-contact.fritzi-contact': ApiFritziContactFritziContact;
       'api::fritzi-home.fritzi-home': ApiFritziHomeFritziHome;
       'api::fritzi-profile.fritzi-profile': ApiFritziProfileFritziProfile;

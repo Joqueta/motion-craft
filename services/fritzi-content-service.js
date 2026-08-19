@@ -1,5 +1,6 @@
 import client from "./cms-client.js";
 import { mediaUrl } from "./portfolio-service.js";
+import { isPublic } from "../data/workflow.js";
 import { profileMock } from "../mocks/fritzi/profile-mock.js";
 import { contactMock } from "../mocks/fritzi/content-mock.js";
 
@@ -126,7 +127,7 @@ export async function fetchHomeData() {
     fetchProfile(),
     client.findOne("fritzi-home", { populate: HOME_POPULATE }),
     client.find("fritzi-projects", {
-      filters: { featured: { $eq: true } },
+      filters: { featured: { $eq: true }, state: { $eq: "published" } },
       sort: "order:asc",
       populate: PROJECT_LIST_POPULATE,
       pagination: { pageSize: 100 },
@@ -163,6 +164,7 @@ export async function fetchAboutData() {
 
 export async function fetchWorkData() {
   const result = await client.find("fritzi-projects", {
+    filters: { state: { $eq: "published" } },
     sort: "order:asc",
     populate: PROJECT_LIST_POPULATE,
     pagination: { pageSize: 100 },
@@ -191,7 +193,7 @@ export async function fetchProjectDetail(slug) {
   ]);
 
   const project = match.items[0];
-  if (!project) throw new Error(`Projet "${slug}" introuvable`);
+  if (!project || !isPublic(project.state)) throw new Error(`Projet "${slug}" introuvable`);
 
   const ordered = list.items;
   const index = ordered.findIndex((item) => item.slug === slug);
