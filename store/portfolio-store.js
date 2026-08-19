@@ -16,6 +16,12 @@ const portfolioStore = createStore(
     audit: [],
     consent: null,
     theme: "light",
+    fritziContent: { projects: [] },
+    fritziMedia: [],
+    fritziStatus: "idle",
+    fritziProjectForm: null,
+    fritziPageForm: null,
+    fritziFormStatus: "idle",
   },
   { persist: config.storageKey, persistKeys: ["content", "audit", "consent"] },
 );
@@ -52,9 +58,9 @@ export function setContent(content, source = "local") {
   portfolioStore.update({ content, source, dirty: false });
 }
 
-export function editContent(path, value) {
-  portfolioStore.set(`content.${path}`, value);
-  portfolioStore.update({ dirty: true });
+export function editContent(path, value, root = "content") {
+  portfolioStore.set(`${root}.${path}`, value);
+  if (root === "content") portfolioStore.update({ dirty: true });
 }
 
 export default portfolioStore;

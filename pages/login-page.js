@@ -8,6 +8,14 @@ import portfolioStore, { notify } from "../store/portfolio-store.js";
 import { login, register } from "../services/auth-service.js";
 import { refreshContent } from "../services/bootstrap.js";
 
+const USER_ADMIN_ROUTES = {
+  fritzi: "/fritzi/admin",
+};
+
+function adminRouteForUser(username) {
+  return USER_ADMIN_ROUTES[(username ?? "").toLowerCase()] ?? "/admin";
+}
+
 const COPY = {
   login: {
     title: "Bon retour",
@@ -23,7 +31,7 @@ const COPY = {
   },
 };
 
-function onSubmit(mode) {
+function onSubmit(mode, query) {
   return (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -46,9 +54,9 @@ function onSubmit(mode) {
       portfolioStore.update({ auth: "pending" });
 
       register(fullname, email, password)
-        .then(() => {
+        .then((session) => {
           notify("Compte créé avec succès.", "success");
-          navigate("/admin");
+          navigate(query.next || adminRouteForUser(session.user.username));
           return refreshContent({ silent: true });
         })
         .catch((error) => notify(`Inscription impossible : ${error.message}`, "error"))
@@ -67,9 +75,9 @@ function onSubmit(mode) {
     portfolioStore.update({ auth: "pending" });
 
     login(identifier, password)
-      .then(() => {
+      .then((session) => {
         notify("Connexion réussie.", "success");
-        navigate("/admin");
+        navigate(query.next || adminRouteForUser(session.user.username));
         return refreshContent({ silent: true });
       })
       .catch((error) => notify(`Connexion refusée : ${error.message}`, "error"))
@@ -162,7 +170,7 @@ function Showcase() {
   };
 }
 
-export default function LoginPage({ path = "/connexion" } = {}) {
+export default function LoginPage({ path = "/connexion", query = {} } = {}) {
   const mode = path === "/inscription" ? "signup" : "login";
   const pending = portfolioStore.get("auth") === "pending";
   const notice = portfolioStore.get("notice");
@@ -217,7 +225,7 @@ export default function LoginPage({ path = "/connexion" } = {}) {
               {
                 type: "form",
                 attributes: [["id", "auth-form"], ["class", ["auth__form"]]],
-                events: [["submit", onSubmit(mode)]],
+                events: [["submit", onSubmit(mode, query)]],
                 children: [
                   Tabs(mode),
                   { type: "h1", attributes: [["class", ["auth__title"]]], children: [copy.title] },

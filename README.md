@@ -235,6 +235,7 @@ Dans *Settings → Users & Permissions → Roles* :
 
 - **Public** : `find` et `findOne` sur `profile`, `experiences`, `projects`, `skills`.
 - **Authenticated** : ajouter `create`, `update`, `delete` sur ces mêmes types, plus `upload` et `destroy` sur le plugin *Upload* pour la médiathèque.
+- **Authenticated** (fritzi) : `find`, `findOne`, `create`, `update`, `delete` sur `fritzi-project` ; `find`, `findOne`, `update` sur `fritzi-home`, `fritzi-about`, `fritzi-contact`, `fritzi-profile` ; `find` sur le plugin *Upload* (le rôle Public a `find`/`findOne` sur `fritzi-project` pour le site public, mais Strapi évalue les permissions selon le rôle de l'utilisateur connecté — être authentifié ne fait pas hériter des permissions de Public, donc `find`/`findOne` doivent être accordés explicitement au rôle Authenticated aussi, sans quoi `/fritzi/admin` échoue en 403 même en étant connecté).
 
 Le rôle `Reader` (lecteur) est reconnu par l'application : il donne accès au back-office en consultation, mais le bouton de publication reste désactivé.
 
