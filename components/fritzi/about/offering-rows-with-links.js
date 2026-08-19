@@ -27,7 +27,7 @@ export function OfferingRowWithLinks(props) {
           ${props.relatedWork
             .map(
                 (item) =>
-                    `<li><a href="./projet.html?slug=${item.slug}">${item.label}</a></li>`
+                    `<li><a href="./projet?slug=${item.slug}">${item.label}</a></li>`
             )
             .join("")}
         </ul>

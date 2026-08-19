@@ -18,7 +18,7 @@ export function NextProject(props) {
   section.innerHTML = `
     <span class="next-project__label">${props.label}</span>
     <h2 class="next-project__title">${props.title}</h2>
-    <a class="work-card__frame" href="./projet.html?slug=${props.slug}">
+    <a class="work-card__frame" href="./projet?slug=${props.slug}">
       <img class="work-card__image" src="${props.cover.url}" alt="${props.cover.alt}" />
     </a>
     <div class="work-card__meta">
