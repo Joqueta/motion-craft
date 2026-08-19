@@ -9,7 +9,7 @@ import { fetchContactData } from "../../services/fritzi-content-service.js";
  */
 export async function ContactPage() {
     const page = document.createElement("div");
-    page.className = "page page--contact";
+    page.className = "page page--fritzi page--contact";
     page.innerHTML = `<p class="loading">Chargement…</p>`;
 
     try {

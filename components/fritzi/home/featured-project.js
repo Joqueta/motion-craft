@@ -1,4 +1,5 @@
 import { FeaturedProjectCard } from "./featured-project-card.js";
+import { isRouterActive } from "../../router/browser-router.js";
 
 /**
  * Section "Featured Projects" : titre en 3 colonnes (Featured / cadre / Projects)
@@ -43,6 +44,9 @@ export function FeaturedProjects(props) {
   grid.append(leftCol, centerCol, rightCol);
   section.appendChild(grid);
 
+  const fromRouter = isRouterActive();
+  const viewAllHref = fromRouter ? "/fritzi/work" : "./work.html";
+
   const footer = document.createElement("div");
   footer.className = "featured__footer";
   footer.innerHTML = `
@@ -51,7 +55,7 @@ export function FeaturedProjects(props) {
       dignissim eget mollis. Nunc sodales elementum sem gravida. Leo senectus sed
       adipiscing.
     </p>
-    <a class="btn btn--outline" href="./work.html">View all</a>
+    <a class="btn btn--outline" href="${viewAllHref}"${fromRouter ? " data-route" : ""}>View all</a>
   `;
   section.appendChild(footer);
 

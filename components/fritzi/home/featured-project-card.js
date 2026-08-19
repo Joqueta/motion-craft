@@ -1,3 +1,5 @@
+import { isRouterActive } from "../../router/browser-router.js";
+
 /**
  * Carte de projet mis en avant.
  * @param {Object} props
@@ -9,12 +11,14 @@
  */
 export function FeaturedProjectCard(props) {
   validateProjectCardProps(props);
+  const fromRouter = isRouterActive();
+  const href = fromRouter ? `/fritzi/projets/${props.slug}` : `./projet.html?slug=${props.slug}`;
 
   const article = document.createElement("article");
   article.className = "project-card";
 
   article.innerHTML = `
-    <a href="/projets/${props.slug}" data-route class="project-card__frame">
+    <a href="${href}"${fromRouter ? " data-route" : ""} class="project-card__frame">
       <img class="project-card__image" src="${props.cover.url}" alt="${props.cover.alt}" />
     </a>
     <div class="project-card__meta">

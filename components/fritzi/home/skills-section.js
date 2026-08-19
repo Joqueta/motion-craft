@@ -29,7 +29,7 @@ export function SkillsSection(props) {
       </div>
 
       ${content.paragraphs.map((p) => `<p class="skills__paragraph">${p}</p>`).join("")}
-      <a class="btn btn--outline" href="#" data-route>${content.cvLabel}</a>
+      <a class="btn btn--outline" href="#">${content.cvLabel}</a>
     </div>
 
     <img class="skills__image" src="${content.offeringsImage.url}" alt="${content.offeringsImage.alt}" />

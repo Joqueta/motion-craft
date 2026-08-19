@@ -27,12 +27,28 @@ export function navigate(url, { replace = false } = {}) {
   window.dispatchEvent(new Event("pushstate"));
 }
 
+let routerMounted = false;
+
+export function isRouterActive() {
+  return routerMounted;
+}
+
 export default function BrowserRouter(rootElement, routes, options = {}) {
+  routerMounted = true;
   const { store = null, base = "", redirects = {} } = options;
   const render = createRoot(rootElement);
   let previousPath = null;
+  let renderToken = 0;
 
   if (base) setBasePath(base);
+
+  rootElement.addEventListener("click", (event) => {
+    const anchor = event.target.closest("a[data-route]");
+    if (!anchor) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    event.preventDefault();
+    navigate(anchor.getAttribute("href"));
+  });
 
   function refresh() {
     const location = currentLocation();
@@ -43,15 +59,23 @@ export default function BrowserRouter(rootElement, routes, options = {}) {
     }
 
     const match = matchRoute(routes, location.path);
+    const result = match.page({
+      path: location.path,
+      params: match.params,
+      query: location.query,
+      pattern: match.pattern,
+    });
 
-    render(
-      match.page({
-        path: location.path,
-        params: match.params,
-        query: location.query,
-        pattern: match.pattern,
-      }),
-    );
+    const token = ++renderToken;
+    if (result instanceof Promise) {
+      result.then((node) => {
+        if (token !== renderToken) return;
+        render(null);
+        rootElement.replaceChildren(node);
+      });
+    } else {
+      render(result);
+    }
 
     if (previousPath !== null && previousPath !== location.path) window.scrollTo({ top: 0 });
     previousPath = location.path;

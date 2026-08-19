@@ -12,12 +12,17 @@ import { fetchProjectDetail, fetchProfile, fetchContactInfo } from "../../servic
 
 /**
  * Rendu de la page détail projet.
- * @param {string} [slug] - slug du projet à afficher (vient du routeur)
+ * @param {string|{params: {slug: string}}} props - slug direct (appel historique,
+ *   ex. fritzi/projet.html) ou props standard du routeur ({params, path, query, pattern}).
  * @returns {Promise<HTMLElement>}
  */
-export async function ProjectDetailPage(slug) {
+export async function ProjectDetailPage(props) {
+    const fromRouter = typeof props !== "string";
+    const slug = fromRouter ? props?.params?.slug : props;
+    const closeHref = fromRouter ? "/fritzi" : "../index.html";
+
     const page = document.createElement("div");
-    page.className = "page page--project-detail";
+    page.className = "page page--fritzi page--project-detail";
     page.innerHTML = `<p class="loading">Chargement…</p>`;
 
     try {
@@ -30,7 +35,7 @@ export async function ProjectDetailPage(slug) {
 
         page.appendChild(Nav({ logo: profile.logo, year: profile.year }));
         page.appendChild(
-            ProjectSubbar({ eyebrow: project.eyebrow, closeHref: "../index.html" })
+            ProjectSubbar({ eyebrow: project.eyebrow, closeHref })
         );
         page.appendChild(ProjectHeader({ title: project.title, meta: project.meta }));
         page.appendChild(

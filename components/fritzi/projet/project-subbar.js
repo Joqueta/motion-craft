@@ -16,7 +16,7 @@ export function ProjectSubbar(props) {
 
     bar.innerHTML = `
     <span class="project-subbar__eyebrow">${props.eyebrow}</span>
-    <a class="btn btn--outline btn--small" href="${props.closeHref || "../index.html"}">
+    <a class="btn btn--outline btn--small" href="${props.closeHref || "../index.html"}" data-route>
       ${props.closeLabel || "Close this project"}
     </a>
   `;

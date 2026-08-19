@@ -11,7 +11,7 @@ import { fetchWorkData, fetchProfile, fetchContactInfo } from "../../services/fr
  */
 export async function WorkPage() {
     const page = document.createElement("div");
-    page.className = "page page--work";
+    page.className = "page page--fritzi page--work";
     page.innerHTML = `<p class="loading">Chargement…</p>`;
 
     try {
