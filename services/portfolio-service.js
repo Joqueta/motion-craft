@@ -9,7 +9,7 @@ function isRemote(id) {
   return typeof id === "number" || /^\d+$/.test(String(id ?? ""));
 }
 
-function mediaUrl(media) {
+export function mediaUrl(media) {
   if (!media) return "";
   if (typeof media === "string") return media;
   const url = media.url ?? media.data?.attributes?.url ?? "";

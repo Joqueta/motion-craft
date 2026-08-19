@@ -4,28 +4,7 @@ import { FeaturedProjects } from "../../components/fritzi/home/featured-project.
 import { AboutMe } from "../../components/fritzi/home/about-me.js";
 import { SkillsSection } from "../../components/fritzi/home/skills-section.js";
 
-import { profileMock } from "../../mocks/fritzi/profile-mock.js";
-import { featuredProjectsMock } from "../../mocks/fritzi/projects-mock.js";
-import {
-    aboutMock,
-    aboutMeMock,
-    offeringsMock
-} from "../../mocks/fritzi/content-mock.js";
-
-/** Simule un futur fetch Strapi (à remplacer par lib/cms.js) */
-function fakeFetchHomeData() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve({
-                profile: profileMock,
-                projects: featuredProjectsMock,
-                about: aboutMock,
-                aboutMe: aboutMeMock,
-                offerings: offeringsMock
-            });
-        }, 200);
-    });
-}
+import { fetchHomeData } from "../../services/fritzi-content-service.js";
 
 /**
  * Rendu de la page Home.
@@ -37,7 +16,7 @@ export async function HomePage() {
     shell.innerHTML = `<p class="loading">Chargement…</p>`;
 
     try {
-        const data = await fakeFetchHomeData();
+        const data = await fetchHomeData();
 
         const content = document.createDocumentFragment();
 

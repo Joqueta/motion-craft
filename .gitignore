@@ -24,3 +24,9 @@ motion_craft/public/uploads/*
 *.sqlite
 *.sqlite3
 *.log
+
+# Worktrees for isolated feature work
+.worktrees/
+
+# Subagent-driven-development scratch state (ledgers, briefs, reports)
+.superpowers/
