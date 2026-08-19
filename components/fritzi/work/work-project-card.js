@@ -1,3 +1,5 @@
+import { isRouterActive } from "../../router/browser-router.js";
+
 /**
  * Carte de projet utilisée dans le carrousel Work.
  * @param {Object} props
@@ -9,12 +11,14 @@
  */
 export function WorkProjectCard(props) {
     validateCardProps(props);
+    const fromRouter = isRouterActive();
+    const href = fromRouter ? `/fritzi/projets/${props.slug}` : `./projet.html?slug=${props.slug}`;
 
     const article = document.createElement("article");
     article.className = "work-card";
 
     article.innerHTML = `
-    <a class="work-card__frame" href="./projet.html?slug=${props.slug}">
+    <a class="work-card__frame" href="${href}"${fromRouter ? " data-route" : ""}>
       <img class="work-card__image" src="${props.cover.url}" alt="${props.cover.alt}" />
     </a>
     <div class="work-card__meta">

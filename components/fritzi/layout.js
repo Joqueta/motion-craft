@@ -16,7 +16,7 @@ export function Layout(content) {
     wrapper.appendChild(ContactFooter(contactMock));
 
     const root = document.createElement("div");
-    root.className = "page";
+    root.className = "page page--fritzi";
     root.appendChild(wrapper);
 
     return root;

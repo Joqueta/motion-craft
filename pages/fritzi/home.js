@@ -12,7 +12,7 @@ import { fetchHomeData } from "../../services/fritzi-content-service.js";
  */
 export async function HomePage() {
     const shell = document.createElement("div");
-    shell.className = "page page--home";
+    shell.className = "page page--fritzi page--home";
     shell.innerHTML = `<p class="loading">Chargement…</p>`;
 
     try {

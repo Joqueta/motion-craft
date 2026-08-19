@@ -1,3 +1,5 @@
+import { isRouterActive } from "../../router/browser-router.js";
+
 /**
  * Ligne "offering" avec liste de projets liés (utilisée sur About, contrairement
  * à la version simple de la Home).
@@ -10,6 +12,7 @@
  */
 export function OfferingRowWithLinks(props) {
     validateProps(props);
+    const fromRouter = isRouterActive();
 
     const row = document.createElement("div");
     row.className = "offering-row";
@@ -25,10 +28,10 @@ export function OfferingRowWithLinks(props) {
         <p class="offering-row__tools">${props.tools}</p>
         <ul class="offering-row__links">
           ${props.relatedWork
-            .map(
-                (item) =>
-                    `<li><a href="./projet.html?slug=${item.slug}">${item.label}</a></li>`
-            )
+            .map((item) => {
+                const href = fromRouter ? `/fritzi/projets/${item.slug}` : `./projet.html?slug=${item.slug}`;
+                return `<li><a href="${href}"${fromRouter ? " data-route" : ""}>${item.label}</a></li>`;
+            })
             .join("")}
         </ul>
       </div>
