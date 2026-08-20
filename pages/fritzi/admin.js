@@ -1,5 +1,6 @@
 import Link from "../../components/router/link.js";
 import Notice from "../../components/ui/notice.js";
+import { navigate } from "../../components/router/browser-router.js";
 import { AdminNav } from "../../components/fritzi/admin/admin-nav.js";
 import { ProfileCard } from "../../components/fritzi/admin/profile-card.js";
 import { ProjectCard } from "../../components/fritzi/admin/project-card.js";
@@ -30,32 +31,11 @@ export default function FritziAdminPage(props) {
   const path = props?.path ?? "/fritzi/admin";
 
   if (!session) {
-    return {
-      type: "div",
-      attributes: [["class", ["app", "fritzi-admin"]]],
-      children: [
-        AdminNav(path),
-        {
-          type: "main",
-          attributes: [["class", ["container", "admin-locked"]]],
-          children: [
-            {
-              type: "div",
-              attributes: [["class", ["admin-locked__intro"]]],
-              children: [
-                { type: "h1", children: ["Login required"] },
-                { type: "p", children: ["Sign in with a Strapi account to manage fritzi projects."] },
-                Link({
-                  to: `/connexion?next=${encodeURIComponent(path)}`,
-                  label: "Sign in",
-                  className: "button button--primary",
-                }),
-              ],
-            },
-          ],
-        },
-      ],
-    };
+    // Deferred: navigating synchronously during render re-enters the router
+    // (pushstate -> refresh) before this render call returns, and the outer
+    // refresh's render(result) call would then overwrite the login page.
+    setTimeout(() => navigate(`/connexion?next=${encodeURIComponent(path)}`, { replace: true }), 0);
+    return null;
   }
 
   if (!loadedOnce && portfolioStore.get("fritziStatus") !== "loading") startLoad();
