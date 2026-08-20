@@ -3,6 +3,7 @@ import client from "../services/cms-client.js";
 import {
   loadFritziProjects,
   loadMediaLibrary,
+  uploadFritziMedia,
   saveFritziProjects,
   loadFritziProjectDetail,
   createEmptyProjectDetailItem,
@@ -107,6 +108,27 @@ describe("fritzi-admin-service — loadMediaLibrary", () => {
       expect(result).toEqual([{ id: 4, name: "cover.png", url: "http://localhost:1337/uploads/cover.png" }]);
     } finally {
       client.find = originalFind;
+    }
+  });
+});
+
+describe("fritzi-admin-service — uploadFritziMedia", () => {
+  it("envoie le fichier avec son texte alternatif et mappe le résultat en {id, name, url}", async () => {
+    const originalUpload = client.upload;
+    let receivedArgs = null;
+    client.upload = async (file, options) => {
+      receivedArgs = { file, options };
+      return { id: 12, name: "photo.png", url: "/uploads/photo.png" };
+    };
+
+    const file = { name: "photo.png" };
+    try {
+      const result = await uploadFritziMedia(file, "Une description");
+      expect(receivedArgs.file).toBe(file);
+      expect(receivedArgs.options).toEqual({ alt: "Une description" });
+      expect(result).toEqual({ id: 12, name: "photo.png", url: "http://localhost:1337/uploads/photo.png" });
+    } finally {
+      client.upload = originalUpload;
     }
   });
 });

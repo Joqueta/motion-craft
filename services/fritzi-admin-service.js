@@ -27,6 +27,11 @@ export async function loadMediaLibrary() {
   return result.items.map((file) => ({ id: file.id, name: file.name ?? "", url: mediaUrl(file) }));
 }
 
+export async function uploadFritziMedia(file, alt) {
+  const media = await client.upload(file, { alt });
+  return { id: media.id, name: media.name ?? "", url: mediaUrl(media) };
+}
+
 function fromFritziProjectItem(item) {
   const data = {
     slug: item.slug,
