@@ -415,6 +415,7 @@
 .fritzi-admin .project-card {
   display: flex;
   flex-direction: column;
+  width: 100%;
   overflow: hidden;
   border: 1px solid var(--fritzi-admin-border-strong);
   border-radius: 8px;

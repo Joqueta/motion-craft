@@ -233,7 +233,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: #b32222;
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .project-challenge__bg {
