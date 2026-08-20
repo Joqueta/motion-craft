@@ -1,0 +1,15 @@
+{
+  "kind": "singleType",
+  "collectionName": "fritzi_contact",
+  "info": {
+    "singularName": "fritzi-contact",
+    "pluralName": "fritzi-contacts",
+    "displayName": "Fritzi Contact",
+    "description": "Contenu spécifique à la page Contact"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "heroPortrait": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true }
+  }
+}

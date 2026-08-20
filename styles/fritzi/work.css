@@ -1,0 +1,181 @@
+@import url("./home.css");
+
+/* ===== Work header ===== */
+.work-header {
+    background: var(--color-olive);
+    padding: 3rem var(--gutter) 4rem;
+    text-align: center;
+}
+
+.work-header__title {
+    color: #FFF;
+    font-family: "Hanken Grotesk";
+    font-size: 10.3125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.work-header__badge {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.work__col--left {
+    justify-self: end;
+}
+
+.work__col--right {
+    justify-self: start;
+}
+
+.work-header__badge-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    margin-top: 2rem;
+}
+
+.work-header__badge-wrap::before {
+    content: "";
+    position: absolute;
+}
+
+.work-header__badge-wrap::after {
+    content: "";
+    position: absolute;
+}
+
+.work-header__badge-wrap::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    background: url(../../assets/fritzi/home/angle-top.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.work-header__badge-wrap::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    background: url(../../assets/fritzi/home/angle-top.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    rotate: 180deg;
+}
+
+/* ===== Carousel ===== */
+.carousel {
+    position: relative;
+    background: var(--color-olive);
+    padding: 0 0 5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel__track {
+    display: flex;
+    gap: 2rem;
+    padding: 0 var(--gutter);
+    overflow-x: visible;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.carousel__item {
+    position: relative;
+    flex: 0 0 calc((100% - 2 * 2rem) / 2.5);
+    scroll-snap-align: start;
+}
+
+.carousel__item:first-child::before {
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.carousel__item:last-child::before {
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.work-card__frame {
+    display: block;
+}
+
+.work-card__image {
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.work-card__meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    margin-top: 0.7rem;
+}
+
+.work-card__client {
+    font-weight: 700;
+}
+
+.work-card__label {
+    color: var(--color-cream-dim);
+}
+
+.carousel__arrow {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--color-cream-dim);
+    background: transparent;
+    color: var(--color-cream);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.carousel__arrow:hover {
+    background: var(--color-cream);
+    color: var(--color-olive);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+    @media (max-width: 640px) {
+        .carousel {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .carousel__item {
+            flex: 0 0 85vw;
+        }
+    }
+}

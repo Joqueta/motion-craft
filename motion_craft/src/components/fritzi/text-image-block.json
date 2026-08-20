@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_fritzi_text_image_blocks",
+  "info": { "displayName": "Text image block", "icon": "picture" },
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "heading": { "type": "string" },
+    "paragraphs": { "type": "json", "required": true },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true }
+  }
+}

@@ -1,0 +1,115 @@
+@import url("./home.css");
+
+/* ===== Contact Hero ===== */
+.contact-hero {
+    position: relative;
+    min-height: 260vh;
+    overflow: hidden;
+    background: url("../../assets/fritzi/contact/bg-contact.svg") top center / cover no-repeat;
+    padding: 2rem var(--gutter) 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.contact-form__field {
+    display: flex;
+    padding: 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3.125rem;
+    align-self: stretch;
+}
+
+.contact-hero__heading {
+    position: absolute;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(3rem, 11vw, 7rem);
+    font-weight: 800;
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    color: rgba(240, 240, 240, 0.18);
+    pointer-events: none;
+}
+
+.contact-hero__heading span:last-child {
+    align-self: flex-end;
+    margin-right: 2vw;
+}
+
+/* ===== Contact form ===== */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 50%;
+    position: relative;
+    z-index: 1;
+    margin-left: auto;
+    gap: 1.6rem;
+}
+
+.contact-form__field label {
+    display: block;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    color: #FFF;
+    font-family: "Hanken Grotesk";
+    font-size: clamp(1.8rem, 4vw, 4rem);
+    /* remplace 4rem fixe */
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90%;
+    text-transform: uppercase;
+}
+
+.contact-form__field input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(237, 233, 221, 0.5);
+    color: rgba(255, 255, 255, 0.47);
+    font-family: Inter;
+    font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 90%;
+    /* 0.73125rem */
+}
+
+
+
+.contact-form__error {
+    display: block;
+    min-height: 1.1em;
+    font-size: 0.65rem;
+    color: var(--color-accent);
+    margin-top: 0.3rem;
+}
+
+.contact-form__submit-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.contact-form__status {
+    font-size: 0.7rem;
+    color: var(--color-cream-dim);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 720px) {
+    .contact-hero__heading {
+        position: static;
+        margin-bottom: 3rem;
+    }
+
+    .contact-form {
+        margin-left: 0;
+    }
+}

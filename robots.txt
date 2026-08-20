@@ -2,7 +2,9 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /connexion
-Disallow: /demo/
+Disallow: /inscription
+Disallow: /fritzi/admin
+Disallow: /fritzi/eye-focus.html
 Disallow: /tests/
 
 Sitemap: https://exemple.fr/sitemap.xml

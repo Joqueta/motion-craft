@@ -31,8 +31,17 @@ export function restoreSession() {
   return session;
 }
 
+client.onRefresh((jwt) => {
+  const session = portfolioStore.get("session");
+  if (!session) return;
+  const updated = { ...session, token: jwt };
+  persist(updated);
+  portfolioStore.update({ session: updated });
+});
+
 async function establishSession(payload, auditAction) {
   client.setToken(payload.jwt);
+  client.setRefreshToken(payload.refreshToken ?? null);
 
   let role = "editor";
   try {
@@ -56,6 +65,8 @@ async function establishSession(payload, auditAction) {
 }
 
 export async function login(identifier, password) {
+  client.setToken(null);
+  client.setRefreshToken(null);
   const payload = await client.fetchCMS("api/auth/local", {
     method: "POST",
     body: { identifier, password },
@@ -65,6 +76,8 @@ export async function login(identifier, password) {
 }
 
 export async function register(username, email, password) {
+  client.setToken(null);
+  client.setRefreshToken(null);
   const payload = await client.fetchCMS("api/auth/local/register", {
     method: "POST",
     body: { username, email, password },
@@ -90,6 +103,7 @@ export function loginLocally() {
 export function logout() {
   recordAudit("Déconnexion du back-office");
   client.setToken(null);
+  client.setRefreshToken(null);
   persist(null);
   portfolioStore.update({ session: null });
 }

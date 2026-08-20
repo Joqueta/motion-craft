@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fritzi_audit_logs",
+  "info": {
+    "singularName": "fritzi-audit-log",
+    "pluralName": "fritzi-audit-logs",
+    "displayName": "Fritzi Audit Log",
+    "description": "Journal des créations/modifications/suppressions faites dans l'admin Strapi"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "at": { "type": "datetime", "required": true },
+    "action": { "type": "string", "required": true },
+    "target": { "type": "string", "required": true },
+    "author": { "type": "string", "required": true }
+  }
+}

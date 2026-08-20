@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_fritzi_offerings",
+  "info": { "displayName": "Offering", "icon": "briefcase" },
+  "attributes": {
+    "number": { "type": "string", "required": true },
+    "title": { "type": "string", "required": true },
+    "tag": { "type": "string" },
+    "tools": { "type": "string", "required": true },
+    "work": { "type": "json" },
+    "relatedWork": {
+      "type": "component",
+      "repeatable": true,
+      "component": "fritzi.related-project"
+    }
+  }
+}

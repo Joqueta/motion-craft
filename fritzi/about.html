@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fritzi — About</title>
+    <link rel="stylesheet" href="../styles/fritzi/about.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="module">
+        import { AboutPage } from "../pages/fritzi/about.js";
+        const app = document.getElementById("app");
+        AboutPage().then((pageEl) => app.appendChild(pageEl));
+    </script>
+</body>
+
+</html>

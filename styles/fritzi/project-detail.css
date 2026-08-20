@@ -1,0 +1,359 @@
+@import url("./home.css");
+
+/* ===== Subbar ===== */
+.project-subbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem var(--gutter) 2rem;
+    background: var(--color-olive);
+}
+
+.project-subbar__eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-cream-dim);
+}
+
+.btn--small {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.65rem;
+}
+
+/* ===== Project header ===== */
+.project-header {
+    background: var(--color-olive);
+    padding: 2rem var(--gutter) 4rem;
+    text-align: center;
+}
+
+.project-header__title {
+    color: #FFF;
+    font-family: "Hanken Grotesk";
+    font-size: 10.3125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.project-header__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.project-header__meta dl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-header__meta-item {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3125rem;
+    flex-shrink: 0;
+}
+
+.project-header__meta-item dt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 80%;
+    text-transform: uppercase;
+}
+
+.project-header__meta-item dd {
+    margin: 0;
+    /* ← annule les 40px du navigateur */
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 80%;
+    text-transform: uppercase;
+}
+
+/* ===== Framed image (générique) ===== */
+.framed-image {
+    background: var(--color-olive);
+    padding: 0 var(--gutter) 5rem;
+}
+
+.framed-image img {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+}
+
+.project-hero-image img {
+    max-height: 80vh;
+    object-fit: cover;
+}
+
+/* ===== Overview ===== */
+.project-overview {
+    background: var(--color-olive);
+    padding: 3rem var(--gutter) 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.project-overview__side-label {
+    font-size: 0.75rem;
+    color: var(--color-cream-dim);
+    text-decoration: underline;
+}
+
+.project-overview__eyebrow {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 99%;
+    /* 1.2375rem */
+    text-transform: uppercase;
+}
+
+.project-overview__heading {
+    color: #FFF;
+    font-family: "Hanken Grotesk";
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%;
+    /* 2.75rem */
+    text-transform: uppercase;
+}
+
+.project-overview__paragraph {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 110%;
+    /* 0.9625rem */
+}
+
+/* ===== Text + image block ===== */
+.text-image-block {
+    background: var(--color-olive);
+    padding: 2rem var(--gutter) 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.text-image-block__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.text-image-block--image-first {
+    grid-template-columns: 1fr 1fr;
+}
+
+.text-image-block--image-first .text-image-block__image {
+    order: -1;
+}
+
+.text-image-block__eyebrow {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.text-image-block__heading {
+    color: #fff;
+    text-align: left;
+    /* était center */
+    font-family: "Hanken Grotesk";
+    /* était Inter */
+    font-size: 2rem;
+    /* était 1.25rem */
+    font-style: normal;
+    font-weight: 700;
+    /* était 400 */
+    line-height: 1.2;
+    /* était normal */
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+}
+
+.text-image-block__paragraph {
+    color: #FFF;
+    text-align: left;
+    /* ajouté pour cohérence */
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5;
+    /* était normal, un peu serré pour un paragraphe */
+}
+
+.text-image-block__image img {
+    width: 100%;
+    border-radius: 2px;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+}
+
+/* ===== Challenge (dark full-bleed) ===== */
+.project-challenge {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #b32222;
+}
+
+.project-challenge__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.project-challenge__overlay {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.project-challenge__eyebrow {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.project-challenge__heading {
+    color: #FFF;
+    font-family: "Hanken Grotesk";
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.project-challenge__paragraph {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+/* ===== Next project ===== */
+.next-project {
+    background: var(--color-olive);
+    padding: 5rem var(--gutter);
+    text-align: center;
+}
+
+.next-project__label {
+    color: #D3C7AD;
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.next-project__title {
+    color: #FFF;
+    font-family: "Hanken Grotesk";
+    font-size: 8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.work-card__frame {
+    display: block;
+}
+
+.work-card__image {
+    width: 40%;
+    margin: 0 auto;
+    aspect-ratio: 4 / 4;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.work-card__meta {
+    display: flex;
+    width: 40%;
+    margin: 0.7rem auto 0;
+    /* ← remplace margin-top: 0.7rem par ceci */
+    justify-content: space-between;
+    font-size: 0.75rem;
+}
+
+.work-card__client {
+    font-weight: 700;
+}
+
+.work-card__label {
+    color: var(--color-cream-dim);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 720px) {
+    .project-header__meta {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .text-image-block {
+        grid-template-columns: 1fr;
+    }
+
+    .text-image-block--image-first .text-image-block__image {
+        order: 0;
+    }
+}

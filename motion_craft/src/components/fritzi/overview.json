@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_fritzi_overviews",
+  "info": { "displayName": "Overview", "icon": "file" },
+  "attributes": {
+    "sideLabel": { "type": "string" },
+    "eyebrow": { "type": "string", "required": true },
+    "heading": { "type": "text", "required": true },
+    "paragraphs": { "type": "json", "required": true }
+  }
+}
