@@ -17,6 +17,7 @@ const portfolioStore = createStore(
     consent: null,
     theme: "light",
     fritziContent: { projects: [] },
+    fritziProfileCard: null,
     fritziMedia: [],
     fritziStatus: "idle",
     fritziProjectForm: null,

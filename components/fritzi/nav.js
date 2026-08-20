@@ -1,4 +1,5 @@
 import { isRouterActive } from "../router/browser-router.js";
+import { escapeHtml } from "../../lib/text.js";
 
 /**
  * Navigation principale.
@@ -28,12 +29,12 @@ export function Nav(props) {
 
   header.innerHTML = `
     <a class="nav__logo" href="${fromRouter ? "/fritzi" : "./#"}"${fromRouter ? " data-route" : ""} aria-label="Retour à l'accueil">
-      <img src="${props.logo.url}" alt="${props.logo.alt}" />
+      <img src="${escapeHtml(props.logo.url)}" alt="${escapeHtml(props.logo.alt)}" />
     </a>
     <nav class="nav__links" aria-label="Navigation principale">
-      ${links.map((link) => `<a href="${link.href}"${fromRouter ? " data-route" : ""} class="nav__link">${link.label}</a>`).join("")}
+      ${links.map((link) => `<a href="${escapeHtml(link.href)}"${fromRouter ? " data-route" : ""} class="nav__link">${escapeHtml(link.label)}</a>`).join("")}
     </nav>
-    ${props.year ? `<span class="nav__year">${props.year}</span>` : ""}
+    ${props.year ? `<span class="nav__year">${escapeHtml(props.year)}</span>` : ""}
   `;
 
   return header;

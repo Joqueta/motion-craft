@@ -1,3 +1,5 @@
+import { escapeHtml } from "../../../lib/text.js";
+
 /**
  * Validation simple d'email via une extension du prototype String
  * (répond à la contrainte "utilisation des prototypes d'objet natif").
@@ -69,7 +71,7 @@ export function ContactForm(props = {}) {
 
     <div class="contact-form__submit-row">
       <span class="contact-form__status" role="status" aria-live="polite"></span>
-      <button type="submit" class="btn btn--outline">[${sendLabel}]</button>
+      <button type="submit" class="btn btn--outline">[${escapeHtml(sendLabel)}]</button>
     </div>
   `;
 

@@ -1,3 +1,5 @@
+import { escapeHtml } from "../../lib/text.js";
+
 /**
  * Bloc de contact final ("Come say hi") avec cadre et liens.
  * @param {Object} props
@@ -18,22 +20,22 @@ export function ContactFooter(props) {
   section.innerHTML = `
     <div class="contact__panel">
       <h2 class="contact__heading">
-        ${props.heading.map((word) => `<span>${word}</span>`).join("")}
+        ${props.heading.map((word) => `<span>${escapeHtml(word)}</span>`).join("")}
       </h2>
 
       <div class="contact__center">
         <span class="contact__frame" aria-hidden="true"></span>
-        <img class="contact__logo" src="${props.logo.url}" alt="${props.logo.alt}" />
+        <img class="contact__logo" src="${escapeHtml(props.logo.url)}" alt="${escapeHtml(props.logo.alt)}" />
       </div>
 
       <nav class="contact__nav" aria-label="Navigation footer">
-        ${props.nav.map((link) => `<a href="#" class="contact__nav-link">${link}</a>`).join("")}
+        ${props.nav.map((link) => `<a href="#" class="contact__nav-link">${escapeHtml(link)}</a>`).join("")}
       </nav>
 
       <div class="contact__links">
-        <a class="contact__link" href="${props.linkedin}" target="_blank" rel="noopener">Linkedin →</a>
-        <a class="contact__link_email" href="mailto:${props.email}">${props.email}</a>
-        <a class="contact__link" href="${props.instagram}" target="_blank" rel="noopener">Instagram →</a>
+        <a class="contact__link" href="${escapeHtml(props.linkedin)}" target="_blank" rel="noopener">Linkedin →</a>
+        <a class="contact__link_email" href="mailto:${escapeHtml(props.email)}">${escapeHtml(props.email)}</a>
+        <a class="contact__link" href="${escapeHtml(props.instagram)}" target="_blank" rel="noopener">Instagram →</a>
       </div>
     </div>
   `;

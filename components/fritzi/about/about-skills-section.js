@@ -1,4 +1,5 @@
 import { OfferingRowWithLinks } from "./offering-rows-with-links.js";
+import { escapeHtml } from "../../../lib/text.js";
 
 /**
  * Section "Person and skills" de la page About, avec liens related work.
@@ -18,12 +19,12 @@ export function AboutSkillsSection(props) {
 
   section.innerHTML = `
     <div class="skills__intro">
-    <h2 class="skills__heading">${content.line1} ${content.connector} <em>${content.line2}</em></h2>
-      ${content.paragraphs.map((p) => `<p class="skills__paragraph">${p}</p>`).join("")}
-      <a class="btn btn--outline" href="#">${content.cvLabel}</a>
+    <h2 class="skills__heading">${escapeHtml(content.line1)} ${escapeHtml(content.connector)} <em>${escapeHtml(content.line2)}</em></h2>
+      ${content.paragraphs.map((p) => `<p class="skills__paragraph">${escapeHtml(p)}</p>`).join("")}
+      <a class="btn btn--outline" href="#">${escapeHtml(content.cvLabel)}</a>
     </div>
 
-    <img class="skills__image" src="${content.offeringsImage.url}" alt="${content.offeringsImage.alt}" />
+    <img class="skills__image" src="${escapeHtml(content.offeringsImage.url)}" alt="${escapeHtml(content.offeringsImage.alt)}" />
   `;
 
   const list = document.createElement("div");

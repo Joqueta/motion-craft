@@ -1,3 +1,5 @@
+import { escapeHtml } from "../../../lib/text.js";
+
 /**
  * Section "Overview" : label latéral + gros texte d'intro + paragraphes.
  * @param {Object} props
@@ -16,9 +18,9 @@ export function ProjectOverview(props) {
   section.innerHTML = `
     <span class="project-overview__side-label"></span>
     <div class="project-overview__content">
-      <span class="project-overview__eyebrow">${props.eyebrow}</span>
-      <h2 class="project-overview__heading">${props.heading}</h2>
-      ${props.paragraphs.map((p) => `<p class="project-overview__paragraph">${p}</p>`).join("")}
+      <span class="project-overview__eyebrow">${escapeHtml(props.eyebrow)}</span>
+      <h2 class="project-overview__heading">${escapeHtml(props.heading)}</h2>
+      ${props.paragraphs.map((p) => `<p class="project-overview__paragraph">${escapeHtml(p)}</p>`).join("")}
     </div>
   `;
 

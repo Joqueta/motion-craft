@@ -1,3 +1,5 @@
+import { escapeHtml } from "../../../lib/text.js";
+
 /**
  * Une ligne "offering" (compétence) dans la liste.
  * @param {Object} props
@@ -14,22 +16,22 @@ export function OfferingRow(props) {
   row.className = "offering-row";
 
   const workLinks = props.work
-    .map((label) => `<p class="offering-row__work-label">${label}</p>`)
+    .map((label) => `<p class="offering-row__work-label">${escapeHtml(label)}</p>`)
     .join("");
 
   row.innerHTML = `
     <div class="offering-row__body">
       <div class="offering-row__header">
         <div class="offering-row__top">
-          <span class="offering-row__number">${props.number}</span>
-          <h3 class="offering-row__title">${props.title}</h3>
+          <span class="offering-row__number">${escapeHtml(props.number)}</span>
+          <h3 class="offering-row__title">${escapeHtml(props.title)}</h3>
         </div>
         <span class="offering-row__tag">
-          ${props.tag} <span class="offering-row__arrow" aria-hidden="true">↓</span>
+          ${escapeHtml(props.tag)} <span class="offering-row__arrow" aria-hidden="true">↓</span>
         </span>
       </div>
       <div class="offering-row__bottom">
-        <p class="offering-row__tools">${props.tools}</p>
+        <p class="offering-row__tools">${escapeHtml(props.tools)}</p>
         <div class="offering-row__work">
           ${workLinks}
         </div>

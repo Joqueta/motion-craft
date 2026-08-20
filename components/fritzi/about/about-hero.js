@@ -1,4 +1,5 @@
 import { EyeFocus } from "../eye-focus.js";
+import { escapeHtml } from "../../../lib/text.js";
 
 /**
  * Hero "About Me" : portrait en fond, titre géant en surimpression,
@@ -22,15 +23,15 @@ export function AboutHero(props) {
      
     </div>
     <div class="about-hero__role">
-      <p class="about-hero__role">${props.role.replace(/\s+/g, "<br />")}</p>
+      <p class="about-hero__role">${escapeHtml(props.role).replace(/\s+/g, "<br />")}</p>
       <div class="about-hero__location">
-        <span class="about-hero__location-label">${props.locationLabel}</span>
-        <span class="about-hero__location-value">${props.location}</span>
+        <span class="about-hero__location-label">${escapeHtml(props.locationLabel)}</span>
+        <span class="about-hero__location-value">${escapeHtml(props.location)}</span>
       </div>
     </div>
 
     <div class="about-hero__bio">
-      ${props.paragraphs.map((p) => `<p>${p}</p>`).join("")}
+      ${props.paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join("")}
     </div>
   `;
 

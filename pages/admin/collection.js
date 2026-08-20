@@ -77,7 +77,7 @@ export function AddButton(label, onClick, disabled = false) {
     type: "button",
     attributes: [
       ["type", "button"],
-      ["class", ["button", "button--primary"]],
+      ["class", ["button", "button--primary", "button--add"]],
       ["disabled", disabled],
     ],
     events: [["click", onClick]],

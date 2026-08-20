@@ -1,4 +1,5 @@
 import { isRouterActive } from "../../router/browser-router.js";
+import { escapeHtml } from "../../../lib/text.js";
 
 /**
  * Carte de projet mis en avant.
@@ -12,18 +13,18 @@ import { isRouterActive } from "../../router/browser-router.js";
 export function FeaturedProjectCard(props) {
   validateProjectCardProps(props);
   const fromRouter = isRouterActive();
-  const href = fromRouter ? `/fritzi/projets/${props.slug}` : `./projet.html?slug=${props.slug}`;
+  const href = escapeHtml(fromRouter ? `/fritzi/projets/${props.slug}` : `./projet.html?slug=${props.slug}`);
 
   const article = document.createElement("article");
   article.className = "project-card";
 
   article.innerHTML = `
     <a href="${href}"${fromRouter ? " data-route" : ""} class="project-card__frame">
-      <img class="project-card__image" src="${props.cover.url}" alt="${props.cover.alt}" />
+      <img class="project-card__image" src="${escapeHtml(props.cover.url)}" alt="${escapeHtml(props.cover.alt)}" />
     </a>
     <div class="project-card__meta">
-      <span class="project-card__client">${props.client}</span>
-      <span class="project-card__label">${props.label}</span>
+      <span class="project-card__client">${escapeHtml(props.client)}</span>
+      <span class="project-card__label">${escapeHtml(props.label)}</span>
     </div>
   `;
 

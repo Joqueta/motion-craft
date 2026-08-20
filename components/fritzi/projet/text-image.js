@@ -1,4 +1,5 @@
 import { FramedImage } from "./framed-image.js";
+import { escapeHtml } from "../../../lib/text.js";
 
 /**
  * Bloc texte + image côte à côte, orientation configurable.
@@ -19,9 +20,9 @@ export function TextImageBlock(props) {
     const textCol = document.createElement("div");
     textCol.className = "text-image-block__text";
     textCol.innerHTML = `
-    ${props.eyebrow ? `<span class="text-image-block__eyebrow">${props.eyebrow}</span>` : ""}
-    ${props.heading ? `<h3 class="text-image-block__heading">${props.heading}</h3>` : ""}
-    ${props.paragraphs.map((p) => `<p class="text-image-block__paragraph">${p}</p>`).join("")}
+    ${props.eyebrow ? `<span class="text-image-block__eyebrow">${escapeHtml(props.eyebrow)}</span>` : ""}
+    ${props.heading ? `<h3 class="text-image-block__heading">${escapeHtml(props.heading)}</h3>` : ""}
+    ${props.paragraphs.map((p) => `<p class="text-image-block__paragraph">${escapeHtml(p)}</p>`).join("")}
   `;
 
     const imageCol = FramedImage({
