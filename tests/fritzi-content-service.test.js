@@ -1,5 +1,5 @@
 import { describe, expect, it } from "./runner.js";
-import client from "../services/cms-client.js";
+import client from "../services/fritzi-cms-client.js";
 import {
   toOffering,
   toProjectCard,

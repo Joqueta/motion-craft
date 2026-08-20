@@ -1,4 +1,4 @@
-import client from "./cms-client.js";
+import client from "./fritzi-cms-client.js";
 import { mediaUrl } from "./portfolio-service.js";
 import { isPublic } from "../data/workflow.js";
 import { profileMock } from "../mocks/fritzi/profile-mock.js";
