@@ -1,3 +1,5 @@
+import { escapeHtml } from "../../../lib/text.js";
+
 /**
  * En-tête de la page détail projet : titre géant + ligne de métadonnées.
  * @param {Object} props
@@ -12,14 +14,14 @@ export function ProjectHeader(props) {
     section.className = "project-header";
 
     section.innerHTML = `
-    <h1 class="project-header__title">${props.title}</h1>
+    <h1 class="project-header__title">${escapeHtml(props.title)}</h1>
     <dl class="project-header__meta">
       ${props.meta
             .map(
                 (item) => `
         <div class="project-header__meta-item">
-          <dt>${item.label}</dt>
-          <dd>${item.value.replace(/\n/g, "<br />")}</dd>
+          <dt>${escapeHtml(item.label)}</dt>
+          <dd>${escapeHtml(item.value).replace(/\n/g, "<br />")}</dd>
         </div>`
             )
             .join("")}

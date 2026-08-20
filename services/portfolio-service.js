@@ -143,7 +143,7 @@ export async function deleteMedia(id) {
   await client.remove(`upload/files/${id}`);
 }
 
-async function syncCollection(resource, items, previousItems = [], serialize) {
+export async function syncCollection(resource, items, previousItems = [], serialize) {
   const keptIds = new Set(items.map((item) => String(item.id)));
   const removed = previousItems.filter((item) => isRemote(item.id) && !keptIds.has(String(item.id)));
 

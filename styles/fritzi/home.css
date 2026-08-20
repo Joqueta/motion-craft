@@ -24,14 +24,14 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
+.page--fritzi {
     margin: 0;
     font-family: var(--font-body);
     background: var(--color-page-bg);
     color: var(--color-cream);
 }
 
-a {
+.page--fritzi a {
     color: inherit;
 }
 

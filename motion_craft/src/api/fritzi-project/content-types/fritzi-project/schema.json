@@ -7,7 +7,7 @@
     "displayName": "Fritzi Project",
     "description": "Projets affichés sur Home, Work et la page détail"
   },
-  "options": { "draftAndPublish": true },
+  "options": { "draftAndPublish": false },
   "pluginOptions": {},
   "attributes": {
     "state": {

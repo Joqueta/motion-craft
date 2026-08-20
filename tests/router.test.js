@@ -5,6 +5,9 @@ const routes = {
   "/": () => ({ type: "div" }),
   "/projets": () => ({ type: "div" }),
   "/projets/:slug": () => ({ type: "div" }),
+  "/fritzi": () => ({ type: "div" }),
+  "/fritzi/about": () => ({ type: "div" }),
+  "/fritzi/projets/:slug": () => ({ type: "div" }),
   "*": () => ({ type: "div" }),
 };
 
@@ -37,5 +40,31 @@ describe("correspondance des routes", () => {
 
   it("retombe sur la page 404", () => {
     expect(matchRoute(routes, "/inconnu/profond").pattern).toBe("*");
+  });
+});
+
+describe("correspondance des routes fritzi", () => {
+  it("reconnaît la route statique /fritzi", () => {
+    expect(matchRoute(routes, "/fritzi").pattern).toBe("/fritzi");
+  });
+
+  it("reconnaît une route statique imbriquée /fritzi/about", () => {
+    expect(matchPath("/fritzi/about", "/fritzi/about")).toEqual({});
+    expect(matchRoute(routes, "/fritzi/about").pattern).toBe("/fritzi/about");
+  });
+
+  it("extrait le slug de /fritzi/projets/:slug", () => {
+    expect(matchPath("/fritzi/projets/:slug", "/fritzi/projets/vanilla-engine")).toEqual({
+      slug: "vanilla-engine",
+    });
+  });
+
+  it("sélectionne /fritzi/projets/:slug et ses paramètres sans collision avec /projets/:slug", () => {
+    const fritziMatch = matchRoute(routes, "/fritzi/projets/vanilla-engine");
+    expect(fritziMatch.pattern).toBe("/fritzi/projets/:slug");
+    expect(fritziMatch.params).toEqual({ slug: "vanilla-engine" });
+
+    const legacyMatch = matchRoute(routes, "/projets/vanilla-engine");
+    expect(legacyMatch.pattern).toBe("/projets/:slug");
   });
 });

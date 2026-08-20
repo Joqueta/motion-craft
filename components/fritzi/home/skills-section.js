@@ -1,4 +1,5 @@
 import { OfferingRow } from "./offering-row.js";
+import { escapeHtml } from "../../../lib/text.js";
 
 /**
  * Section "Person and skills" — même structure de template que AboutMe :
@@ -19,20 +20,20 @@ export function SkillsSection(props) {
 
   section.innerHTML = `
     <div class="skills__intro">
-      <span class="skills__eyebrow">${content.eyebrow}</span>
+      <span class="skills__eyebrow">${escapeHtml(content.eyebrow)}</span>
 
       <div class="skills__heading-block">
-        <p class="skills__highlight">${content.line1}</p>
+        <p class="skills__highlight">${escapeHtml(content.line1)}</p>
         <p class="skills__highlight">
-          <span class="is-muted">${content.connector}</span> ${content.line2}
+          <span class="is-muted">${escapeHtml(content.connector)}</span> ${escapeHtml(content.line2)}
         </p>
       </div>
 
-      ${content.paragraphs.map((p) => `<p class="skills__paragraph">${p}</p>`).join("")}
-      <a class="btn btn--outline" href="#" data-route>${content.cvLabel}</a>
+      ${content.paragraphs.map((p) => `<p class="skills__paragraph">${escapeHtml(p)}</p>`).join("")}
+      <a class="btn btn--outline" href="#">${escapeHtml(content.cvLabel)}</a>
     </div>
 
-    <img class="skills__image" src="${content.offeringsImage.url}" alt="${content.offeringsImage.alt}" />
+    <img class="skills__image" src="${escapeHtml(content.offeringsImage.url)}" alt="${escapeHtml(content.offeringsImage.alt)}" />
   `;
 
   const list = document.createElement("div");

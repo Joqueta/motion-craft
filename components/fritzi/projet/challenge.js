@@ -1,3 +1,5 @@
+import { escapeHtml } from "../../../lib/text.js";
+
 /**
  * Section "The challenge" : photo de fond assombrie + texte centré en surimpression.
  * @param {Object} props
@@ -14,11 +16,11 @@ export function ProjectChallenge(props) {
     section.className = "project-challenge";
 
     section.innerHTML = `
-    <img class="project-challenge__bg" src="${props.backgroundImage.url}" alt="${props.backgroundImage.alt}" />
+    <img class="project-challenge__bg" src="${escapeHtml(props.backgroundImage.url)}" alt="${escapeHtml(props.backgroundImage.alt)}" />
     <div class="project-challenge__overlay">
-      <span class="project-challenge__eyebrow">${props.eyebrow}</span>
-      <h2 class="project-challenge__heading">${props.heading}</h2>
-      ${props.paragraphs.map((p) => `<p class="project-challenge__paragraph">${p}</p>`).join("")}
+      <span class="project-challenge__eyebrow">${escapeHtml(props.eyebrow)}</span>
+      <h2 class="project-challenge__heading">${escapeHtml(props.heading)}</h2>
+      ${props.paragraphs.map((p) => `<p class="project-challenge__paragraph">${escapeHtml(p)}</p>`).join("")}
     </div>
   `;
 

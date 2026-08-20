@@ -11,7 +11,7 @@ import { fetchAboutData, fetchProfile, fetchContactInfo } from "../../services/f
  */
 export async function AboutPage() {
     const page = document.createElement("div");
-    page.className = "page page--about";
+    page.className = "page page--fritzi page--about";
     page.innerHTML = `<p class="loading">Chargement…</p>`;
 
     try {

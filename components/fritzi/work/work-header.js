@@ -1,3 +1,5 @@
+import { escapeHtml } from "../../../lib/text.js";
+
 /**
  * En-tête de la page Work.
  * @param {Object} props
@@ -14,9 +16,9 @@ export function WorkHeader(props) {
     section.className = "work-header";
 
     section.innerHTML = `
-    <h1 class="work-header__title">${props.title}</h1>
+    <h1 class="work-header__title">${escapeHtml(props.title)}</h1>
     <span class="work-header__badge-wrap">
-      <span class="work-header__badge">${props.eyebrow}</span>
+      <span class="work-header__badge">${escapeHtml(props.eyebrow)}</span>
     </span>
   `;
 

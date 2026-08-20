@@ -1,3 +1,5 @@
+import { escapeHtml } from "../../../lib/text.js";
+
 /**
  * Bandeau sous le nav principal : label de collection + bouton "close project".
  * @param {Object} props
@@ -15,9 +17,9 @@ export function ProjectSubbar(props) {
     bar.className = "project-subbar";
 
     bar.innerHTML = `
-    <span class="project-subbar__eyebrow">${props.eyebrow}</span>
-    <a class="btn btn--outline btn--small" href="${props.closeHref || "../index.html"}">
-      ${props.closeLabel || "Close this project"}
+    <span class="project-subbar__eyebrow">${escapeHtml(props.eyebrow)}</span>
+    <a class="btn btn--outline btn--small" href="${escapeHtml(props.closeHref || "../index.html")}" data-route>
+      ${escapeHtml(props.closeLabel || "Close this project")}
     </a>
   `;
 

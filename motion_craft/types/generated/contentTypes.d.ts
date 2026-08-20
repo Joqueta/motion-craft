@@ -634,7 +634,7 @@ export interface ApiFritziProjectFritziProject
     singularName: 'fritzi-project';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     challenge: Schema.Attribute.Component<'fritzi.challenge', false>;
