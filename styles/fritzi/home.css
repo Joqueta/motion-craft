@@ -361,7 +361,6 @@ html {
     height: 20.33606rem;
     aspect-ratio: 5 / 4;
     object-fit: cover;
-    border-radius: 2px;
 }
 
 .project-card__meta {
