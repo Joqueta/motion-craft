@@ -1,0 +1,446 @@
+/* Thème visuel du back-office fritzi (/fritzi/admin/*).
+   Scopé sous .fritzi-admin pour ne pas toucher le back-office générique
+   du template (/admin) ni les back-offices des autres élèves.
+   CSS pur, sans préprocesseur ni dépendance externe. */
+
+.fritzi-admin {
+  --fritzi-admin-bg: #5f5d47;
+  --fritzi-admin-text: #f4f0e2;
+  --fritzi-admin-text-strong: #efeadb;
+  --fritzi-admin-text-muted: #e0dbc7;
+  --fritzi-admin-text-dim: #c9c4ac;
+  --fritzi-admin-border: #bcb69a;
+  --fritzi-admin-border-strong: #948f74;
+  --fritzi-admin-accent: #c96b4a;
+  --fritzi-admin-accent-hover: #d97e5c;
+  --fritzi-admin-accent-soft: #f2d2bf;
+  --fritzi-admin-accent-wash: rgb(201 107 74 / 18%);
+  --fritzi-admin-accent-contrast: #141310;
+  --fritzi-admin-toggle-on: #d4b98d;
+  --fritzi-admin-focus-ring: #f4f0e2;
+  --fritzi-admin-radius: 2px;
+
+  background: var(--fritzi-admin-bg);
+  color: var(--fritzi-admin-text);
+  font-family: var(--font-sans);
+}
+
+.fritzi-admin :focus-visible {
+  outline: 2px solid var(--fritzi-admin-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Layout */
+
+.fritzi-admin .admin-locked {
+  grid-template-columns: 1fr;
+}
+
+.fritzi-admin .container {
+  max-width: 900px;
+}
+
+.fritzi-admin .editor {
+  padding: clamp(1.5rem, 4vw, 2.75rem) 0;
+}
+
+/* Titles */
+
+.fritzi-admin h1,
+.fritzi-admin h2,
+.fritzi-admin h3 {
+  color: var(--fritzi-admin-text-strong);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fritzi-admin h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 1.5rem 0 0.25rem;
+}
+
+.fritzi-admin h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--fritzi-admin-accent-soft);
+  margin: 2.25rem 0 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--fritzi-admin-border-strong);
+}
+
+.fritzi-admin h3 {
+  font-size: 1rem;
+}
+
+/* Fields */
+
+.fritzi-admin .editor-grid {
+  gap: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.fritzi-admin .editor-grid .field:has(textarea) {
+  grid-column: 1 / -1;
+}
+
+.fritzi-admin .field__label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--fritzi-admin-text-strong);
+}
+
+.fritzi-admin .field__control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--fritzi-admin-border);
+  border-radius: 0;
+  padding: 0.5rem 0.05rem;
+  color: var(--fritzi-admin-text);
+}
+
+.fritzi-admin .field__control::placeholder {
+  color: var(--fritzi-admin-text-dim);
+}
+
+.fritzi-admin .field__control:focus {
+  border-color: var(--fritzi-admin-accent-soft);
+  outline: none;
+  box-shadow: none;
+}
+
+.fritzi-admin .field__control:focus-visible {
+  outline: 2px solid var(--fritzi-admin-focus-ring);
+  outline-offset: 2px;
+}
+
+.fritzi-admin .field__hint {
+  color: var(--fritzi-admin-text-dim);
+}
+
+.fritzi-admin select.field__control {
+  color-scheme: dark;
+}
+
+/* Toggle (statut actif / publié / featured) */
+
+.fritzi-admin .field--inline .field__label {
+  order: 2;
+  margin: 0;
+}
+
+.fritzi-admin .field--inline .field__checkbox {
+  order: 1;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 34px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+  border-radius: var(--radius-pill, 999px);
+  background: var(--fritzi-admin-border);
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.fritzi-admin .field--inline .field__checkbox::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--fritzi-admin-bg);
+  transition: transform 0.15s ease;
+}
+
+.fritzi-admin .field--inline .field__checkbox:checked {
+  background: var(--fritzi-admin-toggle-on);
+}
+
+.fritzi-admin .field--inline .field__checkbox:checked::after {
+  transform: translateX(16px);
+}
+
+.fritzi-admin .field--inline .field__checkbox:focus-visible {
+  outline: 2px solid var(--fritzi-admin-focus-ring);
+  outline-offset: 3px;
+}
+
+.fritzi-admin .field--inline .field__checkbox[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Collection items (offerings, relatedWork, meta...) */
+
+.fritzi-admin .editor-list {
+  gap: 0;
+  counter-reset: fritzi-item;
+}
+
+.fritzi-admin .editor-item {
+  counter-increment: fritzi-item;
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--fritzi-admin-border-strong);
+  border-radius: 0;
+  padding: 1.5rem 0 0;
+  margin-top: 1.5rem;
+}
+
+.fritzi-admin .editor-item:first-of-type {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.fritzi-admin .editor-item::before {
+  content: counter(fritzi-item, decimal-leading-zero);
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--fritzi-admin-accent-soft);
+  margin-bottom: 0.4rem;
+}
+
+.fritzi-admin .editor-item__head h3 {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 500;
+}
+
+/* Icon buttons (↑ ↓ ✕ dans la toolbar, supprimer) */
+
+.fritzi-admin .icon-button {
+  background: transparent;
+  border-color: var(--fritzi-admin-border);
+  color: var(--fritzi-admin-text-muted);
+}
+
+.fritzi-admin .icon-button:hover:not([disabled]) {
+  border-color: var(--fritzi-admin-accent-soft);
+  color: var(--fritzi-admin-text-strong);
+}
+
+.fritzi-admin .icon-button--danger {
+  border-color: var(--fritzi-admin-accent-soft);
+  color: var(--fritzi-admin-accent-soft);
+}
+
+.fritzi-admin .icon-button--danger:hover:not([disabled]) {
+  background: var(--fritzi-admin-accent-wash);
+  border-color: var(--fritzi-admin-accent-soft);
+  color: var(--fritzi-admin-accent-soft);
+}
+
+.fritzi-admin .editor-item__toolbar .icon-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+/* Buttons */
+
+.fritzi-admin .button {
+  border-radius: var(--fritzi-admin-radius);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.fritzi-admin .button:not(.button--primary) {
+  background: transparent;
+  border-color: var(--fritzi-admin-accent-soft);
+  color: var(--fritzi-admin-accent-soft);
+}
+
+.fritzi-admin .button:not(.button--primary):hover {
+  background: var(--fritzi-admin-accent-wash);
+}
+
+.fritzi-admin .button--primary {
+  background: var(--fritzi-admin-accent);
+  border-color: var(--fritzi-admin-accent);
+  color: var(--fritzi-admin-accent-contrast);
+}
+
+.fritzi-admin .button--primary:hover {
+  background: var(--fritzi-admin-accent-hover);
+  border-color: var(--fritzi-admin-accent-hover);
+}
+
+.fritzi-admin .button--add {
+  background: transparent;
+  border-color: var(--fritzi-admin-accent-soft);
+  color: var(--fritzi-admin-accent-soft);
+}
+
+.fritzi-admin .button--add:hover {
+  background: var(--fritzi-admin-accent-wash);
+}
+
+.fritzi-admin .button--add::before {
+  content: "[ ";
+}
+
+.fritzi-admin .button--add::after {
+  content: " ]";
+}
+
+.fritzi-admin .button[disabled] {
+  opacity: 0.4;
+}
+
+/* Top navigation bar */
+
+.fritzi-admin .admin__nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 0.9rem clamp(1.25rem, 4vw, 2.5rem);
+  background: var(--fritzi-admin-bg);
+  border: none;
+  border-bottom: 1px solid var(--fritzi-admin-border-strong);
+  border-radius: 0;
+}
+
+.fritzi-admin .admin__tab {
+  padding: 0.4rem 0.7rem;
+  color: var(--fritzi-admin-text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--fritzi-admin-radius);
+}
+
+.fritzi-admin .admin__tab:hover {
+  background: var(--fritzi-admin-accent-wash);
+  color: var(--fritzi-admin-text-strong);
+}
+
+.fritzi-admin .admin__tab.is-active {
+  background: var(--fritzi-admin-accent);
+  color: var(--fritzi-admin-accent-contrast);
+  font-weight: 500;
+}
+
+/* Hub layout: profile card + project grid */
+
+.fritzi-admin .admin-hub {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .fritzi-admin .admin-hub {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fritzi-admin .profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.5rem;
+  border: 1px solid var(--fritzi-admin-border-strong);
+  border-radius: 8px;
+}
+
+.fritzi-admin .profile-card__name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--fritzi-admin-text-strong);
+}
+
+.fritzi-admin .profile-card__role,
+.fritzi-admin .profile-card__location {
+  font-size: 0.85rem;
+  color: var(--fritzi-admin-text-muted);
+}
+
+.fritzi-admin .profile-card__bio {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fritzi-admin .profile-card__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+}
+
+.fritzi-admin .profile-card__contacts a {
+  color: var(--fritzi-admin-accent-soft);
+}
+
+/* Project cards */
+
+.fritzi-admin .project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.fritzi-admin .project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--fritzi-admin-border-strong);
+  border-radius: 8px;
+}
+
+.fritzi-admin .project-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.fritzi-admin .project-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.fritzi-admin .project-card__client {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fritzi-admin-text-muted);
+}
+
+.fritzi-admin .project-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.fritzi-admin .badge--featured {
+  background: var(--fritzi-admin-toggle-on);
+  color: var(--fritzi-admin-accent-contrast);
+}
