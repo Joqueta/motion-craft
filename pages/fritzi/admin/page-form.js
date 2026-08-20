@@ -6,7 +6,7 @@ import { AdminNav } from "../../../components/fritzi/admin/admin-nav.js";
 import setMeta from "../../../lib/seo.js";
 import portfolioStore, { editContent, notify, recordAudit } from "../../../store/portfolio-store.js";
 import { items, addItem, ItemToolbar, AddButton, bindField } from "../../admin/collection.js";
-import { loadFritziPage, saveFritziPage, missingPageFields, loadMediaLibrary } from "../../../services/fritzi-admin-service.js";
+import { loadFritziPage, saveFritziPage, missingPageFields, loadMediaLibrary, uploadFritziMedia } from "../../../services/fritzi-admin-service.js";
 
 const ROOT = "fritziPageForm";
 const PAGE_TITLES = { home: "Home", about: "About", contact: "Contact", profil: "Profile" };
@@ -15,6 +15,14 @@ let loadedKey = null;
 
 function bind(path) {
   return (value) => editContent(path, value, ROOT);
+}
+
+function handleMediaUpload(file, alt) {
+  return uploadFritziMedia(file, alt).then((media) => {
+    const current = portfolioStore.get("fritziMedia") ?? [];
+    portfolioStore.update({ fritziMedia: [media, ...current] });
+    return media;
+  });
 }
 
 function startLoad(page) {
@@ -196,7 +204,7 @@ function HomeFields(data, readOnly, media) {
         Field({ id: "home-quote-highlight-2", label: "Quote — highlight 2", value: data.quoteHighlight2, placeholder: "Highlighted word 2", required: true, disabled: readOnly, onInput: bind("quoteHighlight2") }),
         Field({ id: "home-quote-tail", label: "Quote — closing", value: data.quoteTail, placeholder: "Quote closing", required: true, disabled: readOnly, onInput: bind("quoteTail") }),
         Field({ id: "home-about-caption", label: "Portrait caption", control: "textarea", rows: 3, value: data.aboutCaption, placeholder: "Portrait caption", required: true, disabled: readOnly, onInput: bind("aboutCaption") }),
-        MediaSelectField({ id: "home-about-portrait", label: "Portrait", value: data.aboutPortrait, media, disabled: readOnly, onSelect: bind("aboutPortrait") }),
+        MediaSelectField({ id: "home-about-portrait", label: "Portrait", value: data.aboutPortrait, media, disabled: readOnly, onSelect: bind("aboutPortrait"), onUpload: handleMediaUpload }),
       ],
     },
     { type: "h2", children: ["\"Skills\" section"] },
@@ -210,7 +218,7 @@ function HomeFields(data, readOnly, media) {
         Field({ id: "home-skills-line-2", label: "Title — line 2", value: data.skillsLine2, placeholder: "Title line 2", required: true, disabled: readOnly, onInput: bind("skillsLine2") }),
         Field({ id: "home-skills-paragraphs", label: "Paragraphs", control: "textarea", rows: 5, value: data.skillsParagraphs, hint: "One line = one paragraph.", placeholder: "One line = one paragraph", required: true, disabled: readOnly, onInput: bind("skillsParagraphs") }),
         Field({ id: "home-cv-label", label: "CV button label", value: data.cvLabel, placeholder: "e.g. Upload my CV here", required: true, disabled: readOnly, onInput: bind("cvLabel") }),
-        MediaSelectField({ id: "home-offerings-image", label: "Offerings image", value: data.offeringsImage, media, disabled: readOnly, onSelect: bind("offeringsImage") }),
+        MediaSelectField({ id: "home-offerings-image", label: "Offerings image", value: data.offeringsImage, media, disabled: readOnly, onSelect: bind("offeringsImage"), onUpload: handleMediaUpload }),
       ],
     },
     OfferingsSection(readOnly),
@@ -228,7 +236,7 @@ function AboutFields(data, readOnly, media) {
         Field({ id: "about-hero-location-label", label: "Location label", value: data.heroLocationLabel, placeholder: "e.g. Based in", required: true, disabled: readOnly, onInput: bind("heroLocationLabel") }),
         Field({ id: "about-hero-location", label: "Location", value: data.heroLocation, placeholder: "e.g. Paris, France", required: true, disabled: readOnly, onInput: bind("heroLocation") }),
         Field({ id: "about-hero-paragraphs", label: "Paragraphs", control: "textarea", rows: 5, value: data.heroParagraphs, hint: "One line = one paragraph.", placeholder: "One line = one paragraph", required: true, disabled: readOnly, onInput: bind("heroParagraphs") }),
-        MediaSelectField({ id: "about-hero-portrait", label: "Portrait", value: data.heroPortrait, media, disabled: readOnly, onSelect: bind("heroPortrait") }),
+        MediaSelectField({ id: "about-hero-portrait", label: "Portrait", value: data.heroPortrait, media, disabled: readOnly, onSelect: bind("heroPortrait"), onUpload: handleMediaUpload }),
       ],
     },
     OfferingsSection(readOnly),
@@ -242,7 +250,7 @@ function ContactFields(data, readOnly, media) {
       type: "div",
       attributes: [["class", ["editor-grid"]]],
       children: [
-        MediaSelectField({ id: "contact-hero-portrait", label: "Portrait", value: data.heroPortrait, media, disabled: readOnly, onSelect: bind("heroPortrait") }),
+        MediaSelectField({ id: "contact-hero-portrait", label: "Portrait", value: data.heroPortrait, media, disabled: readOnly, onSelect: bind("heroPortrait"), onUpload: handleMediaUpload }),
       ],
     },
   ];
