@@ -124,6 +124,13 @@
   color-scheme: dark;
 }
 
+.fritzi-admin .media-select-field__upload {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+
 /* Toggle (statut actif / publié / featured) */
 
 .fritzi-admin .field--inline .field__label {

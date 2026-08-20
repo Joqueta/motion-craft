@@ -24,7 +24,10 @@ function handleFileChange(event, { id, onUpload, onSelect }) {
     return;
   }
 
+  const selectInput = document.getElementById(id);
+
   input.disabled = true;
+  if (selectInput) selectInput.disabled = true;
   onUpload(file, alt)
     .then((media) => {
       onSelect({ id: media.id, url: media.url });
@@ -34,6 +37,7 @@ function handleFileChange(event, { id, onUpload, onSelect }) {
     .finally(() => {
       input.value = "";
       input.disabled = false;
+      if (selectInput) selectInput.disabled = false;
     });
 }
 
@@ -81,6 +85,8 @@ const MediaSelectField = defineComponent(
               label: "Texte alternatif",
               placeholder: "Décrit l'image pour les lecteurs d'écran",
               value: "",
+              required: true,
+              hint: "Obligatoire avant l'envoi.",
               disabled,
               onInput: () => {},
             }),

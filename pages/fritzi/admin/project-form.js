@@ -6,13 +6,12 @@ import { AdminNav } from "../../../components/fritzi/admin/admin-nav.js";
 import { navigate } from "../../../components/router/browser-router.js";
 import setMeta from "../../../lib/seo.js";
 import portfolioStore, { editContent, notify, recordAudit } from "../../../store/portfolio-store.js";
-import { items, addItem, ItemToolbar, AddButton, bindField } from "../../admin/collection.js";
+import { items, addItem, ItemToolbar, AddButton, bindField, handleMediaUpload } from "../../admin/collection.js";
 import { STATES, stateLabel } from "../../../data/workflow.js";
 import {
   loadFritziProjectDetail,
   loadFritziProjects,
   loadMediaLibrary,
-  uploadFritziMedia,
   createFritziProject,
   saveFritziProjectDetail,
   deleteFritziProject,
@@ -27,14 +26,6 @@ let loadedKey = null;
 
 function bind(path) {
   return (value) => editContent(path, value, ROOT);
-}
-
-function handleMediaUpload(file, alt) {
-  return uploadFritziMedia(file, alt).then((media) => {
-    const current = portfolioStore.get("fritziMedia") ?? [];
-    portfolioStore.update({ fritziMedia: [media, ...current] });
-    return media;
-  });
 }
 
 function targetKey(slug) {

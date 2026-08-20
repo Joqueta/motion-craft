@@ -1,6 +1,8 @@
 import { describe, expect, it } from "./runner.js";
 import { createRoot } from "../lib/render.js";
 import generateStructure from "../lib/generate-structure.js";
+import MediaSelectField from "../components/ui/media-select-field.js";
+import portfolioStore, { clearNotice } from "../store/portfolio-store.js";
 
 function mount() {
   const container = document.createElement("div");
@@ -131,5 +133,36 @@ describe("diffing DOM", () => {
 
     expect(first).toBe(0);
     expect(second).toBe(1);
+  });
+});
+
+describe("MediaSelectField — validation du texte alternatif", () => {
+  it("n'appelle pas onUpload si le texte alternatif est vide", () => {
+    const { container, render } = mount();
+    clearNotice();
+    let uploadCalled = false;
+
+    render(
+      MediaSelectField({
+        id: "test-media",
+        label: "Image",
+        value: null,
+        media: [],
+        onSelect: () => {},
+        onUpload: () => {
+          uploadCalled = true;
+          return Promise.resolve({ id: 1, url: "https://example.com/x.png", name: "test.png" });
+        },
+      }),
+    );
+
+    const fileInput = container.querySelector("#test-media-file");
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(new File(["x"], "test.png", { type: "image/png" }));
+    fileInput.files = dataTransfer.files;
+    fileInput.dispatchEvent(new Event("change", { bubbles: true }));
+
+    expect(uploadCalled).toBeFalsy();
+    expect(portfolioStore.get("notice")?.tone).toBe("warning");
   });
 });

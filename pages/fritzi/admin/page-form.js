@@ -5,8 +5,8 @@ import Link from "../../../components/router/link.js";
 import { AdminNav } from "../../../components/fritzi/admin/admin-nav.js";
 import setMeta from "../../../lib/seo.js";
 import portfolioStore, { editContent, notify, recordAudit } from "../../../store/portfolio-store.js";
-import { items, addItem, ItemToolbar, AddButton, bindField } from "../../admin/collection.js";
-import { loadFritziPage, saveFritziPage, missingPageFields, loadMediaLibrary, uploadFritziMedia } from "../../../services/fritzi-admin-service.js";
+import { items, addItem, ItemToolbar, AddButton, bindField, handleMediaUpload } from "../../admin/collection.js";
+import { loadFritziPage, saveFritziPage, missingPageFields, loadMediaLibrary } from "../../../services/fritzi-admin-service.js";
 
 const ROOT = "fritziPageForm";
 const PAGE_TITLES = { home: "Home", about: "About", contact: "Contact", profil: "Profile" };
@@ -15,14 +15,6 @@ let loadedKey = null;
 
 function bind(path) {
   return (value) => editContent(path, value, ROOT);
-}
-
-function handleMediaUpload(file, alt) {
-  return uploadFritziMedia(file, alt).then((media) => {
-    const current = portfolioStore.get("fritziMedia") ?? [];
-    portfolioStore.update({ fritziMedia: [media, ...current] });
-    return media;
-  });
 }
 
 function startLoad(page) {
