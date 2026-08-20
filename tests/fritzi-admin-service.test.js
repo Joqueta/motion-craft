@@ -248,6 +248,7 @@ describe("fritzi-admin-service — loadFritziProjectDetail", () => {
         items: [
           {
             id: 7,
+            documentId: "tvdisplay123",
             slug: "decode-tv-display",
             client: ".decode",
             label: "TV display",
@@ -295,6 +296,7 @@ describe("fritzi-admin-service — loadFritziProjectDetail", () => {
     try {
       const result = await loadFritziProjectDetail("decode-tv-display");
       expect(receivedQuery.filters.slug.$eq).toBe("decode-tv-display");
+      expect(result.documentId).toBe("tvdisplay123");
       expect(result.title).toBe("TV Display");
       expect(result.heroImage).toEqual({ id: 9, url: "http://localhost:1337/uploads/hero.png" });
       expect(result.meta).toEqual([
@@ -333,6 +335,7 @@ describe("fritzi-admin-service — createEmptyProjectDetailItem", () => {
   it("retourne un projet vide avec des valeurs par défaut sûres", () => {
     const empty = createEmptyProjectDetailItem();
     expect(empty.id).toBe(null);
+    expect(empty.documentId).toBe(null);
     expect(empty.state).toBe("draft");
     expect(empty.meta).toEqual([]);
     expect(empty.overview.paragraphs).toBe("");
@@ -342,6 +345,7 @@ describe("fritzi-admin-service — createEmptyProjectDetailItem", () => {
 
 const detailFixture = {
   id: 7,
+  documentId: "tvdisplay123",
   slug: "decode-tv-display",
   client: ".decode",
   label: "TV display",
@@ -388,7 +392,7 @@ describe("fritzi-admin-service — createFritziProject / saveFritziProjectDetail
     }
   });
 
-  it("édite un projet existant via update sur son id", async () => {
+  it("édite un projet existant via update sur son documentId", async () => {
     const originalUpdate = client.update;
     let receivedResource = null;
     client.update = async (resource) => {
@@ -397,8 +401,8 @@ describe("fritzi-admin-service — createFritziProject / saveFritziProjectDetail
     };
 
     try {
-      await saveFritziProjectDetail(7, detailFixture);
-      expect(receivedResource).toBe("fritzi-projects/7");
+      await saveFritziProjectDetail("tvdisplay123", detailFixture);
+      expect(receivedResource).toBe("fritzi-projects/tvdisplay123");
     } finally {
       client.update = originalUpdate;
     }
@@ -406,7 +410,7 @@ describe("fritzi-admin-service — createFritziProject / saveFritziProjectDetail
 });
 
 describe("fritzi-admin-service — deleteFritziProject", () => {
-  it("appelle client.remove avec l'id du projet", async () => {
+  it("appelle client.remove avec le documentId du projet", async () => {
     const originalRemove = client.remove;
     let receivedResource = null;
     client.remove = async (resource) => {
@@ -415,8 +419,8 @@ describe("fritzi-admin-service — deleteFritziProject", () => {
     };
 
     try {
-      await deleteFritziProject(7);
-      expect(receivedResource).toBe("fritzi-projects/7");
+      await deleteFritziProject("tvdisplay123");
+      expect(receivedResource).toBe("fritzi-projects/tvdisplay123");
     } finally {
       client.remove = originalRemove;
     }
