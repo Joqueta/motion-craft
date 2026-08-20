@@ -2,7 +2,14 @@ import setMeta from "../lib/seo.js";
 import Link from "../components/router/link.js";
 import CookieBanner from "../components/ui/cookie-banner.js";
 import ThemeToggle from "../components/ui/theme-toggle.js";
+import TeamCard from "../components/ui/team-card.js";
 import MarketingFooter from "../components/layout/marketing-footer.js";
+
+const TEAM = [
+  { name: "FROIS Fritzi", role: "Dev fullstack", to: "/fritzi" },
+  { name: "DIAGNE Abdoulaye", role: "Dev fullstack", to: "/abdoulaye" },
+  { name: "VIEDUEIRA Mathis", role: "Dev fullstack", to: "/mathis" },
+];
 
 export default function MarketingHomePage({ path = "/" } = {}) {
   setMeta({
@@ -79,6 +86,24 @@ export default function MarketingHomePage({ path = "/" } = {}) {
                 type: "p",
                 attributes: [["class", ["marketing-hero__tagline"]]],
                 children: ["Un portfolio qui montre votre travail, pas seulement qui le décrit."],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        type: "section",
+        attributes: [["class", ["marketing-team"]], ["aria-label", "Équipe"]],
+        children: [
+          {
+            type: "div",
+            attributes: [["class", ["container", "marketing-team__inner"]]],
+            children: [
+              { type: "h2", attributes: [["class", ["marketing-team__title"]]], children: ["L'équipe"] },
+              {
+                type: "div",
+                attributes: [["class", ["card-grid", "marketing-team__grid"]]],
+                children: TEAM.map((member) => ({ ...TeamCard(member), key: member.to })),
               },
             ],
           },

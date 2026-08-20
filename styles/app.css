@@ -1244,6 +1244,65 @@
   font-size: 1.1rem;
 }
 
+.marketing-team {
+  padding: 3rem 0;
+}
+
+.marketing-team__title {
+  text-align: center;
+  margin: 0 0 1.5rem;
+}
+
+.marketing-team__grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.team-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.25rem;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.team-card__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--ink-contrast);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.team-card__name {
+  margin: 0;
+  font-weight: 700;
+}
+
+.team-card__role {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
 .marketing-footer {
   border-top: 1px solid var(--border);
   padding: 2rem 0;

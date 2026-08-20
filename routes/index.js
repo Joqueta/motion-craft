@@ -1,4 +1,5 @@
 import MarketingHomePage from "../pages/marketing-home-page.js";
+import { createTeamPortfolioPage } from "../pages/team-portfolio-page.js";
 import AdminPage from "../pages/admin-page.js";
 import LoginPage from "../pages/login-page.js";
 import LegalPage from "../pages/legal-page.js";
@@ -27,6 +28,8 @@ export default {
   "/confidentialite": LegalPage,
   "/cookies": LegalPage,
   "/protection-des-donnees": LegalPage,
+  "/abdoulaye": createTeamPortfolioPage("DIAGNE Abdoulaye"),
+  "/mathis": createTeamPortfolioPage("VIEDUEIRA Mathis"),
   "/fritzi": FritziHomePage,
   "/fritzi/about": FritziAboutPage,
   "/fritzi/work": FritziWorkPage,
