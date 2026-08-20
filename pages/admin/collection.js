@@ -1,4 +1,15 @@
-import portfolioStore, { editContent, recordAudit } from "../../store/portfolio-store.js";
+import portfolioStore, { editContent, notify, recordAudit } from "../../store/portfolio-store.js";
+import { uploadFritziMedia } from "../../services/fritzi-admin-service.js";
+
+export function handleMediaUpload(file, alt) {
+  return uploadFritziMedia(file, alt).then((media) => {
+    const current = portfolioStore.get("fritziMedia") ?? [];
+    portfolioStore.update({ fritziMedia: [media, ...current] });
+    notify("Image envoyée.", "success");
+    recordAudit("Image envoyée depuis le back-office", media.name);
+    return media;
+  });
+}
 
 export function items(collection, root = "content") {
   return portfolioStore.get(`${root}.${collection}`) ?? [];

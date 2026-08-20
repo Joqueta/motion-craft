@@ -6,7 +6,7 @@ import { AdminNav } from "../../../components/fritzi/admin/admin-nav.js";
 import { navigate } from "../../../components/router/browser-router.js";
 import setMeta from "../../../lib/seo.js";
 import portfolioStore, { editContent, notify, recordAudit } from "../../../store/portfolio-store.js";
-import { items, addItem, ItemToolbar, AddButton, bindField } from "../../admin/collection.js";
+import { items, addItem, ItemToolbar, AddButton, bindField, handleMediaUpload } from "../../admin/collection.js";
 import { STATES, stateLabel } from "../../../data/workflow.js";
 import {
   loadFritziProjectDetail,
@@ -80,7 +80,7 @@ function save() {
 
   const isNew = !item.id;
   portfolioStore.update({ fritziFormStatus: "saving" });
-  const request = isNew ? createFritziProject(item) : saveFritziProjectDetail(item.id, item);
+  const request = isNew ? createFritziProject(item) : saveFritziProjectDetail(item.documentId, item);
 
   request
     .then((saved) => {
@@ -105,7 +105,7 @@ function removeProject() {
   if (!window.confirm(`Permanently delete "${item.label || item.slug}"? This action cannot be undone.`)) return;
 
   portfolioStore.update({ fritziFormStatus: "saving" });
-  deleteFritziProject(item.id)
+  deleteFritziProject(item.documentId)
     .then(() => {
       recordAudit("Deleted a fritzi project", item.label || item.slug);
       notify("Project deleted.", "success");
@@ -153,6 +153,7 @@ function TextImageBlockFields(basePath, block, media, readOnly, imageLabel, imag
         media,
         disabled: readOnly,
         onSelect: bind(`${basePath}.${imageKey}`),
+        onUpload: handleMediaUpload,
       }),
     ],
   };
@@ -363,6 +364,7 @@ export default function FritziProjectFormPage(props) {
                     media,
                     disabled: readOnly,
                     onSelect: bind("cover"),
+                    onUpload: handleMediaUpload,
                   }),
                 ],
               },
@@ -395,6 +397,7 @@ export default function FritziProjectFormPage(props) {
                     media,
                     disabled: readOnly,
                     onSelect: bind("heroImage"),
+                    onUpload: handleMediaUpload,
                   }),
                 ],
               },

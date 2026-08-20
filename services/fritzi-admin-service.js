@@ -27,6 +27,11 @@ export async function loadMediaLibrary() {
   return result.items.map((file) => ({ id: file.id, name: file.name ?? "", url: mediaUrl(file) }));
 }
 
+export async function uploadFritziMedia(file, alt) {
+  const media = await client.upload(file, { alt });
+  return { id: media.id, name: media.name ?? "", url: mediaUrl(media) };
+}
+
 function fromFritziProjectItem(item) {
   const data = {
     slug: item.slug,
@@ -74,6 +79,7 @@ function toTextImageBlockItem(raw) {
 export function toProjectDetailItem(entity) {
   return {
     id: entity.id,
+    documentId: entity.documentId ?? null,
     slug: entity.slug ?? "",
     client: entity.client ?? "",
     label: entity.label ?? "",
@@ -116,6 +122,7 @@ export async function loadFritziProjectDetail(slug) {
 export function createEmptyProjectDetailItem() {
   return {
     id: null,
+    documentId: null,
     slug: "",
     client: "",
     label: "",
@@ -192,13 +199,13 @@ export async function createFritziProject(item) {
   return toProjectDetailItem(created);
 }
 
-export async function saveFritziProjectDetail(id, item) {
-  const saved = await client.update(`fritzi-projects/${id}`, fromProjectDetailItem(item), { populate: PROJECT_DETAIL_POPULATE });
+export async function saveFritziProjectDetail(documentId, item) {
+  const saved = await client.update(`fritzi-projects/${documentId}`, fromProjectDetailItem(item), { populate: PROJECT_DETAIL_POPULATE });
   return toProjectDetailItem(saved);
 }
 
-export async function deleteFritziProject(id) {
-  await client.remove(`fritzi-projects/${id}`);
+export async function deleteFritziProject(documentId) {
+  await client.remove(`fritzi-projects/${documentId}`);
 }
 
 const PROJECT_REQUIRED_FIELDS = [
