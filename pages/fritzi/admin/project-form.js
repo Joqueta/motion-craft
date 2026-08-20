@@ -12,6 +12,7 @@ import {
   loadFritziProjectDetail,
   loadFritziProjects,
   loadMediaLibrary,
+  uploadFritziMedia,
   createFritziProject,
   saveFritziProjectDetail,
   deleteFritziProject,
@@ -26,6 +27,14 @@ let loadedKey = null;
 
 function bind(path) {
   return (value) => editContent(path, value, ROOT);
+}
+
+function handleMediaUpload(file, alt) {
+  return uploadFritziMedia(file, alt).then((media) => {
+    const current = portfolioStore.get("fritziMedia") ?? [];
+    portfolioStore.update({ fritziMedia: [media, ...current] });
+    return media;
+  });
 }
 
 function targetKey(slug) {
@@ -153,6 +162,7 @@ function TextImageBlockFields(basePath, block, media, readOnly, imageLabel, imag
         media,
         disabled: readOnly,
         onSelect: bind(`${basePath}.${imageKey}`),
+        onUpload: handleMediaUpload,
       }),
     ],
   };
@@ -363,6 +373,7 @@ export default function FritziProjectFormPage(props) {
                     media,
                     disabled: readOnly,
                     onSelect: bind("cover"),
+                    onUpload: handleMediaUpload,
                   }),
                 ],
               },
@@ -395,6 +406,7 @@ export default function FritziProjectFormPage(props) {
                     media,
                     disabled: readOnly,
                     onSelect: bind("heroImage"),
+                    onUpload: handleMediaUpload,
                   }),
                 ],
               },
