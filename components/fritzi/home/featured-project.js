@@ -1,6 +1,9 @@
 import { FeaturedProjectCard } from "./featured-project-card.js";
 import { isRouterActive } from "../../router/browser-router.js";
 
+const FRAME_IMAGE_URL = "/assets/fritzi/home/rectangle.svg";
+const FRAME_IMAGE_HOVER_URL = "/assets/fritzi/home/logo-cadre-white.svg";
+
 /**
  * Section "Featured Projects" : titre en 3 colonnes (Featured / cadre / Projects)
  * puis une grille en 3 colonnes (carte gauche / cadre décoratif vide / carte droite),
@@ -44,6 +47,19 @@ export function FeaturedProjects(props) {
   grid.append(leftCol, centerCol, rightCol);
   section.appendChild(grid);
 
+  const track = document.createElement("div");
+  track.className = "featured__frame-track";
+
+  const frameImage = document.createElement("img");
+  frameImage.className = "featured__frame-image";
+  frameImage.src = FRAME_IMAGE_URL;
+  frameImage.alt = "";
+  frameImage.setAttribute("aria-hidden", "true");
+  bindFrameImageSwap(frameImage);
+
+  track.appendChild(frameImage);
+  section.appendChild(track);
+
   const fromRouter = isRouterActive();
   const viewAllHref = fromRouter ? "/fritzi/work" : "./work.html";
 
@@ -66,4 +82,22 @@ function validateFeaturedProjectsProps(props) {
   if (!Array.isArray(props?.projects)) {
     throw new Error("[FeaturedProjects] props.projects doit être un tableau");
   }
+}
+
+/**
+ * Au premier survol (ou premier tap sur tactile), bascule définitivement
+ * l'image du cadre vers logo-cadre-white.svg — jamais de retour en arrière,
+ * même logique que EyeReveal (components/fritzi/eye-reveal.js).
+ */
+function bindFrameImageSwap(img) {
+  let isActive = false;
+
+  const activate = () => {
+    if (isActive) return;
+    isActive = true;
+    img.src = FRAME_IMAGE_HOVER_URL;
+  };
+
+  img.addEventListener("mouseenter", activate);
+  img.addEventListener("pointerdown", activate);
 }
