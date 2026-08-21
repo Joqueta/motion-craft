@@ -1,4 +1,4 @@
-@import url("./eye-focus.css");
+@import url("./eye-reveal.css");
 
 /* ===== Design tokens ===== */
 :root {
@@ -278,8 +278,12 @@ html {
    .featured__frame-image (voir plus bas), qui y affiche le visuel réel. */
 .featured__frame {
     display: flex;
+<<<<<<< Updated upstream
     width: 16rem;
     height: 30rem;
+=======
+    height: 100vh;
+>>>>>>> Stashed changes
     justify-content: center;
     align-items: flex-start;
     gap: 2.1875rem;
@@ -311,6 +315,7 @@ html {
    .featured__frame-image, qui y atterrit une fois le scroll terminé. */
 .featured__grid-frame {
     display: block;
+<<<<<<< Updated upstream
     width: 16rem;
     height: 30rem;
 }
@@ -346,6 +351,13 @@ html {
     object-fit: contain;
     cursor: pointer;
     pointer-events: auto;
+=======
+    width: 10rem;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+>>>>>>> Stashed changes
 }
 
 .project-card {
@@ -368,17 +380,15 @@ html {
     background: url(../../assets/fritzi/home/angle-top.svg);
     top: -40px;
     left: -40px;
-    width: 8.2905rem;
-    height: 7.31894rem;
+    height: 100vh;
     flex-shrink: 0;
 }
 
 .featured__col--right .project-card::before {
     background: url(../../assets/fritzi/home/angle-top.svg);
-    bottom: -40px;
+    bottom: 0px;
     right: -40px;
-    width: 8.2905rem;
-    height: 7.31894rem;
+    height: 100vh;
     rotate: 180deg;
 }
 

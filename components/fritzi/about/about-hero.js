@@ -1,4 +1,3 @@
-import { EyeFocus } from "../eye-focus.js";
 import { escapeHtml } from "../../../lib/text.js";
 
 /**
