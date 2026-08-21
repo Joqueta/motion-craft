@@ -1,4 +1,4 @@
-import { EyeFocus } from "../eye-focus.js";
+import { EyeReveal } from "../eye-reveal.js";
 import { escapeHtml } from "../../../lib/text.js";
 
 /**
@@ -30,6 +30,9 @@ export function AboutMe(props) {
       <p class="about-me__caption">${escapeHtml(props.caption)}</p>
     </div>
   `;
+
+  section.appendChild(EyeReveal({ xPercent: 42, yPercent: 30 }));
+
   return section;
 }
 
