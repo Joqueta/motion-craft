@@ -109,7 +109,7 @@ const FRITZI_SEED = {
       offerings: HOME_OFFERINGS,
     },
     media: {
-      aboutPortrait: { asset: 'home/bg-about-me.svg', alt: 'Portrait de Fritzi Frois' },
+      aboutPortrait: { asset: 'home/about-me-bg.webp', alt: 'Portrait de Fritzi Frois' },
       offeringsImage: { asset: 'home/LEAF.svg', alt: 'feuille de plante verte' },
     },
   },

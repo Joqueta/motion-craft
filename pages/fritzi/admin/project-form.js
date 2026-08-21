@@ -80,7 +80,7 @@ function save() {
 
   const isNew = !item.id;
   portfolioStore.update({ fritziFormStatus: "saving" });
-  const request = isNew ? createFritziProject(item) : saveFritziProjectDetail(item.id, item);
+  const request = isNew ? createFritziProject(item) : saveFritziProjectDetail(item.documentId, item);
 
   request
     .then((saved) => {
@@ -105,7 +105,7 @@ function removeProject() {
   if (!window.confirm(`Permanently delete "${item.label || item.slug}"? This action cannot be undone.`)) return;
 
   portfolioStore.update({ fritziFormStatus: "saving" });
-  deleteFritziProject(item.id)
+  deleteFritziProject(item.documentId)
     .then(() => {
       recordAudit("Deleted a fritzi project", item.label || item.slug);
       notify("Project deleted.", "success");

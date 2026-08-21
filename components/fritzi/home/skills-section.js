@@ -9,11 +9,12 @@ import { escapeHtml } from "../../../lib/text.js";
  * @param {Object} props
  * @param {Object} props.content  (eyebrow, line1, connector, line2, paragraphs, cvLabel, offeringsImage)
  * @param {Array} props.offerings
+ * @param {Array} [props.projects]  projets (avec cover) pour le hover-preview des offering-rows
  * @returns {HTMLElement}
  */
 export function SkillsSection(props) {
   validateSkillsSectionProps(props);
-  const { content, offerings } = props;
+  const { content, offerings, projects } = props;
 
   const section = document.createElement("section");
   section.className = "skills";
@@ -38,7 +39,7 @@ export function SkillsSection(props) {
 
   const list = document.createElement("div");
   list.className = "skills__list";
-  offerings.forEach((offering) => list.appendChild(OfferingRow(offering)));
+  offerings.forEach((offering) => list.appendChild(OfferingRow({ ...offering, projects })));
   section.appendChild(list);
 
   return section;

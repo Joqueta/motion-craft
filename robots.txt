@@ -4,7 +4,6 @@ Disallow: /admin
 Disallow: /connexion
 Disallow: /inscription
 Disallow: /fritzi/admin
-Disallow: /fritzi/eye-focus.html
 Disallow: /tests/
 
 Sitemap: https://exemple.fr/sitemap.xml
