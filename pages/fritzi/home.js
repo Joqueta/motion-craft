@@ -43,7 +43,8 @@ export async function HomePage() {
         content.appendChild(
             SkillsSection({
                 content: data.about,
-                offerings: data.offerings
+                offerings: data.offerings,
+                projects: data.projects
             })
         );
 
