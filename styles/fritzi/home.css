@@ -278,12 +278,8 @@ html {
    .featured__frame-image (voir plus bas), qui y affiche le visuel réel. */
 .featured__frame {
     display: flex;
-<<<<<<< Updated upstream
     width: 16rem;
     height: 30rem;
-=======
-    height: 100vh;
->>>>>>> Stashed changes
     justify-content: center;
     align-items: flex-start;
     gap: 2.1875rem;
@@ -315,7 +311,6 @@ html {
    .featured__frame-image, qui y atterrit une fois le scroll terminé. */
 .featured__grid-frame {
     display: block;
-<<<<<<< Updated upstream
     width: 16rem;
     height: 30rem;
 }
@@ -351,13 +346,6 @@ html {
     object-fit: contain;
     cursor: pointer;
     pointer-events: auto;
-=======
-    width: 10rem;
-    height: 100vh;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
->>>>>>> Stashed changes
 }
 
 .project-card {
