@@ -15,27 +15,40 @@ const PUBLIC_READ_ACTIONS = [
   'api::fritzi-project.fritzi-project.findOne',
 ];
 
-async function ensurePublicReadAccess(strapi) {
-  const publicRole = await strapi
-    .query('plugin::users-permissions.role')
-    .findOne({ where: { type: 'public' } });
+const AUTHENTICATED_WRITE_ACTIONS = [
+  'api::fritzi-project.fritzi-project.create',
+  'api::fritzi-project.fritzi-project.delete',
+];
 
-  if (!publicRole) return;
+async function ensureRoleActions(strapi, roleType, actions) {
+  const role = await strapi
+    .query('plugin::users-permissions.role')
+    .findOne({ where: { type: roleType } });
+
+  if (!role) return;
 
   const existing = await strapi.query('plugin::users-permissions.permission').findMany({
-    where: { role: publicRole.id, action: { $in: PUBLIC_READ_ACTIONS } },
+    where: { role: role.id, action: { $in: actions } },
   });
   const existingActions = new Set(existing.map((permission) => permission.action));
 
-  const toCreate = PUBLIC_READ_ACTIONS.filter((action) => !existingActions.has(action));
+  const toCreate = actions.filter((action) => !existingActions.has(action));
 
   await Promise.all(
     toCreate.map((action) =>
       strapi.query('plugin::users-permissions.permission').create({
-        data: { action, role: publicRole.id },
+        data: { action, role: role.id },
       }),
     ),
   );
+}
+
+async function ensurePublicReadAccess(strapi) {
+  await ensureRoleActions(strapi, 'public', PUBLIC_READ_ACTIONS);
+}
+
+async function ensureAuthenticatedWriteAccess(strapi) {
+  await ensureRoleActions(strapi, 'authenticated', AUTHENTICATED_WRITE_ACTIONS);
 }
 
 module.exports = {
@@ -56,6 +69,7 @@ module.exports = {
    */
   async bootstrap({ strapi }) {
     await ensurePublicReadAccess(strapi);
+    await ensureAuthenticatedWriteAccess(strapi);
     await seedFritziContent(strapi);
   },
 };

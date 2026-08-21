@@ -1,4 +1,4 @@
-@import url("./eye-focus.css");
+@import url("./eye-reveal.css");
 
 /* ===== Design tokens ===== */
 :root {
@@ -238,6 +238,7 @@ html {
 
 /* ===== Featured Projects ===== */
 .featured {
+    position: relative;
     background: var(--color-olive);
     padding: 4rem var(--gutter) 6rem;
 
@@ -273,13 +274,11 @@ html {
     text-align: left;
 }
 
+/* Espaceur invisible : réserve la place entre "Featured" et "Projects" pour
+   .featured__frame-image (voir plus bas), qui y affiche le visuel réel. */
 .featured__frame {
-    background-image: url("../../assets/fritzi/home/rectangle.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     display: flex;
-    width: 10rem;
+    width: 16rem;
     height: 30rem;
     justify-content: center;
     align-items: flex-start;
@@ -308,14 +307,45 @@ html {
     justify-content: center;
 }
 
+/* Espaceur invisible : réserve la place entre les 2 cartes pour
+   .featured__frame-image, qui y atterrit une fois le scroll terminé. */
 .featured__grid-frame {
     display: block;
-    width: 10rem;
-    height: 100vh;
-    background-image: url("../../assets/fritzi/home/rectangle.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 16rem;
+    height: 30rem;
+}
+
+/*
+ * .featured__frame-image démarre visuellement entre "Featured" et "Projects"
+ * (par-dessus l'espaceur .featured__frame), reste épinglée (sticky) pendant
+ * le scroll, puis se pose entre les 2 cartes (par-dessus l'espaceur
+ * .featured__grid-frame). Le track est positionné en absolu par-dessus le
+ * heading (100vh) + la moitié de la hauteur de .featured__grid-frame
+ * (30rem / 2 = 15rem), pour que le point de chute du sticky (bas du track
+ * moins la moitié de la hauteur de l'image) coïncide avec le centre du
+ * cadre de la grille.
+ */
+.featured__frame-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(100vh + 35rem);
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.featured__frame-image {
+    position: sticky;
+    top: 6rem;
+    /* centre l'image sur la hauteur du heading (100vh) au repos */
+    margin-top: calc(50vh - 15rem);
+    width: 16rem;
+    height: 30rem;
+    object-fit: contain;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .project-card {
@@ -338,17 +368,15 @@ html {
     background: url(../../assets/fritzi/home/angle-top.svg);
     top: -40px;
     left: -40px;
-    width: 8.2905rem;
-    height: 7.31894rem;
+    height: 100vh;
     flex-shrink: 0;
 }
 
 .featured__col--right .project-card::before {
     background: url(../../assets/fritzi/home/angle-top.svg);
-    bottom: -40px;
+    bottom: 0px;
     right: -40px;
-    width: 8.2905rem;
-    height: 7.31894rem;
+    height: 100vh;
     rotate: 180deg;
 }
 
@@ -361,7 +389,6 @@ html {
     height: 20.33606rem;
     aspect-ratio: 5 / 4;
     object-fit: cover;
-    border-radius: 2px;
 }
 
 .project-card__meta {
@@ -467,6 +494,20 @@ html {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 3rem;
+}
+
+/*
+ * .skills__intro reste épinglée (sticky) pendant que .skills__image puis
+ * .skills__list défilent dans la colonne de droite, et se libère une fois
+ * la fin de la section atteinte (bas de .skills__list). grid-row: 1 / 3
+ * étire sa boîte sur les 2 lignes de la grille (image + liste) pour que le
+ * point de décrochage du sticky coïncide avec la fin de section, pas plus.
+ */
+.skills__intro {
+    grid-row: 1 / 3;
+    align-self: start;
+    position: sticky;
+    top: 6rem;
 }
 
 .skills__eyebrow {
@@ -576,6 +617,12 @@ html {
 }
 
 .offering-row__tag {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.offering-row__tag-text {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -586,10 +633,38 @@ html {
     font-style: normal;
     font-weight: 300;
     line-height: 145%;
+    transition: opacity 250ms ease;
 }
 
 .offering-row__arrow {
     font-size: 0.85rem;
+}
+
+/*
+ * Au survol d'un .offering-row__work-label relié à un projet, ce cover
+ * remplace le texte du tag (crossfade) — voir bindWorkCoverPreview dans
+ * offering-row.js.
+ */
+.offering-row__tag-cover {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 3.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+    border-radius: 2px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 250ms ease;
+}
+
+.offering-row__tag.is-previewing .offering-row__tag-text {
+    opacity: 0;
+}
+
+.offering-row__tag.is-previewing .offering-row__tag-cover {
+    opacity: 1;
 }
 
 .offering-row__toggle {
@@ -628,6 +703,10 @@ html {
     color: #D9D9D9;
     text-decoration: underline;
     white-space: nowrap;
+}
+
+.offering-row__work-label[data-cover-url] {
+    cursor: pointer;
 }
 
 /* ===== Contact / footer ===== */
@@ -785,8 +864,28 @@ html {
         margin: 1.5rem 0;
     }
 
+    .featured__frame-track {
+        position: static;
+        height: auto;
+        margin: 1.5rem 0;
+    }
+
+    .featured__frame-image {
+        position: static;
+        top: auto;
+        margin-top: 0;
+        width: 10rem;
+        height: 19rem;
+    }
+
     .skills {
         grid-template-columns: 1fr;
+    }
+
+    .skills__intro {
+        grid-row: auto;
+        position: static;
+        top: auto;
     }
 
     .about-me {

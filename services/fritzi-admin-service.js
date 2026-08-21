@@ -74,6 +74,7 @@ function toTextImageBlockItem(raw) {
 export function toProjectDetailItem(entity) {
   return {
     id: entity.id,
+    documentId: entity.documentId ?? null,
     slug: entity.slug ?? "",
     client: entity.client ?? "",
     label: entity.label ?? "",
@@ -116,6 +117,7 @@ export async function loadFritziProjectDetail(slug) {
 export function createEmptyProjectDetailItem() {
   return {
     id: null,
+    documentId: null,
     slug: "",
     client: "",
     label: "",
@@ -192,27 +194,32 @@ export async function createFritziProject(item) {
   return toProjectDetailItem(created);
 }
 
-export async function saveFritziProjectDetail(id, item) {
-  const saved = await client.update(`fritzi-projects/${id}`, fromProjectDetailItem(item), { populate: PROJECT_DETAIL_POPULATE });
+export async function saveFritziProjectDetail(documentId, item) {
+  const saved = await client.update(`fritzi-projects/${documentId}`, fromProjectDetailItem(item), { populate: PROJECT_DETAIL_POPULATE });
   return toProjectDetailItem(saved);
 }
 
-export async function deleteFritziProject(id) {
-  await client.remove(`fritzi-projects/${id}`);
+export async function deleteFritziProject(documentId) {
+  await client.remove(`fritzi-projects/${documentId}`);
 }
 
 const PROJECT_REQUIRED_FIELDS = [
-  { key: "client", label: "Client", kind: "text" },
-  { key: "label", label: "Intitulé", kind: "text" },
-  { key: "title", label: "Titre", kind: "text" },
-  { key: "eyebrow", label: "Eyebrow", kind: "text" },
-  { key: "cover", label: "Image de couverture", kind: "media" },
-  { key: "heroImage", label: "Image principale", kind: "media" },
+  { get: (item) => item.client, label: "Client", kind: "text" },
+  { get: (item) => item.label, label: "Intitulé", kind: "text" },
+  { get: (item) => item.title, label: "Titre", kind: "text" },
+  { get: (item) => item.eyebrow, label: "Eyebrow", kind: "text" },
+  { get: (item) => item.cover, label: "Image de couverture", kind: "media" },
+  { get: (item) => item.heroImage, label: "Image principale", kind: "media" },
+  // discovery/challenge/outcome images are required by the Strapi schema as soon as
+  // the corresponding component is sent (i.e. as soon as any of its text is filled in).
+  { get: (item) => item.discovery.image, label: "Image de découverte", kind: "media" },
+  { get: (item) => item.challenge.backgroundImage, label: "Image du défi", kind: "media" },
+  { get: (item) => item.outcome.image, label: "Image du résultat", kind: "media" },
 ];
 
 export function missingProjectFields(item) {
-  return PROJECT_REQUIRED_FIELDS.filter(({ key, kind }) =>
-    kind === "media" ? !item[key]?.id : String(item[key] ?? "").trim() === "",
+  return PROJECT_REQUIRED_FIELDS.filter(({ get, kind }) =>
+    kind === "media" ? !get(item)?.id : String(get(item) ?? "").trim() === "",
   ).map(({ label }) => label);
 }
 

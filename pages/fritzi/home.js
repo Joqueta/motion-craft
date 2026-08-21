@@ -34,11 +34,7 @@ export async function HomePage() {
 
         content.appendChild(
             FeaturedProjects({
-                projects: data.projects,
-                centerImage: {
-                    url: "https://placehold.co/500x900/1a1a1a/EDE9DD?text=Fritzi",
-                    alt: "Portrait de Fritzi Frois"
-                }
+                projects: data.projects
             })
         );
 
@@ -47,7 +43,8 @@ export async function HomePage() {
         content.appendChild(
             SkillsSection({
                 content: data.about,
-                offerings: data.offerings
+                offerings: data.offerings,
+                projects: data.projects
             })
         );
 
