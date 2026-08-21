@@ -238,6 +238,7 @@ html {
 
 /* ===== Featured Projects ===== */
 .featured {
+    position: relative;
     background: var(--color-olive);
     padding: 4rem var(--gutter) 6rem;
 
@@ -273,13 +274,11 @@ html {
     text-align: left;
 }
 
+/* Espaceur invisible : réserve la place entre "Featured" et "Projects" pour
+   .featured__frame-image (voir plus bas), qui y affiche le visuel réel. */
 .featured__frame {
-    background-image: url("../../assets/fritzi/home/rectangle.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
     display: flex;
-    width: 10rem;
+    width: 16rem;
     height: 30rem;
     justify-content: center;
     align-items: flex-start;
@@ -308,14 +307,45 @@ html {
     justify-content: center;
 }
 
+/* Espaceur invisible : réserve la place entre les 2 cartes pour
+   .featured__frame-image, qui y atterrit une fois le scroll terminé. */
 .featured__grid-frame {
     display: block;
-    width: 10rem;
-    height: 100vh;
-    background-image: url("../../assets/fritzi/home/rectangle.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 16rem;
+    height: 30rem;
+}
+
+/*
+ * .featured__frame-image démarre visuellement entre "Featured" et "Projects"
+ * (par-dessus l'espaceur .featured__frame), reste épinglée (sticky) pendant
+ * le scroll, puis se pose entre les 2 cartes (par-dessus l'espaceur
+ * .featured__grid-frame). Le track est positionné en absolu par-dessus le
+ * heading (100vh) + la moitié de la hauteur de .featured__grid-frame
+ * (30rem / 2 = 15rem), pour que le point de chute du sticky (bas du track
+ * moins la moitié de la hauteur de l'image) coïncide avec le centre du
+ * cadre de la grille.
+ */
+.featured__frame-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(100vh + 35rem);
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.featured__frame-image {
+    position: sticky;
+    top: 6rem;
+    /* centre l'image sur la hauteur du heading (100vh) au repos */
+    margin-top: calc(50vh - 15rem);
+    width: 16rem;
+    height: 30rem;
+    object-fit: contain;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .project-card {
@@ -782,6 +812,20 @@ html {
 
     .featured__col--center {
         margin: 1.5rem 0;
+    }
+
+    .featured__frame-track {
+        position: static;
+        height: auto;
+        margin: 1.5rem 0;
+    }
+
+    .featured__frame-image {
+        position: static;
+        top: auto;
+        margin-top: 0;
+        width: 10rem;
+        height: 19rem;
     }
 
     .skills {
