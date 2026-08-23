@@ -2,7 +2,7 @@ import { Layout } from "../../components/fritzi/layout.js";
 import { Hero } from "../../components/fritzi/home/hero.js";
 import { FeaturedProjects } from "../../components/fritzi/home/featured-project.js";
 import { AboutMe } from "../../components/fritzi/home/about-me.js";
-import { SkillsSection } from "../../components/fritzi/home/skills-section.js";
+import { SkillsSection } from "../../components/fritzi/shared/skills-section.js";
 
 import { fetchHomeData } from "../../services/fritzi-content-service.js";
 

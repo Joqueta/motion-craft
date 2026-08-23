@@ -38,8 +38,8 @@ export function EyeReveal(props) {
 
   const wrapper = document.createElement("div");
   wrapper.className = "eye-reveal";
-  wrapper.style.setProperty("--eye-x", "40%");
-  wrapper.style.setProperty("--eye-y", "50%");
+  wrapper.style.setProperty("--eye-x", `${xPercent}%`);
+  wrapper.style.setProperty("--eye-y", `${yPercent}%`);
   wrapper.style.setProperty("--closed-width", `${closedWidth}px`);
   wrapper.style.setProperty("--open-width", `${openWidth}px`);
   wrapper.style.setProperty("--fixed-height", `${fixedHeight}px`);

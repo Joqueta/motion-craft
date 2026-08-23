@@ -144,9 +144,15 @@ export async function fetchHomeData() {
 }
 
 export async function fetchAboutData() {
-  const [home, about] = await Promise.all([
+  const [home, about, projects] = await Promise.all([
     client.findOne("fritzi-home", { populate: { offeringsImage: true } }),
     client.findOne("fritzi-about", { populate: ABOUT_POPULATE }),
+    client.find("fritzi-projects", {
+      filters: { state: { $eq: "published" } },
+      sort: "order:asc",
+      populate: PROJECT_LIST_POPULATE,
+      pagination: { pageSize: 100 },
+    }),
   ]);
 
   return {
@@ -159,6 +165,7 @@ export async function fetchAboutData() {
     },
     skillsContent: toSkillsContent(home),
     offerings: Array.isArray(about?.offerings) ? about.offerings.map(toOffering) : [],
+    projects: projects.items.map(toProjectCard),
   };
 }
 

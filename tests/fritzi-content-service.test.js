@@ -6,6 +6,7 @@ import {
   toTextImageBlock,
   fetchWorkData,
   fetchHomeData,
+  fetchAboutData,
   fetchProjectDetail,
 } from "../services/fritzi-content-service.js";
 
@@ -120,6 +121,35 @@ describe("fritzi-content-service — fetchHomeData filtre featured + published",
       const result = await fetchHomeData();
       expect(result.projects.map((project) => project.slug)).toEqual(["a"]);
       expect(receivedQuery.filters).toEqual({ featured: { $eq: true }, state: { $eq: "published" } });
+    } finally {
+      client.find = originalFind;
+      client.findOne = originalFindOne;
+    }
+  });
+});
+
+describe("fritzi-content-service — fetchAboutData inclut les projets publiés", () => {
+  it("récupère les projets publiés pour le survol/cover des offering-rows", async () => {
+    const originalFind = client.find;
+    const originalFindOne = client.findOne;
+    let receivedQuery = null;
+
+    client.findOne = async () => ({});
+    client.find = async (resource, query) => {
+      receivedQuery = query;
+      const projects = [
+        { id: 1, slug: "a", client: "X", label: "A", cover: null, state: "published" },
+        { id: 2, slug: "b", client: "X", label: "B", cover: null, state: "draft" },
+      ];
+      const wanted = query.filters?.state?.$eq;
+      const items = wanted ? projects.filter((project) => project.state === wanted) : projects;
+      return { items, pagination: null };
+    };
+
+    try {
+      const result = await fetchAboutData();
+      expect(result.projects.map((project) => project.slug)).toEqual(["a"]);
+      expect(receivedQuery.filters.state.$eq).toBe("published");
     } finally {
       client.find = originalFind;
       client.findOne = originalFindOne;

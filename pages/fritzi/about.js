@@ -1,6 +1,6 @@
 import { Nav } from "../../components/fritzi/nav.js";
 import { AboutHero } from "../../components/fritzi/about/about-hero.js";
-import { AboutSkillsSection } from "../../components/fritzi/about/about-skills-section.js";
+import { SkillsSection } from "../../components/fritzi/shared/skills-section.js";
 import { ContactFooter } from "../../components/fritzi/contact-footer.js";
 
 import { fetchAboutData, fetchProfile, fetchContactInfo } from "../../services/fritzi-content-service.js";
@@ -25,7 +25,7 @@ export async function AboutPage() {
         page.appendChild(Nav({ logo: profile.logo, year: profile.year }));
         page.appendChild(AboutHero(data.hero));
         page.appendChild(
-            AboutSkillsSection({ content: data.skillsContent, offerings: data.offerings })
+            SkillsSection({ content: data.skillsContent, offerings: data.offerings, projects: data.projects })
         );
         page.appendChild(ContactFooter(contact));
     } catch (error) {
