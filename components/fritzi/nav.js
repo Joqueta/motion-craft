@@ -1,5 +1,5 @@
-import { isRouterActive } from "../router/browser-router.js";
 import { escapeHtml } from "../../lib/text.js";
+import { getNavLinks } from "./nav-links.js";
 
 /**
  * Navigation principale.
@@ -11,28 +11,18 @@ import { escapeHtml } from "../../lib/text.js";
  */
 export function Nav(props) {
   validateNavProps(props);
-  const fromRouter = isRouterActive();
-  const links = props.links || (fromRouter
-    ? [
-        { label: "Home", href: "/fritzi" },
-        { label: "Work", href: "/fritzi/work" },
-        { label: "About / Services", href: "/fritzi/about" }
-      ]
-    : [
-        { label: "Home", href: "./#" },
-        { label: "Work", href: "/fritzi/work.html" },
-        { label: "About / Services", href: "/fritzi/about.html" }
-      ]);
+  const links = props.links || getNavLinks();
+  const home = links.find((link) => link.label === "Home") || links[0];
 
   const header = document.createElement("header");
   header.className = "nav";
 
   header.innerHTML = `
-    <a class="nav__logo" href="${fromRouter ? "/fritzi" : "./#"}"${fromRouter ? " data-route" : ""} aria-label="Retour à l'accueil">
+    <a class="nav__logo" href="${escapeHtml(home.href)}"${home.dataRoute ? " data-route" : ""} aria-label="Retour à l'accueil">
       <img src="${escapeHtml(props.logo.url)}" alt="${escapeHtml(props.logo.alt)}" />
     </a>
     <nav class="nav__links" aria-label="Navigation principale">
-      ${links.map((link) => `<a href="${escapeHtml(link.href)}"${fromRouter ? " data-route" : ""} class="nav__link">${escapeHtml(link.label)}</a>`).join("")}
+      ${links.map((link) => `<a href="${escapeHtml(link.href)}"${link.dataRoute ? " data-route" : ""} class="nav__link">${escapeHtml(link.label)}</a>`).join("")}
     </nav>
     ${props.year ? `<span class="nav__year">${escapeHtml(props.year)}</span>` : ""}
   `;

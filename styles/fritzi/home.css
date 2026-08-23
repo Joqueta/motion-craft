@@ -776,6 +776,7 @@ html {
     line-height: normal;
     letter-spacing: -0.0675rem;
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 .contact__links {

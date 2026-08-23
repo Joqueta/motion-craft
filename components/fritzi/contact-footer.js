@@ -1,4 +1,5 @@
 import { escapeHtml } from "../../lib/text.js";
+import { getNavLinks } from "./nav-links.js";
 
 /**
  * Bloc de contact final ("Come say hi") avec cadre et liens.
@@ -29,7 +30,13 @@ export function ContactFooter(props) {
       </div>
 
       <nav class="contact__nav" aria-label="Navigation footer">
-        ${props.nav.map((link) => `<a href="#" class="contact__nav-link">${escapeHtml(link)}</a>`).join("")}
+        ${(() => {
+          const navLinks = getNavLinks();
+          return props.nav.map((label) => {
+            const link = navLinks.find((item) => item.label === label);
+            return `<a href="${escapeHtml(link?.href ?? "#")}"${link?.dataRoute ? " data-route" : ""} class="contact__nav-link">${escapeHtml(label)}</a>`;
+          }).join("");
+        })()}
       </nav>
 
       <div class="contact__links">
