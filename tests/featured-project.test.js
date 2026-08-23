@@ -3,7 +3,7 @@ import { FeaturedProjects } from "../components/fritzi/home/featured-project.js"
 
 describe("FeaturedProjects", () => {
   it("affiche toujours l'image du cadre, avec rectangle.svg par défaut", () => {
-    const section = FeaturedProjects({ projects: [] });
+    const section = FeaturedProjects({ projects: [], note: "" });
 
     const img = section.querySelector(".featured__frame-image");
     expect(img).toBeTruthy();
@@ -11,14 +11,14 @@ describe("FeaturedProjects", () => {
   });
 
   it("garde les espaceurs décoratifs (heading + grille)", () => {
-    const section = FeaturedProjects({ projects: [] });
+    const section = FeaturedProjects({ projects: [], note: "" });
 
     expect(section.querySelector(".featured__frame")).toBeTruthy();
     expect(section.querySelector(".featured__grid-frame")).toBeTruthy();
   });
 
   it("bascule vers logo-cadre-white.svg au premier survol", () => {
-    const section = FeaturedProjects({ projects: [] });
+    const section = FeaturedProjects({ projects: [], note: "" });
     document.body.appendChild(section);
     const img = section.querySelector(".featured__frame-image");
 
@@ -30,7 +30,7 @@ describe("FeaturedProjects", () => {
   });
 
   it("reste sur logo-cadre-white.svg même après un mouseleave (pas de retour en arrière)", () => {
-    const section = FeaturedProjects({ projects: [] });
+    const section = FeaturedProjects({ projects: [], note: "" });
     document.body.appendChild(section);
     const img = section.querySelector(".featured__frame-image");
 
@@ -42,7 +42,7 @@ describe("FeaturedProjects", () => {
   });
 
   it("bascule aussi au premier tap (pointerdown), pour le tactile", () => {
-    const section = FeaturedProjects({ projects: [] });
+    const section = FeaturedProjects({ projects: [], note: "" });
     document.body.appendChild(section);
     const img = section.querySelector(".featured__frame-image");
 

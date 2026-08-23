@@ -104,6 +104,8 @@ const FRITZI_SEED = {
       quoteTail: 'upbringing.',
       aboutCaption:
         'A design approach led by curiosity, logic, and empathy. All digital experiences are crafted to be intuitive, functional, and quietly delightful.',
+      featuredNote:
+        "A selection of projects that reflect how I think, design, and build — from early concept to shipped product.",
       skillsEyebrow: 'My offerings',
       skillsLine1: 'Person',
       skillsConnector: 'and',

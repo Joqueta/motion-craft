@@ -200,6 +200,14 @@ function HomeFields(data, readOnly, media, uploading) {
         MediaSelectField({ id: "home-about-portrait", label: "Portrait", value: data.aboutPortrait, media, disabled: readOnly, uploading, onSelect: bind("aboutPortrait"), onUpload: createMediaUploadHandler(bind("aboutPortrait")) }),
       ],
     },
+    { type: "h2", children: ["\"Featured Projects\" section"] },
+    {
+      type: "div",
+      attributes: [["class", ["editor-grid"]]],
+      children: [
+        Field({ id: "home-featured-note", label: "Note", control: "textarea", rows: 3, value: data.featuredNote, placeholder: "Note below the featured projects", required: true, disabled: readOnly, onInput: bind("featuredNote") }),
+      ],
+    },
     { type: "h2", children: ["\"Skills\" section"] },
     {
       type: "div",

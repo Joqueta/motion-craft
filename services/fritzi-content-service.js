@@ -137,6 +137,7 @@ export async function fetchHomeData() {
   return {
     profile,
     projects: featured.items.map(toProjectCard),
+    featuredNote: home?.featuredNote ?? "",
     about: toSkillsContent(home),
     aboutMe: toAboutMe(home),
     offerings: Array.isArray(home?.offerings) ? home.offerings.map(toOffering) : [],

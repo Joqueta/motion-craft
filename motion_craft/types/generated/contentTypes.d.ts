@@ -558,6 +558,7 @@ export interface ApiFritziHomeFritziHome extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     cvLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    featuredNote: Schema.Attribute.Text & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

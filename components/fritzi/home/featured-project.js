@@ -1,5 +1,6 @@
 import { FeaturedProjectCard } from "./featured-project-card.js";
 import { isRouterActive } from "../../router/browser-router.js";
+import { escapeHtml } from "../../../lib/text.js";
 
 const FRAME_IMAGE_URL = "/assets/fritzi/home/rectangle.svg";
 const FRAME_IMAGE_HOVER_URL = "/assets/fritzi/home/logo-cadre-white.svg";
@@ -11,6 +12,7 @@ const FRAME_IMAGE_HOVER_URL = "/assets/fritzi/home/logo-cadre-white.svg";
  *
  * @param {Object} props
  * @param {Array} propsprojects - exactement 2 attendus pour le layout gauche/droite
+ * @param {string} props.note - texte affiché sous la grille de projets
  * @returns {HTMLElement}
  */
 export function FeaturedProjects(props) {
@@ -66,11 +68,7 @@ export function FeaturedProjects(props) {
   const footer = document.createElement("div");
   footer.className = "featured__footer";
   footer.innerHTML = `
-    <p class="featured__note">
-      Lorem ipsum dolor sit amet consectetur. Aliquam sem elementum egestas ante
-      dignissim eget mollis. Nunc sodales elementum sem gravida. Leo senectus sed
-      adipiscing.
-    </p>
+    <p class="featured__note">${escapeHtml(props.note)}</p>
     <a class="btn btn--outline" href="${viewAllHref}"${fromRouter ? " data-route" : ""}>View all</a>
   `;
   section.appendChild(footer);
@@ -81,6 +79,9 @@ export function FeaturedProjects(props) {
 function validateFeaturedProjectsProps(props) {
   if (!Array.isArray(props?.projects)) {
     throw new Error("[FeaturedProjects] props.projects doit être un tableau");
+  }
+  if (typeof props?.note !== "string") {
+    throw new Error("[FeaturedProjects] props.note doit être une chaîne");
   }
 }
 

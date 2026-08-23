@@ -34,7 +34,8 @@ export async function HomePage() {
 
         content.appendChild(
             FeaturedProjects({
-                projects: data.projects
+                projects: data.projects,
+                note: data.featuredNote
             })
         );
 
