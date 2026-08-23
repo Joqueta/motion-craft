@@ -31,7 +31,7 @@ export function AboutMe(props) {
     </div>
   `;
 
-  section.appendChild(EyeReveal({ xPercent: 42, yPercent: 30 }));
+  section.appendChild(EyeReveal({ xPercent: 40, yPercent: 50 }));
 
   return section;
 }

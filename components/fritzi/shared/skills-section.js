@@ -2,7 +2,7 @@ import { OfferingRow } from "./offering-row.js";
 import { escapeHtml } from "../../../lib/text.js";
 
 /**
- * Section "Person and skills" — même structure de template que AboutMe :
+ * Section "Person and skills" — utilisée à l'identique par Home et About :
  * eyebrow discret + titre en 2 lignes, une ligne simple, une ligne avec
  * un connecteur discret (is-muted) suivi d'un mot en emphase.
  *

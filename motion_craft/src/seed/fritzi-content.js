@@ -35,35 +35,43 @@ const ABOUT_OFFERINGS = [
   {
     number: '01',
     title: 'Front-end',
+    tag: 'Related work',
     tools: 'HTML 5, CSS 3, JavaScript, React & Next.js',
+    work: ['Tv display', 'Web site/ Reponsive'],
     relatedWork: [
-      { label: 'Tv display', slug: 'decode-tv-display' },
-      { label: 'Web site/ Reponsive', slug: 'ecole-innovation-tech' },
+      { label: 'Tv display', slug: 'tv-display' },
+      { label: 'Web site/ Reponsive', slug: 'website-responsive' },
     ],
   },
   {
     number: '02',
     title: 'Back-end',
+    tag: 'Related work',
     tools: 'PHP, Symfony, C++',
+    work: ['Tv display', 'Web site/ Reponsive'],
     relatedWork: [
-      { label: 'Tv display', slug: 'decode-tv-display' },
-      { label: 'Web site/ Reponsive', slug: 'ecole-innovation-tech' },
+      { label: 'Tv display', slug: 'tv-display' },
+      { label: 'Web site/ Reponsive', slug: 'website-responsive' },
     ],
   },
   {
     number: '03',
     title: 'Fullstack Development',
+    tag: 'Related work',
     tools: 'HTML 5, CSS 3, JavaScript, React, Next.js, PHP, Symfony, C++, Wordpress & Github',
+    work: ['Tv display', 'Web site/ Reponsive'],
     relatedWork: [
-      { label: 'Tv display', slug: 'decode-tv-display' },
-      { label: 'Web site/ Reponsive', slug: 'ecole-innovation-tech' },
+      { label: 'Tv display', slug: 'tv-display' },
+      { label: 'Web site/ Reponsive', slug: 'website-responsive' },
     ],
   },
   {
     number: '04',
     title: 'UI / Visual Design',
+    tag: 'Related work',
     tools: 'Figma, Illustrator, Indesign & Photoshop',
-    relatedWork: [{ label: 'Tv display', slug: 'decode-tv-display' }],
+    work: ['Tv display'],
+    relatedWork: [{ label: 'Tv display', slug: 'tv-display' }],
   },
 ];
 
@@ -96,6 +104,8 @@ const FRITZI_SEED = {
       quoteTail: 'upbringing.',
       aboutCaption:
         'A design approach led by curiosity, logic, and empathy. All digital experiences are crafted to be intuitive, functional, and quietly delightful.',
+      featuredNote:
+        "A selection of projects that reflect how I think, design, and build — from early concept to shipped product.",
       skillsEyebrow: 'My offerings',
       skillsLine1: 'Person',
       skillsConnector: 'and',

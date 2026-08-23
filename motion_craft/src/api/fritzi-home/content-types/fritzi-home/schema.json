@@ -18,6 +18,7 @@
     "quoteTail": { "type": "string", "required": true },
     "aboutCaption": { "type": "text", "required": true },
     "aboutPortrait": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true },
+    "featuredNote": { "type": "text", "required": true },
     "skillsEyebrow": { "type": "string", "required": true },
     "skillsLine1": { "type": "string", "required": true },
     "skillsConnector": { "type": "string", "required": true },

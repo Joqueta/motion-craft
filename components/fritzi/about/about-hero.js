@@ -1,8 +1,10 @@
+import { EyeReveal } from "../eye-reveal.js";
 import { escapeHtml } from "../../../lib/text.js";
 
 /**
- * Hero "About Me" : portrait en fond, titre géant en surimpression,
- * bloc rôle en bas à gauche, bloc localisation à droite, bio centrée en bas.
+ * Hero "About Me" : portrait plein cadre en fond (assombri, effet eye-reveal),
+ * titre géant en surimpression, bloc rôle en bas à gauche, bloc localisation
+ * à droite, bio centrée en bas.
  * @param {Object} props
  * @param {string} props.role
  * @param {string} props.locationLabel
@@ -18,8 +20,10 @@ export function AboutHero(props) {
   section.className = "about-hero";
 
   section.innerHTML = `
+    <img class="about-hero__portrait" src="${escapeHtml(props.portrait.url)}" alt="${escapeHtml(props.portrait.alt)}" />
+
     <div class="about-hero__row">
-     
+
     </div>
     <div class="about-hero__role">
       <p class="about-hero__role">${escapeHtml(props.role).replace(/\s+/g, "<br />")}</p>
@@ -34,11 +38,13 @@ export function AboutHero(props) {
     </div>
   `;
 
+  section.appendChild(EyeReveal({ xPercent: 42, yPercent: 30 }));
+
   return section;
 }
 
 function validateAboutHeroProps(props) {
-  const required = ["role", "locationLabel", "location", "paragraphs"];
+  const required = ["role", "locationLabel", "location", "portrait", "paragraphs"];
   const missing = required.filter((key) => !props[key]);
   if (missing.length > 0) {
     throw new Error(`[AboutHero] Props manquantes: ${missing.join(", ")}`);

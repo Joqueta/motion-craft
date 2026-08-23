@@ -3,7 +3,6 @@
 /* ===== Work header ===== */
 .work-header {
     background: var(--color-olive);
-    padding: 3rem var(--gutter) 4rem;
     text-align: center;
 }
 
@@ -14,6 +13,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    padding-top: 10rem;
 }
 
 .work-header__badge {
@@ -38,8 +38,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.75rem;
-    margin-top: 2rem;
+    padding: 1.75rem;
+    margin-bottom: 5rem;
 }
 
 .work-header__badge-wrap::before {

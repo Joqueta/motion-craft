@@ -67,7 +67,7 @@
 .eye-reveal__angle--tr {
     left: calc(var(--eye-x) - var(--window-width) / 2);
     transform: translate(-50%, -50%);
-    margin-top: -30px;
+    margin-top: -40px;
     opacity: 0.2;
 }
 
@@ -75,7 +75,7 @@
     left: calc(var(--eye-x) + var(--window-width) / 2);
     rotate: -90deg;
     transform: translate(-50%, -50%) scaleX(-1);
-    margin-top: -10px;
+    margin-top: 0px;
     opacity: 0.2;
 }
 

@@ -7,6 +7,7 @@ import setMeta from "../../../lib/seo.js";
 import portfolioStore, { editContent, notify, recordAudit } from "../../../store/portfolio-store.js";
 import { items, addItem, ItemToolbar, AddButton, bindField } from "../../admin/collection.js";
 import { loadFritziPage, saveFritziPage, missingPageFields, loadMediaLibrary } from "../../../services/fritzi-admin-service.js";
+import { createMediaUploadHandler } from "./media-upload.js";
 
 const ROOT = "fritziPageForm";
 const PAGE_TITLES = { home: "Home", about: "About", contact: "Contact", profil: "Profile" };
@@ -182,7 +183,7 @@ function OfferingsSection(readOnly) {
   };
 }
 
-function HomeFields(data, readOnly, media) {
+function HomeFields(data, readOnly, media, uploading) {
   return [
     { type: "h2", children: ["\"About\" section"] },
     {
@@ -196,7 +197,15 @@ function HomeFields(data, readOnly, media) {
         Field({ id: "home-quote-highlight-2", label: "Quote — highlight 2", value: data.quoteHighlight2, placeholder: "Highlighted word 2", required: true, disabled: readOnly, onInput: bind("quoteHighlight2") }),
         Field({ id: "home-quote-tail", label: "Quote — closing", value: data.quoteTail, placeholder: "Quote closing", required: true, disabled: readOnly, onInput: bind("quoteTail") }),
         Field({ id: "home-about-caption", label: "Portrait caption", control: "textarea", rows: 3, value: data.aboutCaption, placeholder: "Portrait caption", required: true, disabled: readOnly, onInput: bind("aboutCaption") }),
-        MediaSelectField({ id: "home-about-portrait", label: "Portrait", value: data.aboutPortrait, media, disabled: readOnly, onSelect: bind("aboutPortrait") }),
+        MediaSelectField({ id: "home-about-portrait", label: "Portrait", value: data.aboutPortrait, media, disabled: readOnly, uploading, onSelect: bind("aboutPortrait"), onUpload: createMediaUploadHandler(bind("aboutPortrait")) }),
+      ],
+    },
+    { type: "h2", children: ["\"Featured Projects\" section"] },
+    {
+      type: "div",
+      attributes: [["class", ["editor-grid"]]],
+      children: [
+        Field({ id: "home-featured-note", label: "Note", control: "textarea", rows: 3, value: data.featuredNote, placeholder: "Note below the featured projects", required: true, disabled: readOnly, onInput: bind("featuredNote") }),
       ],
     },
     { type: "h2", children: ["\"Skills\" section"] },
@@ -210,14 +219,14 @@ function HomeFields(data, readOnly, media) {
         Field({ id: "home-skills-line-2", label: "Title — line 2", value: data.skillsLine2, placeholder: "Title line 2", required: true, disabled: readOnly, onInput: bind("skillsLine2") }),
         Field({ id: "home-skills-paragraphs", label: "Paragraphs", control: "textarea", rows: 5, value: data.skillsParagraphs, hint: "One line = one paragraph.", placeholder: "One line = one paragraph", required: true, disabled: readOnly, onInput: bind("skillsParagraphs") }),
         Field({ id: "home-cv-label", label: "CV button label", value: data.cvLabel, placeholder: "e.g. Upload my CV here", required: true, disabled: readOnly, onInput: bind("cvLabel") }),
-        MediaSelectField({ id: "home-offerings-image", label: "Offerings image", value: data.offeringsImage, media, disabled: readOnly, onSelect: bind("offeringsImage") }),
+        MediaSelectField({ id: "home-offerings-image", label: "Offerings image", value: data.offeringsImage, media, disabled: readOnly, uploading, onSelect: bind("offeringsImage"), onUpload: createMediaUploadHandler(bind("offeringsImage")) }),
       ],
     },
     OfferingsSection(readOnly),
   ];
 }
 
-function AboutFields(data, readOnly, media) {
+function AboutFields(data, readOnly, media, uploading) {
   return [
     { type: "h2", children: ["Hero"] },
     {
@@ -228,21 +237,21 @@ function AboutFields(data, readOnly, media) {
         Field({ id: "about-hero-location-label", label: "Location label", value: data.heroLocationLabel, placeholder: "e.g. Based in", required: true, disabled: readOnly, onInput: bind("heroLocationLabel") }),
         Field({ id: "about-hero-location", label: "Location", value: data.heroLocation, placeholder: "e.g. Paris, France", required: true, disabled: readOnly, onInput: bind("heroLocation") }),
         Field({ id: "about-hero-paragraphs", label: "Paragraphs", control: "textarea", rows: 5, value: data.heroParagraphs, hint: "One line = one paragraph.", placeholder: "One line = one paragraph", required: true, disabled: readOnly, onInput: bind("heroParagraphs") }),
-        MediaSelectField({ id: "about-hero-portrait", label: "Portrait", value: data.heroPortrait, media, disabled: readOnly, onSelect: bind("heroPortrait") }),
+        MediaSelectField({ id: "about-hero-portrait", label: "Portrait", value: data.heroPortrait, media, disabled: readOnly, uploading, onSelect: bind("heroPortrait"), onUpload: createMediaUploadHandler(bind("heroPortrait")) }),
       ],
     },
     OfferingsSection(readOnly),
   ];
 }
 
-function ContactFields(data, readOnly, media) {
+function ContactFields(data, readOnly, media, uploading) {
   return [
     { type: "h2", children: ["Hero"] },
     {
       type: "div",
       attributes: [["class", ["editor-grid"]]],
       children: [
-        MediaSelectField({ id: "contact-hero-portrait", label: "Portrait", value: data.heroPortrait, media, disabled: readOnly, onSelect: bind("heroPortrait") }),
+        MediaSelectField({ id: "contact-hero-portrait", label: "Portrait", value: data.heroPortrait, media, disabled: readOnly, uploading, onSelect: bind("heroPortrait"), onUpload: createMediaUploadHandler(bind("heroPortrait")) }),
       ],
     },
   ];
@@ -338,7 +347,8 @@ export default function FritziPageFormPage(props) {
   const media = portfolioStore.get("fritziMedia") ?? [];
   const notice = portfolioStore.get("notice");
   const readOnly = session.role === "reader";
-  const saving = status === "saving";
+  const uploading = status === "uploading";
+  const saving = status === "saving" || uploading;
 
   if (status === "loading" || !data) {
     return {
@@ -378,7 +388,7 @@ export default function FritziPageFormPage(props) {
                   dismissible: false,
                 })
                 : null,
-              ...FIELD_RENDERERS[page](data, readOnly, media),
+              ...FIELD_RENDERERS[page](data, readOnly, media, uploading),
               {
                 type: "button",
                 attributes: [
