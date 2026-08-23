@@ -29,7 +29,7 @@ export function EyeReveal(props) {
   const {
     xPercent,
     yPercent,
-    closedWidth = 10,
+    closedWidth = 0,
     openWidth = 220,
     fixedHeight = 90,
     triggerWidth = 220,
