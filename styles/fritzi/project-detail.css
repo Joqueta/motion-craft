@@ -315,7 +315,7 @@
 }
 
 .work-card__image {
-    width: 40%;
+    width: 100%;
     margin: 0 auto;
     aspect-ratio: 4 / 4;
     object-fit: cover;
@@ -324,7 +324,7 @@
 
 .work-card__meta {
     display: flex;
-    width: 40%;
+    width: 100%;
     margin: 0.7rem auto 0;
     /* ← remplace margin-top: 0.7rem par ceci */
     justify-content: space-between;
