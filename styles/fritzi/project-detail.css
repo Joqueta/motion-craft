@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem var(--gutter) 2rem;
+    padding: 9rem var(--gutter) 2rem;
     background: var(--color-olive);
 }
 
