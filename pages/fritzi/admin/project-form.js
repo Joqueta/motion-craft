@@ -18,6 +18,7 @@ import {
   missingProjectFields,
   createEmptyProjectDetailItem,
 } from "../../../services/fritzi-admin-service.js";
+import { createMediaUploadHandler } from "./media-upload.js";
 
 const ROOT = "fritziProjectForm";
 const STATE_OPTIONS = STATES.map((state) => ({ value: state.value, label: state.label }));
@@ -117,7 +118,7 @@ function removeProject() {
     });
 }
 
-function TextImageBlockFields(basePath, block, media, readOnly, imageLabel, imageKey) {
+function TextImageBlockFields(basePath, block, media, readOnly, imageLabel, imageKey, uploading) {
   return {
     type: "div",
     attributes: [["class", ["editor-grid"]]],
@@ -152,7 +153,9 @@ function TextImageBlockFields(basePath, block, media, readOnly, imageLabel, imag
         value: block[imageKey],
         media,
         disabled: readOnly,
+        uploading,
         onSelect: bind(`${basePath}.${imageKey}`),
+        onUpload: createMediaUploadHandler(bind(`${basePath}.${imageKey}`)),
       }),
     ],
   };
@@ -253,7 +256,8 @@ export default function FritziProjectFormPage(props) {
   const media = portfolioStore.get("fritziMedia") ?? [];
   const notice = portfolioStore.get("notice");
   const readOnly = session.role === "reader";
-  const saving = status === "saving";
+  const uploading = status === "uploading";
+  const saving = status === "saving" || uploading;
 
   if (status === "loading" || !item) {
     return {
@@ -362,7 +366,9 @@ export default function FritziProjectFormPage(props) {
                     value: item.cover,
                     media,
                     disabled: readOnly,
+                    uploading,
                     onSelect: bind("cover"),
+                    onUpload: createMediaUploadHandler(bind("cover")),
                   }),
                 ],
               },
@@ -394,7 +400,9 @@ export default function FritziProjectFormPage(props) {
                     value: item.heroImage,
                     media,
                     disabled: readOnly,
+                    uploading,
                     onSelect: bind("heroImage"),
+                    onUpload: createMediaUploadHandler(bind("heroImage")),
                   }),
                 ],
               },
@@ -441,7 +449,7 @@ export default function FritziProjectFormPage(props) {
               },
 
               { type: "h2", children: ["Discovery"] },
-              TextImageBlockFields("discovery", item.discovery, media, readOnly, "Image", "image"),
+              TextImageBlockFields("discovery", item.discovery, media, readOnly, "Image", "image", uploading),
 
               { type: "h2", children: ["Challenge"] },
               TextImageBlockFields(
@@ -451,10 +459,11 @@ export default function FritziProjectFormPage(props) {
                 readOnly,
                 "Background image",
                 "backgroundImage",
+                uploading,
               ),
 
               { type: "h2", children: ["Outcome"] },
-              TextImageBlockFields("outcome", item.outcome, media, readOnly, "Image", "image"),
+              TextImageBlockFields("outcome", item.outcome, media, readOnly, "Image", "image", uploading),
 
               {
                 type: "div",

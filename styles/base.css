@@ -373,6 +373,16 @@ textarea.field__control {
   color: var(--text-muted);
 }
 
+.media-select-field .field {
+  margin-bottom: 0.5rem;
+}
+
+.field__upload {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
 .notice {
   display: flex;
   align-items: center;
