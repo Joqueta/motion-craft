@@ -7,7 +7,9 @@
     position: relative;
     min-height: 300vh;
     overflow: hidden;
-    padding: 8rem var(--gutter) 20rem;
+    padding: 8rem var(--gutter);
+    padding-top: 50rem;
+    padding-bottom: 20rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -27,7 +29,6 @@
 .about-hero__row {
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
     gap: 2rem;
     flex-wrap: wrap;
 
@@ -44,7 +45,6 @@
     /* 5.04rem */
     text-transform: uppercase;
     z-index: 1;
-    padding-top: 20rem;
 }
 
 .about-hero__location {
@@ -60,7 +60,7 @@
     font-style: normal;
     font-weight: 300;
     line-height: 125%;
-    z-index: 1;
+
 }
 
 .about-hero__location-value {
