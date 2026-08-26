@@ -9,9 +9,11 @@ import { AboutPage as FritziAboutPage } from "../pages/fritzi/about.js";
 import { WorkPage as FritziWorkPage } from "../pages/fritzi/work.js";
 import { ContactPage as FritziContactPage } from "../pages/fritzi/contact.js";
 import { ProjectDetailPage as FritziProjectDetailPage } from "../pages/fritzi/project-detail.js";
-import FritziAdminPage from "../pages/fritzi/admin.js";
-import FritziProjectFormPage from "../pages/fritzi/admin/project-form.js";
-import FritziPageFormPage from "../pages/fritzi/admin/page-form.js";
+import {
+  FritziAdminEntryRedirect,
+  FritziAdminPageRedirect,
+  FritziAdminProjectsRedirect,
+} from "../pages/fritzi/admin-redirect.js";
 
 export const REDIRECTS = {
   "/home": "/",
@@ -35,9 +37,9 @@ export default {
   "/fritzi/work": FritziWorkPage,
   "/fritzi/contact": FritziContactPage,
   "/fritzi/projets/:slug": FritziProjectDetailPage,
-  "/fritzi/admin": FritziAdminPage,
-  "/fritzi/admin/projets/nouveau": FritziProjectFormPage,
-  "/fritzi/admin/projets/:slug": FritziProjectFormPage,
-  "/fritzi/admin/pages/:page": FritziPageFormPage,
+  "/fritzi/admin": FritziAdminEntryRedirect,
+  "/fritzi/admin/projets/nouveau": FritziAdminProjectsRedirect,
+  "/fritzi/admin/projets/:slug": FritziAdminProjectsRedirect,
+  "/fritzi/admin/pages/:page": FritziAdminPageRedirect,
   "*": NotFoundPage,
 };
