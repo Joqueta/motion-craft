@@ -36,6 +36,13 @@ html {
     color: inherit;
 }
 
+/* Le skip-link hérite sinon `color: inherit` (crème) au lieu de rester
+   lisible sur le fond `--ink` posé par styles/base.css. */
+.page--fritzi .skip-link {
+    color: var(--color-ink);
+    background: var(--color-cream);
+}
+
 .loading,
 .error {
     text-align: center;

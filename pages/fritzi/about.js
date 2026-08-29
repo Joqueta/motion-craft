@@ -2,6 +2,7 @@ import { Nav } from "../../components/fritzi/nav.js";
 import { AboutHero } from "../../components/fritzi/about/about-hero.js";
 import { SkillsSection } from "../../components/fritzi/shared/skills-section.js";
 import { ContactFooter } from "../../components/fritzi/contact-footer.js";
+import { attachA11yToggle } from "../../components/fritzi/a11y-toggle.js";
 
 import { fetchAboutData, fetchProfile, fetchContactInfo } from "../../services/fritzi-content-service.js";
 
@@ -22,8 +23,12 @@ export async function AboutPage() {
         ]);
         page.innerHTML = "";
 
+        const hero = AboutHero(data.hero);
+        hero.id = "contenu";
+        hero.tabIndex = -1;
+
         page.appendChild(Nav({ logo: profile.logo, year: profile.year }));
-        page.appendChild(AboutHero(data.hero));
+        page.appendChild(hero);
         page.appendChild(
             SkillsSection({ content: data.skillsContent, offerings: data.offerings, projects: data.projects })
         );
@@ -33,5 +38,6 @@ export async function AboutPage() {
         console.error("[AboutPage]", error);
     }
 
+    attachA11yToggle(page);
     return page;
 }

@@ -19,7 +19,7 @@ export function FeaturedProjectCard(props) {
   article.className = "project-card";
 
   article.innerHTML = `
-    <a href="${href}"${fromRouter ? " data-route" : ""} class="project-card__frame">
+    <a href="${href}"${fromRouter ? " data-route" : ""} class="project-card__frame" aria-label="${escapeHtml(props.client)} — ${escapeHtml(props.label)}">
       <img class="project-card__image" src="${escapeHtml(props.cover.url)}" alt="${escapeHtml(props.cover.alt)}" />
     </a>
     <div class="project-card__meta">

@@ -3,6 +3,7 @@ import { Hero } from "../../components/fritzi/home/hero.js";
 import { FeaturedProjects } from "../../components/fritzi/home/featured-project.js";
 import { AboutMe } from "../../components/fritzi/home/about-me.js";
 import { SkillsSection } from "../../components/fritzi/shared/skills-section.js";
+import { attachA11yToggle } from "../../components/fritzi/a11y-toggle.js";
 
 import { fetchHomeData } from "../../services/fritzi-content-service.js";
 
@@ -53,6 +54,7 @@ export async function HomePage() {
     } catch (error) {
         shell.innerHTML = `<p class="error">Erreur de chargement : ${error.message}</p>`;
         console.error("[HomePage]", error);
+        attachA11yToggle(shell);
         return shell;
     }
 }
