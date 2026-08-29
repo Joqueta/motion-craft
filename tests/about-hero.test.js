@@ -25,6 +25,13 @@ describe("AboutHero", () => {
     expect(section.querySelector(".eye-reveal")).toBeTruthy();
   });
 
+  it("rend le rôle dans un vrai <h1> (pas un <p>)", () => {
+    const section = AboutHero(buildProps());
+    const heading = section.querySelector("h1.about-hero__role");
+    expect(heading).toBeTruthy();
+    expect(heading.textContent).toContain("Motion");
+  });
+
   it("lève une erreur si le portrait est manquant", () => {
     const props = buildProps();
     delete props.portrait;

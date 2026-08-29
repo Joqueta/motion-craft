@@ -1,0 +1,100 @@
+/*
+ * /fritzi a une identité visuelle fixe (palette --color-*) qui ne réagit
+ * jamais au thème clair/sombre du système : ce bouton utilise donc
+ * volontairement des couleurs fixes plutôt que les tokens --surface/--accent
+ * de styles/base.css (qui, eux, suivent prefers-color-scheme). Le fond quasi
+ * opaque garantit un contraste correct quel que soit ce qu'il y a derrière
+ * le bouton (fond clair --color-page-bg, bandeaux olive, photos sombres) :
+ * ≥14.7:1 pour l'icône encre (état off), vérifié par calcul contre les fonds
+ * réels du site, y compris le pire cas (photo quasi noire). L'état pressé
+ * (mode actif) passe à un fond gris quasi opaque + icône crème, ≥3.07:1
+ * quel que soit le fond, pour indiquer visuellement l'activation.
+ */
+.a11y-toggle {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 60;
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: rgb(255 255 255 / 92%);
+  color: var(--color-ink);
+  font-size: 1.4rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 35%);
+  cursor: pointer;
+}
+
+.a11y-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.a11y-toggle[aria-pressed="true"] {
+  background: rgb(111 111 107 / 92%);
+  color: var(--color-cream);
+}
+
+/* Bordures renforcées (≥3:1 vs les fonds réels de /fritzi, contre 1.24:1/1.48:1
+   par défaut) — valeur unique, /fritzi n'a pas de variante sombre. */
+.page--fritzi[data-a11y="on"] {
+  --border: #6d665a;
+  --border-strong: #6d665a;
+}
+
+/* Contraste renforcé : fond de la nav, tokens Skills/Offerings, cibles
+   tactiles des liens de nav et "work-label" — uniquement en mode
+   accessibilité, le design par défaut du site reste inchangé. */
+.page--fritzi[data-a11y="on"] {
+  --color-olive: #524F3F;
+  --color-olive-dark: #4D4A3A;
+}
+
+.page--fritzi[data-a11y="on"] .nav {
+  background: rgb(26 26 24 / 65%);
+}
+
+.page--fritzi[data-a11y="on"] .nav__link {
+  display: inline-block;
+  padding: 0.4rem 0.3rem;
+  margin: -0.4rem -0.3rem;
+}
+
+.page--fritzi[data-a11y="on"] .offering-row__work-label {
+  display: inline-block;
+  padding: 0.3rem 0.2rem;
+  margin: -0.3rem -0.2rem;
+}
+
+/* Placeholders en pleine opacité (2.92:1 par défaut -> 5.34:1) */
+.page--fritzi[data-a11y="on"] .field__control::placeholder {
+  color: var(--text-muted);
+}
+
+/* Lisibilité : texte agrandi et interligne plus aéré pour tout le texte qui
+   n'a pas de taille explicite en rem (paragraphes, texte muted, footer...) */
+.page--fritzi[data-a11y="on"] {
+  font-size: 118%;
+  line-height: 1.75;
+}
+
+.page--fritzi[data-a11y="on"] p {
+  margin-bottom: 1.3em;
+}
+
+.page--fritzi[data-a11y="on"] .eyebrow {
+  font-size: 0.9rem;
+}
+
+/* Animations coupées, indépendamment de prefers-reduced-motion */
+.page--fritzi[data-a11y="on"] *,
+.page--fritzi[data-a11y="on"] *::before,
+.page--fritzi[data-a11y="on"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}

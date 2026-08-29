@@ -46,6 +46,8 @@
     /* 5.04rem */
     text-transform: uppercase;
     z-index: 1;
+    margin: 0;
+    letter-spacing: normal;
 
 }
 

@@ -2,6 +2,7 @@ import { Nav } from "../../components/fritzi/nav.js";
 import { WorkHeader } from "../../components/fritzi/work/work-header.js";
 import { ProjectCarousel } from "../../components/fritzi/work/project-carousel.js";
 import { ContactFooter } from "../../components/fritzi/contact-footer.js";
+import { attachA11yToggle } from "../../components/fritzi/a11y-toggle.js";
 
 import { fetchWorkData, fetchProfile, fetchContactInfo } from "../../services/fritzi-content-service.js";
 
@@ -22,13 +23,15 @@ export async function WorkPage() {
         ]);
         page.innerHTML = "";
 
+        const header = WorkHeader({
+            title: "Work",
+            eyebrow: `${projects.length} projects featured`
+        });
+        header.id = "contenu";
+        header.tabIndex = -1;
+
         page.appendChild(Nav({ logo: profile.logo, year: profile.year }));
-        page.appendChild(
-            WorkHeader({
-                title: "Work",
-                eyebrow: `${projects.length} projects featured`
-            })
-        );
+        page.appendChild(header);
         page.appendChild(ProjectCarousel({ projects }));
         page.appendChild(ContactFooter(contact));
     } catch (error) {
@@ -36,5 +39,6 @@ export async function WorkPage() {
         console.error("[WorkPage]", error);
     }
 
+    attachA11yToggle(page);
     return page;
 }

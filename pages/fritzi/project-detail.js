@@ -7,6 +7,7 @@ import { TextImageBlock } from "../../components/fritzi/projet/text-image.js";
 import { ProjectChallenge } from "../../components/fritzi/projet/challenge.js";
 import { NextProject } from "../../components/fritzi/projet/next-project.js";
 import { ContactFooter } from "../../components/fritzi/contact-footer.js";
+import { attachA11yToggle } from "../../components/fritzi/a11y-toggle.js";
 
 import { fetchProjectDetail, fetchProfile, fetchContactInfo } from "../../services/fritzi-content-service.js";
 
@@ -33,10 +34,12 @@ export async function ProjectDetailPage(props) {
         ]);
         page.innerHTML = "";
 
+        const subbar = ProjectSubbar({ eyebrow: project.eyebrow, closeHref });
+        subbar.id = "contenu";
+        subbar.tabIndex = -1;
+
         page.appendChild(Nav({ logo: profile.logo, year: profile.year }));
-        page.appendChild(
-            ProjectSubbar({ eyebrow: project.eyebrow, closeHref })
-        );
+        page.appendChild(subbar);
         page.appendChild(ProjectHeader({ title: project.title, meta: project.meta }));
         page.appendChild(
             FramedImage({ ...project.heroImage, className: "project-hero-image" })
@@ -67,5 +70,6 @@ export async function ProjectDetailPage(props) {
         console.error("[ProjectDetailPage]", error);
     }
 
+    attachA11yToggle(page);
     return page;
 }
