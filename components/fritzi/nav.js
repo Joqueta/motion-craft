@@ -1,13 +1,14 @@
 import { escapeHtml } from "../../lib/text.js";
 import { getNavLinks } from "./nav-links.js";
+import { SkipLink } from "./skip-link.js";
 
 /**
- * Navigation principale.
+ * Navigation principale, précédée d'un lien d'évitement.
  * @param {Object} props
  * @param {{url: string, alt: string}} props.logo
  * @param {string} [props.year]
  * @param {string[]} [props.links]
- * @returns {HTMLElement}
+ * @returns {DocumentFragment}
  */
 export function Nav(props) {
   validateNavProps(props);
@@ -27,7 +28,10 @@ export function Nav(props) {
     ${props.year ? `<span class="nav__year">${escapeHtml(props.year)}</span>` : ""}
   `;
 
-  return header;
+  const fragment = document.createDocumentFragment();
+  fragment.appendChild(SkipLink());
+  fragment.appendChild(header);
+  return fragment;
 }
 
 function validateNavProps(props) {

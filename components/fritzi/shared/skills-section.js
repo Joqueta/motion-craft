@@ -23,12 +23,12 @@ export function SkillsSection(props) {
     <div class="skills__intro">
       <span class="skills__eyebrow">${escapeHtml(content.eyebrow)}</span>
 
-      <div class="skills__heading-block">
-        <p class="skills__highlight">${escapeHtml(content.line1)}</p>
-        <p class="skills__highlight">
+      <h2 class="skills__heading-block">
+        <span class="skills__highlight">${escapeHtml(content.line1)}</span>
+        <span class="skills__highlight">
           <span class="is-muted">${escapeHtml(content.connector)}</span> ${escapeHtml(content.line2)}
-        </p>
-      </div>
+        </span>
+      </h2>
 
       ${content.paragraphs.map((p) => `<p class="skills__paragraph">${escapeHtml(p)}</p>`).join("")}
       <a class="btn btn--outline" href="#">${escapeHtml(content.cvLabel)}</a>

@@ -13,7 +13,7 @@ export function ContactHero(props) {
   section.className = "contact-hero";
 
   section.innerHTML = `
-
+    <h1 class="visually-hidden">Come say hi</h1>
   `;
 
   return section;

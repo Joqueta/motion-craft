@@ -26,7 +26,7 @@ export function AboutHero(props) {
 
     </div>
     <div class="about-hero__role">
-      <p class="about-hero__role">${escapeHtml(props.role).replace(/\s+/g, "<br />")}</p>
+      <h1 class="about-hero__role">${escapeHtml(props.role).replace(/\s+/g, "<br />")}</h1>
       <div class="about-hero__location">
         <span class="about-hero__location-label">${escapeHtml(props.locationLabel)}</span>
         <span class="about-hero__location-value">${escapeHtml(props.location)}</span>

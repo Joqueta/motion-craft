@@ -42,6 +42,20 @@
       section {
         margin-bottom: 2rem;
       }
+      /* Tests mount real DOM components (e.g. EyeReveal) on document.body to
+         verify hover/animation behavior; keep them out of view here.
+         inset must be reset too, otherwise the component's own `inset: 0`
+         keeps right/bottom pinned to the viewport and its backdrop-filter
+         blurs the whole page instead of staying off-screen. */
+      body > .eye-reveal {
+        position: fixed;
+        inset: auto;
+        top: -9999px;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
     </style>
   </head>
   <body>
@@ -70,6 +84,12 @@
       import "./about-hero.test.js";
       import "./offering-row.test.js";
       import "./skills-section.test.js";
+      import "./fritzi-a11y.test.js";
+      import "./a11y-toggle.test.js";
+      import "./layout.test.js";
+      import "./skip-link.test.js";
+      import "./nav.test.js";
+      import "./contact-hero.test.js";
 
       run(document.getElementById("results"));
     </script>

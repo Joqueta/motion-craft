@@ -1,6 +1,7 @@
 import { Layout } from "../../components/fritzi/layout.js";
 import { ContactHero } from "../../components/fritzi/contact/contact-hero.js";
 import { ContactForm } from "../../components/fritzi/contact/contact-form.js";
+import { attachA11yToggle } from "../../components/fritzi/a11y-toggle.js";
 import { fetchContactData } from "../../services/fritzi-content-service.js";
 
 /**
@@ -23,6 +24,7 @@ export async function ContactPage() {
     } catch (error) {
         page.innerHTML = `<p class="error">Erreur de chargement : ${error.message}</p>`;
         console.error("[ContactPage]", error);
+        attachA11yToggle(page);
         return page;
     }
 }
