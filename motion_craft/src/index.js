@@ -20,6 +20,32 @@ const AUTHENTICATED_WRITE_ACTIONS = [
   'api::fritzi-project.fritzi-project.delete',
 ];
 
+const READER_READ_ACTIONS = [
+  'api::fritzi-about.fritzi-about.find',
+  'api::fritzi-contact.fritzi-contact.find',
+  'api::fritzi-home.fritzi-home.find',
+  'api::fritzi-profile.fritzi-profile.find',
+  'api::fritzi-project.fritzi-project.find',
+  'api::fritzi-project.fritzi-project.findOne',
+  'plugin::users-permissions.user.me',
+];
+
+async function ensureReaderRole(strapi) {
+  const existing = await strapi
+    .query('plugin::users-permissions.role')
+    .findOne({ where: { type: 'reader' } });
+
+  if (!existing) {
+    await strapi.query('plugin::users-permissions.role').create({
+      data: {
+        name: 'Reader',
+        description: 'Back-office read-only access (assignable from Settings > Users & Permissions > Roles)',
+        type: 'reader',
+      },
+    });
+  }
+}
+
 async function ensureRoleActions(strapi, roleType, actions) {
   const role = await strapi
     .query('plugin::users-permissions.role')
@@ -51,6 +77,11 @@ async function ensureAuthenticatedWriteAccess(strapi) {
   await ensureRoleActions(strapi, 'authenticated', AUTHENTICATED_WRITE_ACTIONS);
 }
 
+async function ensureReaderReadOnlyAccess(strapi) {
+  await ensureReaderRole(strapi);
+  await ensureRoleActions(strapi, 'reader', READER_READ_ACTIONS);
+}
+
 module.exports = {
   /**
    * An asynchronous register function that runs before
@@ -70,6 +101,7 @@ module.exports = {
   async bootstrap({ strapi }) {
     await ensurePublicReadAccess(strapi);
     await ensureAuthenticatedWriteAccess(strapi);
+    await ensureReaderReadOnlyAccess(strapi);
     await seedFritziContent(strapi);
   },
 };
