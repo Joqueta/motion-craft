@@ -11,25 +11,14 @@
 .page--abdoulaye .contact-page__intro {
   color: var(--ab-text-secondary);
   max-width: 60ch;
-  margin: 0 auto 2.5rem;
-  text-align: center;
-}
-
-.page--abdoulaye .contact-page__title {
-  text-align: center;
-}
-
-.page--abdoulaye .contact-page .page-eyebrow {
-  text-align: center;
+  margin: 0 0 2.5rem;
 }
 
 .page--abdoulaye .contact-page__grid {
   display: grid;
-  grid-template-columns: minmax(0, 640px);
-  justify-content: center;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
   gap: 3rem;
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 1080px;
 }
 
 .page--abdoulaye .contact-info {
