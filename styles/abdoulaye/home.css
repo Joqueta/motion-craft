@@ -16,7 +16,6 @@
 .page--abdoulaye .hero__status {
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--ab-accent-strong);
@@ -25,17 +24,6 @@
   border-radius: var(--radius-pill);
   padding: 0.4em 0.9em;
   margin: 0 0 1.25rem;
-}
-
-.page--abdoulaye .hero__status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--ab-border-strong);
-}
-
-.page--abdoulaye .hero__status-dot.is-active {
-  background: var(--ab-accent-strong);
 }
 
 .page--abdoulaye .hero__title {

@@ -54,6 +54,7 @@
 
 .page--abdoulaye .btn--primary:hover {
   background: #ffffff;
+  color: #1e3a8a;
 }
 
 .page--abdoulaye .btn--outline {
@@ -63,7 +64,9 @@
 }
 
 .page--abdoulaye .btn--outline:hover {
+  background: var(--ab-btn-bg);
   border-color: var(--ab-accent);
+  color: #1e3a8a;
 }
 
 .abdoulaye-nav {

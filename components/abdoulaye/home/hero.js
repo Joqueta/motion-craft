@@ -9,10 +9,7 @@ export function Hero(props) {
 
   section.innerHTML = `
     <div class="hero__column">
-      <p class="hero__status">
-        <span class="hero__status-dot ${props.status.active ? "is-active" : ""}"></span>
-        ${escapeHtml(props.status.label)}
-      </p>
+      <p class="hero__status">${escapeHtml(props.status.label)}</p>
       <h1 class="hero__title">${escapeHtml(props.firstName)} ${escapeHtml(props.lastName)}</h1>
       <p class="hero__role">${escapeHtml(props.role)}</p>
       <p class="hero__bio">${escapeHtml(props.bio)}</p>

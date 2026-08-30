@@ -6,7 +6,7 @@ const ABDOULAYE_SEED = {
       firstName: 'Abdoulaye',
       lastName: 'Diagne',
       role: 'Développeur Web',
-      statusLabel: 'disponible pour une alternance, 2026',
+      statusLabel: 'disponible pour une alternance en 2026',
       statusActive: true,
       bioShort:
         "Étudiant en 3e année de Bachelor Développement Web à l'école Decode (Paris 11e), rigoureux et passionné par le code, je cherche une alternance pour mettre mes compétences techniques au service de projets concrets.",
