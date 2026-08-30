@@ -5,6 +5,8 @@ export function AboutSection(props) {
   section.className = "about";
 
   section.innerHTML = `
+    <span class="page-eyebrow">${escapeHtml(props.eyebrow ?? "")}</span>
+    <h2 class="about__heading">${escapeHtml(props.heading ?? "")}</h2>
     <p class="about__intro">${escapeHtml(props.intro)}</p>
 
     <div class="about__info-grid">

@@ -4,32 +4,43 @@
 
 .detail-header__badge {
   display: inline-block;
-  padding: 0.35em 0.85em;
+  padding: 0.35em 0.9em;
   border-radius: var(--radius-pill);
-  background: var(--surface-muted);
-  border: 1px solid var(--border);
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
+  background: var(--ab-accent);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  margin-bottom: 1.25rem;
 }
 
 .detail-header__title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  margin: 0 0 1.25rem;
+  color: var(--ab-text);
+}
+
+.detail-header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--ab-border);
+  margin-bottom: 1.5rem;
 }
 
 .detail-header__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .detail-header__back {
-  display: inline-block;
-  color: var(--text-muted);
+  color: var(--ab-accent-strong);
   text-decoration: none;
-  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .detail-content {
@@ -43,12 +54,14 @@
   width: 100%;
   border-radius: var(--radius);
   object-fit: cover;
-  background: var(--surface-muted);
+  background: var(--ab-surface);
+  aspect-ratio: 4 / 3;
 }
 
 .detail-content__heading {
   font-size: 1.1rem;
   margin: 1.5rem 0 0.75rem;
+  color: var(--ab-text);
 }
 
 .detail-content__heading:first-child {
@@ -56,7 +69,7 @@
 }
 
 .detail-content__description {
-  color: var(--text-muted);
+  color: var(--ab-text-secondary);
   margin: 0;
 }
 
@@ -68,15 +81,19 @@
   gap: 0.4rem;
   font-family: var(--font-mono);
   font-size: 0.9rem;
+  color: var(--ab-accent-strong);
 }
 
 .detail-content__period {
   margin: 0;
+  color: var(--ab-text);
+  font-weight: 600;
 }
 
 .detail-content__place {
-  color: var(--text-muted);
+  color: var(--ab-text-muted);
   font-size: 0.9rem;
+  font-weight: 400;
 }
 
 .detail-content__cta {

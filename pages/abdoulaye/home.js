@@ -34,6 +34,8 @@ export async function HomePage() {
     );
 
     const about = AboutSection({
+      eyebrow: "// about.me",
+      heading: "À propos de moi",
       intro: data.aboutIntro,
       infoItems: data.infoItems,
       skills: data.skills,

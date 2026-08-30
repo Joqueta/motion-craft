@@ -1,6 +1,7 @@
 'use strict';
 
 const { seedFritziContent } = require('./seed');
+const { seedAbdoulayeContent } = require('./seed/abdoulaye-index');
 
 const PUBLIC_READ_ACTIONS = [
   'api::fritzi-profile.fritzi-profile.find',
@@ -121,5 +122,6 @@ module.exports = {
     await ensureAuthenticatedWriteAccess(strapi);
     await ensureReaderReadOnlyAccess(strapi);
     await seedFritziContent(strapi);
+    await seedAbdoulayeContent(strapi);
   },
 };

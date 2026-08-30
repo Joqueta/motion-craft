@@ -19,7 +19,10 @@ export async function ProjectsPage() {
 
     const content = document.createElement("section");
     content.className = "projects-page";
-    content.innerHTML = `<h1 class="projects-page__title">Mes projets</h1>`;
+    content.innerHTML = `
+      <span class="page-eyebrow">// mes.projets</span>
+      <h1 class="projects-page__title">Mes Projets</h1>
+    `;
     content.appendChild(ProjectGrid({ projects }));
 
     return Layout(content, profile);

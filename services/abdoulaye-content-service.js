@@ -14,8 +14,11 @@ export function toProjectCard(raw) {
     id: raw.id,
     slug: raw.slug ?? "",
     title: raw.title ?? "",
+    statusBadge: raw.statusBadge ?? "",
     tags: Array.isArray(raw.tags) ? raw.tags : [],
     excerpt: raw.excerpt ?? "",
+    periodLabel: raw.periodLabel ?? "",
+    periodPlace: raw.periodPlace ?? "",
     cover: toImage(raw.cover),
   };
 }
@@ -33,6 +36,7 @@ export async function fetchProfile() {
     phone: raw?.phone ?? "",
     location: raw?.location ?? "",
     github: raw?.github ?? "",
+    contactIntro: raw?.contactIntro ?? "",
   };
 }
 

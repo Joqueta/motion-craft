@@ -3,27 +3,27 @@
 }
 
 .projects-page__title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(2rem, 4vw, 2.6rem);
   margin: 0 0 2rem;
+  color: var(--ab-text);
 }
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
 }
 
 .project-card {
-  border: 1px solid var(--border);
+  border: 1px solid var(--ab-border);
   border-radius: var(--radius);
   overflow: hidden;
-  background: var(--surface-raised);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  background: var(--ab-surface);
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .project-card:hover {
-  box-shadow: var(--shadow);
+  border-color: var(--ab-border-strong);
   transform: translateY(-2px);
 }
 
@@ -31,33 +31,53 @@
   color: inherit;
   text-decoration: none;
   display: block;
-}
-
-.project-card__image {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  background: var(--surface-muted);
-}
-
-.project-card__body {
   padding: 1.25rem;
 }
 
+.project-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project-card__thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--ab-surface-strong);
+}
+
+.project-card__eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--ab-text-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .project-card__title {
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.4rem;
   font-size: 1.1rem;
+  color: var(--ab-text);
+}
+
+.project-card__meta {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  color: var(--ab-accent-strong);
+}
+
+.project-card__excerpt {
+  margin: 0 0 1rem;
+  color: var(--ab-text-secondary);
+  font-size: 0.9rem;
 }
 
 .project-card__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-bottom: 0.75rem;
-}
-
-.project-card__excerpt {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.9rem;
 }

@@ -1,4 +1,5 @@
 import setMeta from "../../lib/seo.js";
+import { escapeHtml } from "../../lib/text.js";
 import { Layout } from "../../components/abdoulaye/layout.js";
 import { ContactInfo } from "../../components/abdoulaye/contact/contact-info.js";
 import { ContactForm } from "../../components/abdoulaye/contact/contact-form.js";
@@ -20,7 +21,11 @@ export async function ContactPage() {
 
     const content = document.createElement("section");
     content.className = "contact-page";
-    content.innerHTML = `<h1 class="contact-page__title">Contact</h1>`;
+    content.innerHTML = `
+      <span class="page-eyebrow">// contact.me</span>
+      <h1 class="contact-page__title">Contactez-moi</h1>
+      ${profile.contactIntro ? `<p class="contact-page__intro">${escapeHtml(profile.contactIntro)}</p>` : ""}
+    `;
 
     const grid = document.createElement("div");
     grid.className = "contact-page__grid";

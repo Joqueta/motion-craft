@@ -30,32 +30,32 @@ export function ContactForm(props = {}) {
 
   form.innerHTML = `
     <div class="contact-form__field">
-      <label for="nom">Nom</label>
-      <input id="nom" name="nom" type="text" placeholder="Votre nom" required />
+      <label for="nom">Nom complet</label>
+      <input id="nom" name="nom" type="text" placeholder="John Doe" required />
       <span class="contact-form__error" data-error-for="nom"></span>
     </div>
 
     <div class="contact-form__field">
       <label for="email">Email</label>
-      <input id="email" name="email" type="email" placeholder="Votre email" required />
+      <input id="email" name="email" type="email" placeholder="john@entreprise.com" required />
       <span class="contact-form__error" data-error-for="email"></span>
     </div>
 
     <div class="contact-form__field">
       <label for="sujet">Sujet</label>
-      <input id="sujet" name="sujet" type="text" placeholder="Le sujet de votre message" required />
+      <input id="sujet" name="sujet" type="text" placeholder="Proposition d'alternance" required />
       <span class="contact-form__error" data-error-for="sujet"></span>
     </div>
 
     <div class="contact-form__field">
       <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+      <textarea id="message" name="message" placeholder="Bonjour Abdoulaye, ..." required></textarea>
       <span class="contact-form__error" data-error-for="message"></span>
     </div>
 
     <div class="contact-form__submit-row">
       <span class="contact-form__status" role="status" aria-live="polite"></span>
-      <button type="submit" class="btn btn--primary">${escapeHtml(sendLabel)}</button>
+      <button type="submit" class="btn btn--primary">${escapeHtml(sendLabel)} →</button>
     </div>
   `;
 

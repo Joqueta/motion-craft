@@ -10,7 +10,7 @@ export function Nav(props = {}) {
   header.className = "abdoulaye-nav";
 
   header.innerHTML = `
-    <a class="abdoulaye-nav__logo" href="${escapeHtml(home.href)}"${home.dataRoute ? " data-route" : ""} aria-label="Retour à l'accueil">AD</a>
+    <a class="abdoulaye-nav__logo" href="${escapeHtml(home.href)}"${home.dataRoute ? " data-route" : ""} aria-label="Retour à l'accueil">Ab</a>
     <nav class="abdoulaye-nav__links" aria-label="Navigation principale">
       ${links.map((link) => `<a href="${escapeHtml(link.href)}"${link.dataRoute ? " data-route" : ""} class="abdoulaye-nav__link">${escapeHtml(link.label)}</a>`).join("")}
     </nav>

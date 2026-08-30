@@ -20,6 +20,7 @@
     "email": { "type": "email", "required": true },
     "phone": { "type": "string" },
     "location": { "type": "string" },
-    "github": { "type": "string" }
+    "github": { "type": "string" },
+    "contactIntro": { "type": "text" }
   }
 }
