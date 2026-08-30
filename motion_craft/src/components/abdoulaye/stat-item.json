@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_abdoulaye_stat_items",
+  "info": { "displayName": "Stat item", "icon": "chartBubble" },
+  "attributes": {
+    "value": { "type": "string", "required": true },
+    "label": { "type": "string", "required": true }
+  }
+}

@@ -27,7 +27,25 @@ const READER_READ_ACTIONS = [
   'api::fritzi-profile.fritzi-profile.find',
   'api::fritzi-project.fritzi-project.find',
   'api::fritzi-project.fritzi-project.findOne',
+  'api::abdoulaye-home.abdoulaye-home.find',
+  'api::abdoulaye-profile.abdoulaye-profile.find',
+  'api::abdoulaye-project.abdoulaye-project.find',
+  'api::abdoulaye-project.abdoulaye-project.findOne',
   'plugin::users-permissions.user.me',
+];
+
+const ABDOULAYE_PUBLIC_READ_ACTIONS = [
+  'api::abdoulaye-profile.abdoulaye-profile.find',
+  'api::abdoulaye-profile.abdoulaye-profile.findOne',
+  'api::abdoulaye-home.abdoulaye-home.find',
+  'api::abdoulaye-home.abdoulaye-home.findOne',
+  'api::abdoulaye-project.abdoulaye-project.find',
+  'api::abdoulaye-project.abdoulaye-project.findOne',
+];
+
+const ABDOULAYE_AUTHENTICATED_WRITE_ACTIONS = [
+  'api::abdoulaye-project.abdoulaye-project.create',
+  'api::abdoulaye-project.abdoulaye-project.delete',
 ];
 
 async function ensureReaderRole(strapi) {
@@ -70,11 +88,11 @@ async function ensureRoleActions(strapi, roleType, actions) {
 }
 
 async function ensurePublicReadAccess(strapi) {
-  await ensureRoleActions(strapi, 'public', PUBLIC_READ_ACTIONS);
+  await ensureRoleActions(strapi, 'public', [...PUBLIC_READ_ACTIONS, ...ABDOULAYE_PUBLIC_READ_ACTIONS]);
 }
 
 async function ensureAuthenticatedWriteAccess(strapi) {
-  await ensureRoleActions(strapi, 'authenticated', AUTHENTICATED_WRITE_ACTIONS);
+  await ensureRoleActions(strapi, 'authenticated', [...AUTHENTICATED_WRITE_ACTIONS, ...ABDOULAYE_AUTHENTICATED_WRITE_ACTIONS]);
 }
 
 async function ensureReaderReadOnlyAccess(strapi) {

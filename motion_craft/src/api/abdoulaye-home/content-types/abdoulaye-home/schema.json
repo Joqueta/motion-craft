@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "abdoulaye_home",
+  "info": {
+    "singularName": "abdoulaye-home",
+    "pluralName": "abdoulaye-homes",
+    "displayName": "Abdoulaye Home",
+    "description": "Contenu de la page d'accueil : terminal, statistiques, compétences, timeline"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "terminalFilename": { "type": "string", "required": true },
+    "terminalLines": { "type": "json", "required": true },
+    "stats": { "type": "component", "repeatable": true, "component": "abdoulaye.stat-item" },
+    "aboutIntro": { "type": "text", "required": true },
+    "infoItems": { "type": "component", "repeatable": true, "component": "abdoulaye.info-item" },
+    "skills": { "type": "component", "repeatable": true, "component": "abdoulaye.skill-item" },
+    "techTags": { "type": "json", "required": true },
+    "languages": { "type": "json", "required": true },
+    "interests": { "type": "json", "required": true },
+    "experience": { "type": "component", "repeatable": true, "component": "abdoulaye.timeline-item" },
+    "education": { "type": "component", "repeatable": true, "component": "abdoulaye.timeline-item" }
+  }
+}

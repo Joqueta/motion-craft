@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_abdoulaye_skill_items",
+  "info": { "displayName": "Skill item", "icon": "code" },
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "percent": { "type": "integer", "required": true, "min": 0, "max": 100 }
+  }
+}

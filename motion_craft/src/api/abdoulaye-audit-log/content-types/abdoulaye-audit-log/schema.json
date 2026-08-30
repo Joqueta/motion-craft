@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "abdoulaye_audit_logs",
+  "info": {
+    "singularName": "abdoulaye-audit-log",
+    "pluralName": "abdoulaye-audit-logs",
+    "displayName": "Abdoulaye Audit Log",
+    "description": "Journal des créations/modifications/suppressions faites dans l'admin Strapi"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "at": { "type": "datetime", "required": true },
+    "action": { "type": "string", "required": true },
+    "target": { "type": "string", "required": true },
+    "author": { "type": "string", "required": true }
+  }
+}
