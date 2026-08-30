@@ -1,4 +1,4 @@
-import { isRouterActive } from "../router/browser-router.js";
+import { isRouterActive, currentLocation } from "../router/browser-router.js";
 
 const NAV_ITEMS = [
   { label: "Accueil", route: "/abdoulaye", staticHref: "/abdoulaye" },
@@ -9,9 +9,12 @@ const NAV_ITEMS = [
 
 export function getNavLinks() {
   const dataRoute = isRouterActive();
+  const currentPath = dataRoute ? currentLocation().path : window.location.pathname;
+
   return NAV_ITEMS.map(({ label, route, staticHref }) => ({
     label,
     href: dataRoute ? route : staticHref,
     dataRoute,
+    active: !route.includes("#") && route === currentPath,
   }));
 }

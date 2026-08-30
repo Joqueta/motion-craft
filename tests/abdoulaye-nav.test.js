@@ -21,4 +21,19 @@ describe("Nav (abdoulaye)", () => {
     expect(links.length).toBe(4);
     expect(header.querySelector(".abdoulaye-nav__cta").textContent).toBe("Me contacter");
   });
+
+  it("marque le lien actif avec la classe is-active", () => {
+    const links = [
+      { label: "Accueil", href: "/abdoulaye", dataRoute: false, active: true },
+      { label: "À propos", href: "/abdoulaye#about", dataRoute: false, active: false },
+      { label: "Projets", href: "/abdoulaye/projets", dataRoute: false, active: false },
+      { label: "Contact", href: "/abdoulaye/contact", dataRoute: false, active: false },
+    ];
+    const fragment = Nav({ links });
+    const header = fragment.children[1];
+
+    const active = header.querySelectorAll(".abdoulaye-nav__link.is-active");
+    expect(active.length).toBe(1);
+    expect(active[0].textContent).toBe("Accueil");
+  });
 });

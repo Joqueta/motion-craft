@@ -129,18 +129,9 @@
   font-size: 0.85rem;
 }
 
-.abdoulaye-footer__links {
-  display: flex;
-  gap: 1.25rem;
-}
-
-.abdoulaye-footer__links a {
-  color: var(--ab-text-muted);
-  text-decoration: none;
-}
-
-.abdoulaye-footer__links a:hover {
-  color: var(--ab-text);
+.abdoulaye-footer__text,
+.abdoulaye-footer__signature {
+  margin: 0;
 }
 
 .page--abdoulaye .tag-chip {

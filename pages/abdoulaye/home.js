@@ -48,7 +48,7 @@ export async function HomePage() {
 
     content.appendChild(TimelineSection({ experience: data.experience, education: data.education }));
 
-    return Layout(content, data.profile);
+    return Layout(content, data.profile, { tagline: "Développeur Web" });
   } catch (error) {
     shell.innerHTML = `<p class="error">Erreur de chargement : ${error.message}</p>`;
     console.error("[HomePage]", error);

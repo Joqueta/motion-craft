@@ -30,7 +30,7 @@ export async function ContactPage() {
     const grid = document.createElement("div");
     grid.className = "contact-page__grid";
     grid.appendChild(ContactInfo(profile));
-    grid.appendChild(ContactForm({ sendLabel: "Envoyer" }));
+    grid.appendChild(ContactForm({ sendLabel: "Envoyer le message" }));
     content.appendChild(grid);
 
     return Layout(content, profile);

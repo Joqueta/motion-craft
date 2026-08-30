@@ -1,7 +1,7 @@
 import { Nav } from "./nav.js";
 import { Footer } from "./footer.js";
 
-export function Layout(content, profile = {}) {
+export function Layout(content, profile = {}, options = {}) {
   const wrapper = document.createDocumentFragment();
 
   wrapper.appendChild(Nav());
@@ -13,7 +13,7 @@ export function Layout(content, profile = {}) {
   }
   wrapper.appendChild(content);
 
-  wrapper.appendChild(Footer({ name: `${profile.firstName ?? ""} ${profile.lastName ?? ""}`.trim(), github: profile.github, email: profile.email }));
+  wrapper.appendChild(Footer({ name: `${profile.firstName ?? ""} ${profile.lastName ?? ""}`.trim(), tagline: options.tagline }));
 
   const root = document.createElement("div");
   root.className = "page page--abdoulaye";

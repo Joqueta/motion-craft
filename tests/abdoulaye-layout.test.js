@@ -29,18 +29,17 @@ describe("Layout (abdoulaye)", () => {
     expect(second.id).toBe("");
   });
 
-  it("affiche le nom et l'email du profil dans le pied de page", () => {
-    const root = Layout(document.createElement("div"), {
-      firstName: "Abdoulaye",
-      lastName: "Diagne",
-      email: "abdoulayediagne049@gmail.com",
-      github: "https://github.com/abdoulayediagne-lab",
-    });
+  it("affiche le nom du profil et la signature dans le pied de page", () => {
+    const root = Layout(document.createElement("div"), { firstName: "Abdoulaye", lastName: "Diagne" });
 
     const footerText = root.querySelector(".abdoulaye-footer__text").textContent;
     expect(footerText).toContain("Abdoulaye Diagne");
-    expect(root.querySelector(".abdoulaye-footer__links a[href^='mailto:']").textContent).toBe(
-      "abdoulayediagne049@gmail.com",
-    );
+    expect(footerText).toContain("Portfolio");
+    expect(root.querySelector(".abdoulaye-footer__signature").textContent).toBe("Fait par mes soins");
+  });
+
+  it("utilise le tagline personnalisé quand il est fourni", () => {
+    const root = Layout(document.createElement("div"), { firstName: "Abdoulaye", lastName: "Diagne" }, { tagline: "Développeur Web" });
+    expect(root.querySelector(".abdoulaye-footer__text").textContent).toContain("Développeur Web");
   });
 });
