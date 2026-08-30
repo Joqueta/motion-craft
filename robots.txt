@@ -5,6 +5,7 @@ Disallow: /connexion
 Disallow: /inscription
 Disallow: /fritzi/admin
 Disallow: /abdoulaye/admin
+Disallow: /mathis/admin
 Disallow: /tests/
 
 Sitemap: https://exemple.fr/sitemap.xml
