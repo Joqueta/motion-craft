@@ -1,20 +1,20 @@
 import { isRouterActive, currentLocation } from "../router/browser-router.js";
 
 const NAV_ITEMS = [
-  { label: "Accueil", route: "/mathis", staticHref: "/mathis" },
-  { label: "À propos", route: "/mathis#apropos", staticHref: "/mathis#apropos" },
-  { label: "Projets", route: "/mathis#projets", staticHref: "/mathis#projets" },
-  { label: "Contact", route: "/mathis#contact", staticHref: "/mathis#contact" },
+  { label: "Accueil", route: "/mathis", staticHref: "/mathis", hash: false },
+  { label: "À propos", route: "#apropos", staticHref: "#apropos", hash: true },
+  { label: "Projets", route: "#projets", staticHref: "#projets", hash: true },
+  { label: "Contact", route: "#contact", staticHref: "#contact", hash: true },
 ];
 
 export function getNavLinks() {
-  const dataRoute = isRouterActive();
-  const currentPath = dataRoute ? currentLocation().path : window.location.pathname;
+  const routerActive = isRouterActive();
+  const currentPath = routerActive ? currentLocation().path : window.location.pathname;
 
-  return NAV_ITEMS.map(({ label, route, staticHref }) => ({
+  return NAV_ITEMS.map(({ label, route, staticHref, hash }) => ({
     label,
-    href: dataRoute ? route : staticHref,
-    dataRoute,
-    active: !route.includes("#") && route === currentPath,
+    href: routerActive && !hash ? route : staticHref,
+    dataRoute: routerActive && !hash,
+    active: !hash && route === currentPath,
   }));
 }

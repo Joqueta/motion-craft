@@ -14,6 +14,7 @@ const MATHIS_SEED = {
         'Après avoir obtenu un Bac Général mention bien en 2022 et un BTS SIO SLAM en 2024, je suis actuellement étudiant en 3ème année de Bachelor Développement Web chez decode.',
       email: 'vidueiramathis@gmail.com',
       github: 'https://github.com/siomathisa',
+      linkedin: 'https://www.linkedin.com/in/mathis-vidueira/',
       skillsLanguages: ['HTML / CSS', 'Javascript', 'PHP', 'Python'],
       skillsFrameworks: ['Tailwind', 'React', 'Laravel'],
       skillsTools: ['Git / GitHub', 'VS Code', 'Docker', 'n8n'],

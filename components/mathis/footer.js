@@ -7,7 +7,7 @@ export function Footer(props = {}) {
   footer.className = "mathis-footer";
 
   footer.innerHTML = `
-    <p class="mathis-footer__text">${escapeHtml(props.name ?? "")} — Portfolio ${year}</p>
+    <p class="mathis-footer__text">${escapeHtml(props.name ?? "")} - Portfolio ${year}</p>
   `;
 
   return footer;

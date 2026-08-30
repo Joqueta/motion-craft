@@ -32,12 +32,12 @@ export function ContactForm(props = {}) {
     <div class="mathis-contact-form__row">
       <div class="mathis-contact-form__field">
         <label for="prenom">Prénom</label>
-        <input id="prenom" name="prenom" type="text" required />
+        <input id="prenom" name="prenom" type="text" placeholder="Prénom" required />
         <span class="mathis-contact-form__error" data-error-for="prenom"></span>
       </div>
       <div class="mathis-contact-form__field">
         <label for="nom">Nom</label>
-        <input id="nom" name="nom" type="text" required />
+        <input id="nom" name="nom" type="text" placeholder="Nom" required />
         <span class="mathis-contact-form__error" data-error-for="nom"></span>
       </div>
     </div>
@@ -45,12 +45,12 @@ export function ContactForm(props = {}) {
     <div class="mathis-contact-form__row">
       <div class="mathis-contact-form__field">
         <label for="email">Adresse mail</label>
-        <input id="email" name="email" type="email" required />
+        <input id="email" name="email" type="email" placeholder="Adresse mail" required />
         <span class="mathis-contact-form__error" data-error-for="email"></span>
       </div>
       <div class="mathis-contact-form__field">
         <label for="telephone">Téléphone</label>
-        <input id="telephone" name="telephone" type="tel" />
+        <input id="telephone" name="telephone" type="tel" placeholder="Téléphone" />
         <span class="mathis-contact-form__error" data-error-for="telephone"></span>
       </div>
     </div>
@@ -95,7 +95,7 @@ async function handleSubmit(form) {
 
   try {
     await fakeSendMessage(data);
-    statusEl.textContent = "Message envoyé — merci !";
+    statusEl.textContent = "Message envoyé, merci !";
     form.reset();
   } catch (error) {
     statusEl.textContent = `Erreur : ${error.message}`;

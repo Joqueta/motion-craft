@@ -9,6 +9,49 @@
   padding-left: clamp(1.25rem, 5.5vw, 80px);
   padding-right: clamp(1.25rem, 5.5vw, 80px);
   box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+}
+
+.page--mathis .mathis-hero::before,
+.page--mathis .mathis-hero::after,
+.page--mathis .mathis-about::before,
+.page--mathis .mathis-projects-section::before,
+.page--mathis .mathis-contact-section::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(245, 199, 65, 0.08);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page--mathis .mathis-hero::before {
+  top: -60px;
+  left: -60px;
+}
+
+.page--mathis .mathis-hero::after {
+  top: -20px;
+  right: -40px;
+}
+
+.page--mathis .mathis-about::before {
+  top: -60px;
+  left: -60px;
+}
+
+.page--mathis .mathis-projects-section::before {
+  top: -20px;
+  left: -80px;
+}
+
+.page--mathis .mathis-contact-section::before {
+  bottom: -60px;
+  left: -60px;
 }
 
 @media (max-width: 900px) {
@@ -24,7 +67,6 @@
 .mathis-hero {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 134px;
 }
 
@@ -32,12 +74,12 @@
   display: flex;
   flex-direction: column;
   gap: 85px;
-  max-width: 603px;
 }
 
 .mathis-hero__title {
   margin: 0;
   text-align: center;
+  white-space: nowrap;
   font-size: 72px;
   font-weight: 700;
   line-height: 87px;
@@ -98,6 +140,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.mathis-hero__photo:hover img {
+  transform: scale(1.05);
 }
 
 .mathis-about__title,
@@ -181,8 +228,20 @@
 
 .mathis-project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 400px));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 44px 44px;
+}
+
+@media (max-width: 1100px) {
+  .mathis-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .mathis-project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .mathis-project-card {
@@ -194,6 +253,12 @@
   border: 1px solid var(--ma-border);
   border-radius: 16px;
   box-sizing: border-box;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.mathis-project-card:hover {
+  border-color: var(--ma-accent);
+  transform: translateY(-4px);
 }
 
 .mathis-project-card__link {
