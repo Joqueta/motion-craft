@@ -1,20 +1,23 @@
-.projects-page {
+.page--abdoulaye .projects-page {
   padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 5rem);
 }
 
-.projects-page__title {
+.page--abdoulaye .projects-page__title {
   font-size: clamp(2rem, 4vw, 2.6rem);
   margin: 0 0 2rem;
   color: var(--ab-text);
 }
 
-.project-grid {
+.page--abdoulaye .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
-.project-card {
+.page--abdoulaye .project-card {
+  display: block;
+  width: auto;
+  position: static;
   border: 1px solid var(--ab-border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -22,19 +25,19 @@
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.project-card:hover {
+.page--abdoulaye .project-card:hover {
   border-color: var(--ab-border-strong);
   transform: translateY(-2px);
 }
 
-.project-card__link {
+.page--abdoulaye .project-card__link {
   color: inherit;
   text-decoration: none;
   display: block;
   padding: 1.25rem;
 }
 
-.project-card__head {
+.page--abdoulaye .project-card__head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -42,7 +45,7 @@
   margin-bottom: 1rem;
 }
 
-.project-card__thumb {
+.page--abdoulaye .project-card__thumb {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-sm);
@@ -50,7 +53,7 @@
   background: var(--ab-surface-strong);
 }
 
-.project-card__eyebrow {
+.page--abdoulaye .project-card__eyebrow {
   font-size: 0.68rem;
   letter-spacing: 0.06em;
   color: var(--ab-text-muted);
@@ -58,26 +61,35 @@
   white-space: nowrap;
 }
 
-.project-card__title {
+.page--abdoulaye .project-card__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
   margin: 0 0 0.4rem;
   font-size: 1.1rem;
   color: var(--ab-text);
 }
 
-.project-card__meta {
+.page--abdoulaye .project-card__meta {
+  display: block;
   margin: 0 0 0.75rem;
   font-size: 0.82rem;
   color: var(--ab-accent-strong);
 }
 
-.project-card__excerpt {
+.page--abdoulaye .project-card__excerpt {
   margin: 0 0 1rem;
   color: var(--ab-text-secondary);
   font-size: 0.9rem;
 }
 
-.project-card__tags {
+.page--abdoulaye .project-card__tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+}
+
+@media (max-width: 720px) {
+  .page--abdoulaye .project-grid {
+    grid-template-columns: 1fr;
+  }
 }

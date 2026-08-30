@@ -1,12 +1,19 @@
-.page--home .hero {
+.page--abdoulaye .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
   gap: 3rem;
   align-items: center;
   padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 4vw, 5rem);
+  text-align: left;
+  justify-items: stretch;
+  position: static;
+  background: var(--ab-bg);
+  min-height: 0;
+  flex-direction: unset;
+  justify-content: unset;
 }
 
-.hero__status {
+.page--abdoulaye .hero__status {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
@@ -20,69 +27,80 @@
   margin: 0 0 1.25rem;
 }
 
-.hero__status-dot {
+.page--abdoulaye .hero__status-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: var(--ab-border-strong);
 }
 
-.hero__status-dot.is-active {
+.page--abdoulaye .hero__status-dot.is-active {
   background: var(--ab-accent-strong);
 }
 
-.hero__title {
+.page--abdoulaye .hero__title {
+  display: block;
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: clamp(2.25rem, 4vw, 3.25rem);
+  line-height: 1.1;
+  text-transform: none;
   margin: 0 0 0.35rem;
   color: var(--ab-text);
 }
 
-.hero__role {
+.page--abdoulaye .hero__role {
+  font-family: var(--font-sans);
   font-size: 1.15rem;
   font-weight: 600;
+  line-height: 1.4;
+  text-transform: none;
   color: var(--ab-accent-strong);
   margin: 0 0 1rem;
 }
 
-.hero__bio {
+.page--abdoulaye .hero__bio {
   max-width: 46ch;
   color: var(--ab-text-secondary);
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
   margin: 0 0 1.5rem;
 }
 
-.hero__cta {
+.page--abdoulaye .hero__cta {
   display: flex;
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
-.hero__stats {
+.page--abdoulaye .hero__stats {
   display: flex;
   gap: 2.25rem;
   flex-wrap: wrap;
 }
 
-.hero__stat {
+.page--abdoulaye .hero__stat {
   display: flex;
   flex-direction: column;
 }
 
-.hero__stat-value {
+.page--abdoulaye .hero__stat-value {
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 1.4rem;
   color: var(--ab-accent-strong);
 }
 
-.hero__stat-label {
+.page--abdoulaye .hero__stat-label {
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   color: var(--ab-text-muted);
 }
 
-.terminal-card {
+.page--abdoulaye .terminal-card {
   background: var(--ab-surface);
   color: var(--ab-text-secondary);
   border: 1px solid var(--ab-border);
@@ -92,7 +110,7 @@
   font-family: var(--font-mono);
 }
 
-.terminal-card__bar {
+.page--abdoulaye .terminal-card__bar {
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -100,20 +118,20 @@
   background: var(--ab-surface-strong);
 }
 
-.terminal-card__dot {
+.page--abdoulaye .terminal-card__dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: rgb(255 255 255 / 15%);
 }
 
-.terminal-card__filename {
+.page--abdoulaye .terminal-card__filename {
   margin-left: 0.5rem;
   font-size: 0.78rem;
   color: var(--ab-text-muted);
 }
 
-.terminal-card__body {
+.page--abdoulaye .terminal-card__body {
   margin: 0;
   padding: 1.25rem;
   font-size: 0.82rem;
@@ -121,30 +139,30 @@
   white-space: pre-wrap;
 }
 
-.about {
+.page--abdoulaye .about {
   padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 5rem);
   border-top: 1px solid var(--ab-border);
 }
 
-.about__heading {
+.page--abdoulaye .about__heading {
   font-size: clamp(1.6rem, 3vw, 2.1rem);
   margin: 0 0 1.5rem;
 }
 
-.about__intro {
+.page--abdoulaye .about__intro {
   max-width: 70ch;
   color: var(--ab-text-secondary);
   margin-bottom: 2rem;
 }
 
-.about__info-grid {
+.page--abdoulaye .about__info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.25rem;
   margin-bottom: 2.5rem;
 }
 
-.about__info-label {
+.page--abdoulaye .about__info-label {
   display: block;
   font-size: 0.68rem;
   letter-spacing: 0.08em;
@@ -152,26 +170,26 @@
   margin-bottom: 0.3rem;
 }
 
-.about__info-value {
+.page--abdoulaye .about__info-value {
   font-weight: 600;
   color: var(--ab-text);
 }
 
-.about__block-heading {
+.page--abdoulaye .about__block-heading {
   font-size: 1.05rem;
   margin: 0 0 1rem;
   color: var(--ab-text);
 }
 
-.about__skills {
+.page--abdoulaye .about__skills {
   margin-bottom: 2.5rem;
 }
 
-.about__skill {
+.page--abdoulaye .about__skill {
   margin-bottom: 1rem;
 }
 
-.about__skill-row {
+.page--abdoulaye .about__skill-row {
   display: flex;
   justify-content: space-between;
   font-size: 0.9rem;
@@ -179,30 +197,30 @@
   color: var(--ab-text-secondary);
 }
 
-.about__skill-track {
+.page--abdoulaye .about__skill-track {
   height: 4px;
   border-radius: var(--radius-pill);
   background: var(--ab-surface-strong);
   overflow: hidden;
 }
 
-.about__skill-fill {
+.page--abdoulaye .about__skill-fill {
   height: 100%;
   background: var(--ab-accent);
   border-radius: inherit;
 }
 
-.about__chips-block {
+.page--abdoulaye .about__chips-block {
   margin-bottom: 2rem;
 }
 
-.about__chips {
+.page--abdoulaye .about__chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.about__chip {
+.page--abdoulaye .about__chip {
   padding: 0.35em 0.85em;
   border-radius: var(--radius-pill);
   background: var(--ab-surface);
@@ -211,66 +229,73 @@
   font-size: 0.82rem;
 }
 
-.timeline {
+.page--abdoulaye .timeline {
   padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 5rem);
   border-top: 1px solid var(--ab-border);
   display: grid;
   gap: 3rem;
+  max-width: none;
+  margin: 0;
 }
 
-.timeline__heading {
+.page--abdoulaye .timeline__heading {
   font-size: 1.2rem;
   margin: 0 0 1.5rem;
   color: var(--ab-text);
 }
 
-.timeline__item {
+.page--abdoulaye .timeline__item {
   display: grid;
   grid-template-columns: 2rem 1fr;
   gap: 0.5rem;
-  padding-bottom: 1.5rem;
+  padding: 0 0 1.5rem;
+  position: static;
+  background: none;
+  border: none;
   border-bottom: 1px solid var(--ab-border);
+  border-radius: 0;
+  box-shadow: none;
   margin-bottom: 1.5rem;
 }
 
-.timeline__item:last-child {
+.page--abdoulaye .timeline__item:last-child {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-.timeline__index {
+.page--abdoulaye .timeline__index {
   font-family: var(--font-mono);
   color: var(--ab-accent-strong);
 }
 
-.timeline__period {
+.page--abdoulaye .timeline__period {
   display: block;
   font-size: 0.8rem;
   color: var(--ab-text-muted);
   margin-bottom: 0.2rem;
 }
 
-.timeline__title {
+.page--abdoulaye .timeline__title {
   margin: 0 0 0.2rem;
   font-size: 1.02rem;
   color: var(--ab-text);
 }
 
-.timeline__place {
+.page--abdoulaye .timeline__place {
   display: block;
   font-size: 0.85rem;
   color: var(--ab-text-muted);
   margin-bottom: 0.4rem;
 }
 
-.timeline__description {
+.page--abdoulaye .timeline__description {
   margin: 0;
   color: var(--ab-text-secondary);
 }
 
 @media (max-width: 860px) {
-  .page--home .hero {
+  .page--abdoulaye .hero {
     grid-template-columns: 1fr;
   }
 }

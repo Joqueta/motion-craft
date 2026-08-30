@@ -125,7 +125,7 @@ const ABDOULAYE_PROJECTS = [
       order: 0,
       featured: true,
     },
-    media: { cover: { asset: 'default-image.svg', alt: 'Aperçu du projet CMS Headless — Wiki' } },
+    media: { cover: { asset: 'abdoulaye-default-cover.svg', alt: 'Aperçu du projet CMS Headless — Wiki' } },
   },
   {
     text: {
@@ -143,7 +143,7 @@ const ABDOULAYE_PROJECTS = [
       order: 1,
       featured: false,
     },
-    media: { cover: { asset: 'default-image.svg', alt: 'Aperçu du jeu Harry Potter' } },
+    media: { cover: { asset: 'abdoulaye-default-cover.svg', alt: 'Aperçu du jeu Harry Potter' } },
   },
   {
     text: {
@@ -161,7 +161,7 @@ const ABDOULAYE_PROJECTS = [
       order: 2,
       featured: false,
     },
-    media: { cover: { asset: 'default-image.svg', alt: 'Aperçu du simulateur bayésien' } },
+    media: { cover: { asset: 'abdoulaye-default-cover.svg', alt: 'Aperçu du simulateur bayésien' } },
   },
   {
     text: {
@@ -179,7 +179,7 @@ const ABDOULAYE_PROJECTS = [
       order: 3,
       featured: false,
     },
-    media: { cover: { asset: 'default-image.svg', alt: 'Aperçu du site Ekipma' } },
+    media: { cover: { asset: 'abdoulaye-default-cover.svg', alt: 'Aperçu du site Ekipma' } },
   },
 ];
 

@@ -42,6 +42,9 @@
   border: 1px solid transparent;
   cursor: pointer;
   font: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .page--abdoulaye .btn--primary {

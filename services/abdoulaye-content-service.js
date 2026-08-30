@@ -65,7 +65,7 @@ export async function fetchHomeData() {
 }
 
 export async function fetchProjects() {
-  const result = await client.find("abdoulaye-project", {
+  const result = await client.find("abdoulaye-projects", {
     filters: { state: { $eq: "published" } },
     sort: "order:asc",
     populate: PROJECT_LIST_POPULATE,
@@ -77,7 +77,7 @@ export async function fetchProjects() {
 export async function fetchProjectDetail(slug) {
   if (!slug) throw new Error("Slug de projet manquant");
 
-  const result = await client.find("abdoulaye-project", {
+  const result = await client.find("abdoulaye-projects", {
     filters: { slug: { $eq: slug } },
     populate: { cover: true },
   });
