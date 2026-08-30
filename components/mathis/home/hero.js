@@ -8,10 +8,17 @@ export function Hero(props) {
 
   section.innerHTML = `
     <div class="mathis-hero__column">
-      <h1 class="mathis-hero__title">${escapeHtml(props.firstName)} <span class="mathis-hero__lastname">${escapeHtml(props.lastName.toUpperCase())}</span></h1>
-      <p class="mathis-hero__role">${escapeHtml(props.role)}</p>
-      <p class="mathis-hero__bio">${escapeHtml(props.bio)}</p>
-      <a class="btn btn--outline" href="#projets">Découvrir mes projets</a>
+      <div>
+        <h1 class="mathis-hero__title">${escapeHtml(props.firstName)} <span class="mathis-hero__lastname">${escapeHtml(props.lastName.toUpperCase())}</span></h1>
+        <div class="mathis-hero__title-rule"></div>
+      </div>
+      <div class="mathis-hero__body">
+        <div class="mathis-hero__text">
+          <p class="mathis-hero__role">${escapeHtml(props.role)}</p>
+          <p class="mathis-hero__bio">${escapeHtml(props.bio)}</p>
+        </div>
+        <a class="btn btn--outline" href="#projets">Découvrir mes projets</a>
+      </div>
     </div>
     <div class="mathis-hero__photo">
       <img src="${escapeHtml(props.photo.url)}" alt="${escapeHtml(props.photo.alt)}" />
