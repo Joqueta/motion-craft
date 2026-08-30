@@ -1,0 +1,117 @@
+.page--mathis {
+  --ma-bg: #0f0f0f;
+  --ma-surface: #1d1d1d;
+  --ma-border: #323232;
+  --ma-accent: #f5c841;
+  --ma-text: #f5f5f5;
+  --ma-text-secondary: #9e9e9e;
+  --ma-success: #4caf50;
+  --ma-error: #e53935;
+
+  font-family: var(--font-sans);
+  color: var(--ma-text);
+  background: var(--ma-bg);
+}
+
+.page--mathis .loading,
+.page--mathis .error {
+  padding: 4rem clamp(1.25rem, 4vw, 5rem);
+  color: var(--ma-text-secondary);
+}
+
+.page--mathis .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.85em 1.6em;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font: inherit;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.page--mathis .btn--primary {
+  background: var(--ma-accent);
+  color: var(--ma-bg);
+}
+
+.page--mathis .btn--primary:hover {
+  background: #ffd666;
+}
+
+.page--mathis .btn--outline {
+  background: transparent;
+  color: var(--ma-accent);
+  border-color: var(--ma-accent);
+}
+
+.page--mathis .btn--outline:hover {
+  background: color-mix(in srgb, var(--ma-accent) 12%, transparent);
+}
+
+.page--mathis .tag-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--ma-accent) 16%, var(--ma-bg));
+  color: var(--ma-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.mathis-nav {
+  position: sticky;
+  top: 1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  width: fit-content;
+  margin: 0 auto 1rem;
+  padding: 0.75rem 1.75rem;
+  background: color-mix(in srgb, var(--ma-surface) 90%, transparent);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--ma-border);
+  border-radius: var(--radius-pill);
+}
+
+.mathis-nav__logo {
+  color: var(--ma-accent);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.mathis-nav__links {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.mathis-nav__link {
+  color: var(--ma-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+
+.mathis-nav__link:hover,
+.mathis-nav__link.is-active {
+  color: var(--ma-accent);
+}
+
+.mathis-footer {
+  padding: 2rem clamp(1.25rem, 4vw, 5rem);
+  border-top: 1px solid var(--ma-border);
+  text-align: center;
+}
+
+.mathis-footer__text {
+  margin: 0;
+  color: var(--ma-text-secondary);
+  font-size: 0.85rem;
+}

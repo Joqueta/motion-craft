@@ -1,0 +1,105 @@
+.mathis-detail-header {
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 5rem) 2rem;
+}
+
+.mathis-detail-header__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--ma-border);
+  border-radius: 50%;
+  color: var(--ma-accent);
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.mathis-detail-header__back:hover {
+  border-color: var(--ma-accent);
+}
+
+.mathis-detail-header__title {
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--ma-accent);
+}
+
+.mathis-detail-header__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.mathis-detail-header__meta-item {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.mathis-detail-header__meta-label {
+  font-size: 0.75rem;
+  color: var(--ma-text-secondary);
+}
+
+.mathis-detail-header__meta-value {
+  font-weight: 600;
+  color: var(--ma-text);
+}
+
+.mathis-detail-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  padding: 0 clamp(1.25rem, 4vw, 5rem) clamp(3rem, 6vw, 5rem);
+}
+
+.mathis-detail-content__preview {
+  background: var(--ma-surface);
+  border: 1px solid var(--ma-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.mathis-detail-content__preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mathis-detail-content__column {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+}
+
+.mathis-detail-content__heading {
+  margin: 1.1rem 0 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ma-accent);
+}
+
+.mathis-detail-content__heading:first-child {
+  margin-top: 0;
+}
+
+.mathis-detail-content__text {
+  margin: 0;
+  color: var(--ma-text-secondary);
+  font-size: 0.92rem;
+}
+
+.mathis-detail-content__link {
+  color: var(--ma-accent);
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+@media (max-width: 860px) {
+  .mathis-detail-content {
+    grid-template-columns: 1fr;
+  }
+}

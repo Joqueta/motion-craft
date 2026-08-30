@@ -1,5 +1,4 @@
 import MarketingHomePage from "../pages/marketing-home-page.js";
-import { createTeamPortfolioPage } from "../pages/team-portfolio-page.js";
 import AdminRedirect from "../pages/admin-redirect.js";
 import LoginPage from "../pages/login-page.js";
 import LegalPage from "../pages/legal-page.js";
@@ -23,6 +22,13 @@ import {
   AbdoulayeAdminPageRedirect,
   AbdoulayeAdminProjectsRedirect,
 } from "../pages/abdoulaye/admin-redirect.js";
+import { HomePage as MathisHomePage } from "../pages/mathis/home.js";
+import { ProjectDetailPage as MathisProjectDetailPage } from "../pages/mathis/project-detail.js";
+import {
+  MathisAdminEntryRedirect,
+  MathisAdminProfileRedirect,
+  MathisAdminProjectsRedirect,
+} from "../pages/mathis/admin-redirect.js";
 
 export const REDIRECTS = {
   "/home": "/",
@@ -47,7 +53,11 @@ export default {
   "/abdoulaye/admin/projets/nouveau": AbdoulayeAdminProjectsRedirect,
   "/abdoulaye/admin/projets/:slug": AbdoulayeAdminProjectsRedirect,
   "/abdoulaye/admin/pages/:page": AbdoulayeAdminPageRedirect,
-  "/mathis": createTeamPortfolioPage("VIEDUEIRA Mathis"),
+  "/mathis": MathisHomePage,
+  "/mathis/projets/:slug": MathisProjectDetailPage,
+  "/mathis/admin": MathisAdminEntryRedirect,
+  "/mathis/admin/projets/:slug": MathisAdminProjectsRedirect,
+  "/mathis/admin/pages/profil": MathisAdminProfileRedirect,
   "/fritzi": FritziHomePage,
   "/fritzi/about": FritziAboutPage,
   "/fritzi/work": FritziWorkPage,

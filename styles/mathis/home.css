@@ -1,0 +1,330 @@
+.mathis-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 5rem);
+}
+
+.mathis-hero__column {
+  max-width: 620px;
+}
+
+.mathis-hero__title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--ma-text);
+  border-bottom: 4px solid var(--ma-accent);
+  padding-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.mathis-hero__lastname {
+  color: var(--ma-text);
+}
+
+.mathis-hero__role {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ma-accent);
+}
+
+.mathis-hero__bio {
+  margin: 0 0 2rem;
+  color: var(--ma-text-secondary);
+  max-width: 46ch;
+}
+
+.mathis-hero__photo {
+  flex-shrink: 0;
+  width: min(320px, 40vw);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--ma-border);
+}
+
+.mathis-hero__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.mathis-about {
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 5rem);
+}
+
+.mathis-about__title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+}
+
+.mathis-about__accent {
+  color: var(--ma-accent);
+}
+
+.mathis-about__bio {
+  margin: 0 0 2rem;
+  color: var(--ma-text-secondary);
+  max-width: 62ch;
+}
+
+.mathis-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.mathis-skills__card {
+  padding: 1.4rem;
+  background: var(--ma-surface);
+  border: 1px solid var(--ma-border);
+  border-radius: var(--radius);
+}
+
+.mathis-skills__heading {
+  margin: 0 0 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ma-accent);
+}
+
+.mathis-skills__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.mathis-skills__list li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--ma-text);
+  font-size: 0.9rem;
+}
+
+.mathis-skills__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ma-accent);
+}
+
+.mathis-projects-section {
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 5rem);
+}
+
+.mathis-projects-section__title {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+}
+
+.mathis-projects-section__accent {
+  color: var(--ma-accent);
+}
+
+.mathis-projects-section__subtitle {
+  margin: 0 0 2rem;
+  color: var(--ma-text-secondary);
+}
+
+.mathis-project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.mathis-project-card {
+  background: var(--ma-surface);
+  border: 1px solid var(--ma-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.mathis-project-card__link {
+  display: block;
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.mathis-project-card__thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.mathis-project-card__title {
+  margin: 1.1rem 1.25rem 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ma-text);
+}
+
+.mathis-project-card__excerpt {
+  margin: 0 1.25rem 1rem;
+  color: var(--ma-text-secondary);
+  font-size: 0.88rem;
+}
+
+.mathis-project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 1.25rem 1.25rem;
+}
+
+.mathis-contact-section {
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 5rem);
+  text-align: center;
+}
+
+.mathis-contact-section__title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+}
+
+.mathis-contact-section__accent {
+  color: var(--ma-accent);
+}
+
+.mathis-contact-section__intro {
+  margin: 0 auto 2rem;
+  max-width: 52ch;
+  color: var(--ma-text-secondary);
+}
+
+.mathis-contact-form {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: left;
+  display: grid;
+  gap: 1rem;
+}
+
+.mathis-contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.mathis-contact-form__field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.mathis-contact-form__field label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ma-text-secondary);
+}
+
+.mathis-contact-form__field input,
+.mathis-contact-form__field textarea {
+  padding: 0.75rem 0.9rem;
+  background: var(--ma-surface);
+  border: 1px solid var(--ma-border);
+  border-radius: var(--radius-sm);
+  color: var(--ma-text);
+  font: inherit;
+}
+
+.mathis-contact-form__field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.mathis-contact-form__field input:focus,
+.mathis-contact-form__field textarea:focus {
+  outline: none;
+  border-color: var(--ma-accent);
+}
+
+.mathis-contact-form__error {
+  min-height: 1.1em;
+  color: var(--ma-error);
+  font-size: 0.78rem;
+}
+
+.mathis-contact-form__submit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.mathis-contact-form__status {
+  color: var(--ma-text-secondary);
+  font-size: 0.85rem;
+}
+
+.mathis-contact-info {
+  max-width: 620px;
+  margin: 2rem auto 0;
+  text-align: center;
+}
+
+.mathis-contact-info__text {
+  margin: 0 0 0.75rem;
+  color: var(--ma-text-secondary);
+  font-size: 0.9rem;
+}
+
+.mathis-contact-info__links {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.mathis-contact-info__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--ma-accent);
+  color: var(--ma-bg);
+}
+
+.mathis-contact-info__icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+@media (max-width: 720px) {
+  .mathis-hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .mathis-hero__column {
+    max-width: none;
+  }
+
+  .mathis-contact-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .mathis-nav {
+    gap: 1.25rem;
+    padding: 0.65rem 1.1rem;
+  }
+
+  .mathis-nav__links {
+    gap: 1rem;
+  }
+}
