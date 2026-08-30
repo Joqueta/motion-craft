@@ -50,7 +50,7 @@
   height: 48px;
   border-radius: var(--radius-sm);
   object-fit: cover;
-  background: var(--ab-surface-strong);
+  display: block;
 }
 
 .page--abdoulaye .project-card__eyebrow {
