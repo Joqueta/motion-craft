@@ -1,0 +1,100 @@
+.page--abdoulaye {
+  --code-accent: #22c55e;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--surface);
+}
+
+.page--abdoulaye .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.75em 1.4em;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.page--abdoulaye .btn--primary {
+  background: var(--ink);
+  color: var(--ink-contrast);
+}
+
+.page--abdoulaye .btn--outline {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.abdoulaye-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem clamp(1.25rem, 4vw, 5rem);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.abdoulaye-nav__logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.35em 0.6em;
+}
+
+.abdoulaye-nav__links {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.abdoulaye-nav__link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.abdoulaye-nav__link:hover,
+.abdoulaye-nav__link.is-active {
+  color: var(--text);
+}
+
+.abdoulaye-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem clamp(1.25rem, 4vw, 5rem);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.abdoulaye-footer__links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.abdoulaye-footer__links a {
+  color: var(--text-muted);
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3em 0.75em;
+  border-radius: var(--radius-pill);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
