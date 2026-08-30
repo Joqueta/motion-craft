@@ -1,6 +1,6 @@
 import MarketingHomePage from "../pages/marketing-home-page.js";
 import { createTeamPortfolioPage } from "../pages/team-portfolio-page.js";
-import AdminPage from "../pages/admin-page.js";
+import AdminRedirect from "../pages/admin-redirect.js";
 import LoginPage from "../pages/login-page.js";
 import LegalPage from "../pages/legal-page.js";
 import NotFoundPage from "../pages/not-found-page.js";
@@ -32,7 +32,7 @@ export const REDIRECTS = {
 
 export default {
   "/": MarketingHomePage,
-  "/admin": AdminPage,
+  "/admin": AdminRedirect,
   "/connexion": LoginPage,
   "/inscription": LoginPage,
   "/mentions-legales": LegalPage,
