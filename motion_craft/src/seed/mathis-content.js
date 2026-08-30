@@ -20,7 +20,7 @@ const MATHIS_SEED = {
       contactIntro: 'Contactez-moi via ce formulaire si mon profil vous intéresse ou simplement pour discuter.',
     },
     media: {
-      heroPhoto: { asset: 'mathis-default-cover.svg', alt: 'Photo de Mathis Vidueira' },
+      heroPhoto: { asset: 'ma photo.jpeg', alt: 'Photo de Mathis Vidueira' },
     },
   },
 };
@@ -47,8 +47,8 @@ const MATHIS_PROJECTS = [
       order: 0,
     },
     media: {
-      cover: { asset: 'mathis-default-cover.svg', alt: 'Aperçu du projet Wiki - CMS Headless' },
-      heroImage: { asset: 'mathis-default-cover.svg', alt: 'Capture du projet Wiki - CMS Headless' },
+      cover: { asset: 'card projet cms.png', alt: 'Aperçu du projet Wiki - CMS Headless' },
+      heroImage: { asset: 'page projet cms.png', alt: 'Capture du projet Wiki - CMS Headless' },
     },
   },
   {
@@ -72,8 +72,8 @@ const MATHIS_PROJECTS = [
       order: 1,
     },
     media: {
-      cover: { asset: 'mathis-default-cover.svg', alt: 'Aperçu du projet Métro parisien' },
-      heroImage: { asset: 'mathis-default-cover.svg', alt: 'Capture du projet Métro parisien' },
+      cover: { asset: 'card projet metrro.png', alt: 'Aperçu du projet Métro parisien' },
+      heroImage: { asset: 'page projet metro.png', alt: 'Capture du projet Métro parisien' },
     },
   },
   {
@@ -98,8 +98,8 @@ const MATHIS_PROJECTS = [
       order: 2,
     },
     media: {
-      cover: { asset: 'mathis-default-cover.svg', alt: 'Aperçu du simulateur bayésien' },
-      heroImage: { asset: 'mathis-default-cover.svg', alt: 'Capture du simulateur bayésien' },
+      cover: { asset: 'card projet bayes.png', alt: 'Aperçu du simulateur bayésien' },
+      heroImage: { asset: 'page projet bayes.png', alt: 'Capture du simulateur bayésien' },
     },
   },
   {
@@ -122,8 +122,8 @@ const MATHIS_PROJECTS = [
       order: 3,
     },
     media: {
-      cover: { asset: 'mathis-default-cover.svg', alt: 'Aperçu du projet devInsight' },
-      heroImage: { asset: 'mathis-default-cover.svg', alt: 'Capture du projet devInsight' },
+      cover: { asset: 'card projet devinsight.png', alt: 'Aperçu du projet devInsight' },
+      heroImage: { asset: 'page projet devinsight.png', alt: 'Capture du projet devInsight' },
     },
   },
 ];

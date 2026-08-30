@@ -22,7 +22,7 @@ export function toProjectCard(raw) {
 }
 
 export async function fetchProfile() {
-  const raw = await client.findOne("mathis-profile", {});
+  const raw = await client.findOne("mathis-profile", { populate: { heroPhoto: true } });
   return {
     firstName: raw?.firstName ?? "",
     lastName: raw?.lastName ?? "",

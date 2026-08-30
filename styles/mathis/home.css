@@ -91,7 +91,6 @@
   aspect-ratio: 293 / 390;
   border-radius: 16px;
   overflow: hidden;
-  border: 5px solid var(--ma-border);
 }
 
 .mathis-hero__photo img {
