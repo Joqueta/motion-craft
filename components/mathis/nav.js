@@ -15,7 +15,7 @@ export function Nav(props = {}) {
       ${links
         .map(
           (link) =>
-            `<a href="${escapeHtml(link.href)}"${link.dataRoute ? " data-route" : ""} class="mathis-nav__link${link.active ? " is-active" : ""}">${escapeHtml(link.label)}</a>`,
+            `<a href="${escapeHtml(link.href)}"${link.dataRoute ? " data-route" : ""} class="mathis-nav__link${link.active ? " is-active" : ""}"${link.active ? ' aria-current="page"' : ""}>${escapeHtml(link.label)}</a>`,
         )
         .join("")}
     </nav>
