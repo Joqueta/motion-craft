@@ -18,6 +18,11 @@ import {
   FritziAdminPageRedirect,
   FritziAdminProjectsRedirect,
 } from "../pages/fritzi/admin-redirect.js";
+import {
+  AbdoulayeAdminEntryRedirect,
+  AbdoulayeAdminPageRedirect,
+  AbdoulayeAdminProjectsRedirect,
+} from "../pages/abdoulaye/admin-redirect.js";
 
 export const REDIRECTS = {
   "/home": "/",
@@ -38,6 +43,10 @@ export default {
   "/abdoulaye/projets": AbdoulayeProjectsPage,
   "/abdoulaye/projets/:slug": AbdoulayeProjectDetailPage,
   "/abdoulaye/contact": AbdoulayeContactPage,
+  "/abdoulaye/admin": AbdoulayeAdminEntryRedirect,
+  "/abdoulaye/admin/projets/nouveau": AbdoulayeAdminProjectsRedirect,
+  "/abdoulaye/admin/projets/:slug": AbdoulayeAdminProjectsRedirect,
+  "/abdoulaye/admin/pages/:page": AbdoulayeAdminPageRedirect,
   "/mathis": createTeamPortfolioPage("VIEDUEIRA Mathis"),
   "/fritzi": FritziHomePage,
   "/fritzi/about": FritziAboutPage,
