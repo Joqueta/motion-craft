@@ -25,6 +25,10 @@
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
+.page--abdoulaye .project-card::before {
+  content: none;
+}
+
 .page--abdoulaye .project-card:hover {
   border-color: var(--ab-border-strong);
   transform: translateY(-2px);
