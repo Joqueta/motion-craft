@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "mathis_profile",
+  "info": {
+    "singularName": "mathis-profile",
+    "pluralName": "mathis-profiles",
+    "displayName": "Mathis Profile",
+    "description": "Identité, bio et coordonnées de la page unique mathis"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": { "type": "string", "required": true },
+    "lastName": { "type": "string", "required": true },
+    "role": { "type": "string", "required": true },
+    "statusLabel": { "type": "string" },
+    "statusActive": { "type": "boolean", "default": true },
+    "bioShort": { "type": "text", "required": true },
+    "bioLong": { "type": "text", "required": true },
+    "heroPhoto": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true },
+    "email": { "type": "email", "required": true },
+    "github": { "type": "string" },
+    "linkedin": { "type": "string" },
+    "skillsLanguages": { "type": "json", "required": true },
+    "skillsFrameworks": { "type": "json", "required": true },
+    "skillsTools": { "type": "json", "required": true },
+    "contactIntro": { "type": "text" }
+  }
+}
