@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_abdoulaye_info_items",
+  "info": { "displayName": "Info item", "icon": "list" },
+  "attributes": {
+    "label": { "type": "string", "required": true },
+    "value": { "type": "string", "required": true }
+  }
+}

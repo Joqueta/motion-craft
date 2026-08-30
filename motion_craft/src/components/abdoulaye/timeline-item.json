@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_abdoulaye_timeline_items",
+  "info": { "displayName": "Timeline item", "icon": "calendar" },
+  "attributes": {
+    "period": { "type": "string", "required": true },
+    "title": { "type": "string", "required": true },
+    "place": { "type": "string" },
+    "description": { "type": "text" }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "abdoulaye_profile",
+  "info": {
+    "singularName": "abdoulaye-profile",
+    "pluralName": "abdoulaye-profiles",
+    "displayName": "Abdoulaye Profile",
+    "description": "Identité et coordonnées partagées entre les pages abdoulaye"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": { "type": "string", "required": true },
+    "lastName": { "type": "string", "required": true },
+    "role": { "type": "string", "required": true },
+    "statusLabel": { "type": "string" },
+    "statusActive": { "type": "boolean", "default": true },
+    "bioShort": { "type": "text", "required": true },
+    "bioLong": { "type": "text", "required": true },
+    "email": { "type": "email", "required": true },
+    "phone": { "type": "string" },
+    "location": { "type": "string" },
+    "github": { "type": "string" },
+    "contactIntro": { "type": "text" }
+  }
+}

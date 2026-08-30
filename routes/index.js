@@ -1,9 +1,13 @@
 import MarketingHomePage from "../pages/marketing-home-page.js";
 import { createTeamPortfolioPage } from "../pages/team-portfolio-page.js";
-import AdminPage from "../pages/admin-page.js";
+import AdminRedirect from "../pages/admin-redirect.js";
 import LoginPage from "../pages/login-page.js";
 import LegalPage from "../pages/legal-page.js";
 import NotFoundPage from "../pages/not-found-page.js";
+import { HomePage as AbdoulayeHomePage } from "../pages/abdoulaye/home.js";
+import { ProjectsPage as AbdoulayeProjectsPage } from "../pages/abdoulaye/projects.js";
+import { ContactPage as AbdoulayeContactPage } from "../pages/abdoulaye/contact.js";
+import { ProjectDetailPage as AbdoulayeProjectDetailPage } from "../pages/abdoulaye/project-detail.js";
 import { HomePage as FritziHomePage } from "../pages/fritzi/home.js";
 import { AboutPage as FritziAboutPage } from "../pages/fritzi/about.js";
 import { WorkPage as FritziWorkPage } from "../pages/fritzi/work.js";
@@ -14,6 +18,11 @@ import {
   FritziAdminPageRedirect,
   FritziAdminProjectsRedirect,
 } from "../pages/fritzi/admin-redirect.js";
+import {
+  AbdoulayeAdminEntryRedirect,
+  AbdoulayeAdminPageRedirect,
+  AbdoulayeAdminProjectsRedirect,
+} from "../pages/abdoulaye/admin-redirect.js";
 
 export const REDIRECTS = {
   "/home": "/",
@@ -23,14 +32,21 @@ export const REDIRECTS = {
 
 export default {
   "/": MarketingHomePage,
-  "/admin": AdminPage,
+  "/admin": AdminRedirect,
   "/connexion": LoginPage,
   "/inscription": LoginPage,
   "/mentions-legales": LegalPage,
   "/confidentialite": LegalPage,
   "/cookies": LegalPage,
   "/protection-des-donnees": LegalPage,
-  "/abdoulaye": createTeamPortfolioPage("DIAGNE Abdoulaye"),
+  "/abdoulaye": AbdoulayeHomePage,
+  "/abdoulaye/projets": AbdoulayeProjectsPage,
+  "/abdoulaye/projets/:slug": AbdoulayeProjectDetailPage,
+  "/abdoulaye/contact": AbdoulayeContactPage,
+  "/abdoulaye/admin": AbdoulayeAdminEntryRedirect,
+  "/abdoulaye/admin/projets/nouveau": AbdoulayeAdminProjectsRedirect,
+  "/abdoulaye/admin/projets/:slug": AbdoulayeAdminProjectsRedirect,
+  "/abdoulaye/admin/pages/:page": AbdoulayeAdminPageRedirect,
   "/mathis": createTeamPortfolioPage("VIEDUEIRA Mathis"),
   "/fritzi": FritziHomePage,
   "/fritzi/about": FritziAboutPage,

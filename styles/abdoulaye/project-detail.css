@@ -1,0 +1,109 @@
+.page--abdoulaye .detail-header {
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 5rem) 0;
+}
+
+.page--abdoulaye .detail-header__badge {
+  display: inline-block;
+  padding: 0.35em 0.9em;
+  border-radius: var(--radius-pill);
+  background: var(--ab-accent);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  margin-bottom: 1.25rem;
+}
+
+.page--abdoulaye .detail-header__title {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  margin: 0 0 1.25rem;
+  color: var(--ab-text);
+}
+
+.page--abdoulaye .detail-header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--ab-border);
+  margin-bottom: 1.5rem;
+}
+
+.page--abdoulaye .detail-header__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.page--abdoulaye .detail-header__back {
+  color: var(--ab-accent-strong);
+  text-decoration: none;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.page--abdoulaye .detail-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 1fr);
+  gap: 3rem;
+  padding: 0 clamp(1.25rem, 4vw, 5rem) clamp(2rem, 6vw, 4rem);
+}
+
+.page--abdoulaye .detail-content__image {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  background: var(--ab-surface);
+  aspect-ratio: 4 / 3;
+}
+
+.page--abdoulaye .detail-content__heading {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--ab-text);
+}
+
+.page--abdoulaye .detail-content__heading:first-child {
+  margin-top: 0;
+}
+
+.page--abdoulaye .detail-content__description {
+  color: var(--ab-text-secondary);
+  margin: 0;
+}
+
+.page--abdoulaye .detail-content__stack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--ab-accent-strong);
+}
+
+.page--abdoulaye .detail-content__period {
+  margin: 0;
+  color: var(--ab-text);
+  font-weight: 600;
+}
+
+.page--abdoulaye .detail-content__place {
+  color: var(--ab-text-muted);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.page--abdoulaye .detail-content__cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 860px) {
+  .page--abdoulaye .detail-content {
+    grid-template-columns: 1fr;
+  }
+}

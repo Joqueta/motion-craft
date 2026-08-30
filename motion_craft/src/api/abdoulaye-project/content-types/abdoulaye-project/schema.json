@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "abdoulaye_projects",
+  "info": {
+    "singularName": "abdoulaye-project",
+    "pluralName": "abdoulaye-projects",
+    "displayName": "Abdoulaye Project",
+    "description": "Projets affichés sur la page Projets et leur page détail"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "state": {
+      "type": "enumeration",
+      "enum": ["draft", "review", "published", "archived"],
+      "default": "draft"
+    },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "title": { "type": "string", "required": true },
+    "statusBadge": { "type": "string", "required": true },
+    "tags": { "type": "json", "required": true },
+    "cover": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true },
+    "excerpt": { "type": "text", "required": true },
+    "description": { "type": "text", "required": true },
+    "stack": { "type": "json", "required": true },
+    "periodLabel": { "type": "string", "required": true },
+    "periodPlace": { "type": "string" },
+    "repoUrl": { "type": "string" },
+    "demoUrl": { "type": "string" },
+    "order": { "type": "integer", "default": 0, "required": true },
+    "featured": { "type": "boolean", "default": false }
+  }
+}
