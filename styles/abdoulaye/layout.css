@@ -86,14 +86,16 @@
   justify-content: center;
   width: 34px;
   height: 34px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--ab-text);
   text-decoration: none;
-  background: var(--ab-surface);
-  border: 1px solid var(--ab-border-strong);
   border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.abdoulaye-nav__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .abdoulaye-nav__links {
