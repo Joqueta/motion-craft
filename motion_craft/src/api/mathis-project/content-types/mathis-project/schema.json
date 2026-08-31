@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mathis_projects",
+  "info": {
+    "singularName": "mathis-project",
+    "pluralName": "mathis-projects",
+    "displayName": "Mathis Project",
+    "description": "Projets affichés sur la section Mes Projets et leur page détail"
+  },
+  "options": { "draftAndPublish": false },
+  "pluginOptions": {},
+  "attributes": {
+    "state": {
+      "type": "enumeration",
+      "enum": ["draft", "review", "published", "archived"],
+      "default": "draft"
+    },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "title": { "type": "string", "required": true },
+    "tags": { "type": "json", "required": true },
+    "cover": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true },
+    "excerpt": { "type": "text", "required": true },
+    "role": { "type": "string", "required": true },
+    "year": { "type": "string", "required": true },
+    "language": { "type": "string", "required": true },
+    "duration": { "type": "string", "required": true },
+    "heroImage": { "type": "media", "multiple": false, "allowedTypes": ["images"], "required": true },
+    "description": { "type": "text", "required": true },
+    "context": { "type": "text", "required": true },
+    "collaborator": { "type": "string" },
+    "linkLabel": { "type": "string", "required": true },
+    "linkUrl": { "type": "string", "required": true },
+    "order": { "type": "integer", "default": 0, "required": true }
+  }
+}

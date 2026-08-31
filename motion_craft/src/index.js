@@ -2,6 +2,7 @@
 
 const { seedFritziContent } = require('./seed');
 const { seedAbdoulayeContent } = require('./seed/abdoulaye-index');
+const { seedMathisContent } = require('./seed/mathis-index');
 
 const PUBLIC_READ_ACTIONS = [
   'api::fritzi-profile.fritzi-profile.find',
@@ -32,6 +33,9 @@ const READER_READ_ACTIONS = [
   'api::abdoulaye-profile.abdoulaye-profile.find',
   'api::abdoulaye-project.abdoulaye-project.find',
   'api::abdoulaye-project.abdoulaye-project.findOne',
+  'api::mathis-profile.mathis-profile.find',
+  'api::mathis-project.mathis-project.find',
+  'api::mathis-project.mathis-project.findOne',
   'plugin::users-permissions.user.me',
 ];
 
@@ -47,6 +51,18 @@ const ABDOULAYE_PUBLIC_READ_ACTIONS = [
 const ABDOULAYE_AUTHENTICATED_WRITE_ACTIONS = [
   'api::abdoulaye-project.abdoulaye-project.create',
   'api::abdoulaye-project.abdoulaye-project.delete',
+];
+
+const MATHIS_PUBLIC_READ_ACTIONS = [
+  'api::mathis-profile.mathis-profile.find',
+  'api::mathis-profile.mathis-profile.findOne',
+  'api::mathis-project.mathis-project.find',
+  'api::mathis-project.mathis-project.findOne',
+];
+
+const MATHIS_AUTHENTICATED_WRITE_ACTIONS = [
+  'api::mathis-project.mathis-project.create',
+  'api::mathis-project.mathis-project.delete',
 ];
 
 async function ensureReaderRole(strapi) {
@@ -89,11 +105,19 @@ async function ensureRoleActions(strapi, roleType, actions) {
 }
 
 async function ensurePublicReadAccess(strapi) {
-  await ensureRoleActions(strapi, 'public', [...PUBLIC_READ_ACTIONS, ...ABDOULAYE_PUBLIC_READ_ACTIONS]);
+  await ensureRoleActions(strapi, 'public', [
+    ...PUBLIC_READ_ACTIONS,
+    ...ABDOULAYE_PUBLIC_READ_ACTIONS,
+    ...MATHIS_PUBLIC_READ_ACTIONS,
+  ]);
 }
 
 async function ensureAuthenticatedWriteAccess(strapi) {
-  await ensureRoleActions(strapi, 'authenticated', [...AUTHENTICATED_WRITE_ACTIONS, ...ABDOULAYE_AUTHENTICATED_WRITE_ACTIONS]);
+  await ensureRoleActions(strapi, 'authenticated', [
+    ...AUTHENTICATED_WRITE_ACTIONS,
+    ...ABDOULAYE_AUTHENTICATED_WRITE_ACTIONS,
+    ...MATHIS_AUTHENTICATED_WRITE_ACTIONS,
+  ]);
 }
 
 async function ensureReaderReadOnlyAccess(strapi) {
@@ -123,5 +147,6 @@ module.exports = {
     await ensureReaderReadOnlyAccess(strapi);
     await seedFritziContent(strapi);
     await seedAbdoulayeContent(strapi);
+    await seedMathisContent(strapi);
   },
 };
