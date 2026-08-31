@@ -4,7 +4,7 @@ const path = require('path');
 const { FRITZI_SEED } = require('./fritzi-content');
 const { uploadLocalAsset } = require('./upload-local-asset');
 
-const ASSETS_DIR = path.join(__dirname, '../../../assets/fritzi');
+const ASSETS_DIR = path.join(__dirname, '../../seed-assets/fritzi');
 
 async function seedFritziContent(strapi) {
   for (const [uid, definition] of Object.entries(FRITZI_SEED)) {
