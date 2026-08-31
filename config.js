@@ -1,5 +1,9 @@
+const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
 const DEFAULTS = {
-  cmsUrl: "http://localhost:1337",
+  cmsUrl: isLocalHost
+    ? "http://localhost:1337"
+    : "https://motion-craft-production-8226.up.railway.app",
   timeout: 8000,
   retries: 2,
   basePath: "",
