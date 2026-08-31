@@ -6,6 +6,7 @@ COPY nginx.conf.template /etc/nginx/templates/default.conf.template
 COPY index.html index.js config.js robots.txt sitemap.xml /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 COPY components/ /usr/share/nginx/html/components/
+COPY data/ /usr/share/nginx/html/data/
 COPY lib/ /usr/share/nginx/html/lib/
 COPY mocks/ /usr/share/nginx/html/mocks/
 COPY pages/ /usr/share/nginx/html/pages/
