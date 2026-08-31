@@ -1,5 +1,63 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AbdoulayeInfoItem extends Struct.ComponentSchema {
+  collectionName: 'components_abdoulaye_info_items';
+  info: {
+    displayName: 'Info item';
+    icon: 'list';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface AbdoulayeSkillItem extends Struct.ComponentSchema {
+  collectionName: 'components_abdoulaye_skill_items';
+  info: {
+    displayName: 'Skill item';
+    icon: 'code';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    percent: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      >;
+  };
+}
+
+export interface AbdoulayeStatItem extends Struct.ComponentSchema {
+  collectionName: 'components_abdoulaye_stat_items';
+  info: {
+    displayName: 'Stat item';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface AbdoulayeTimelineItem extends Struct.ComponentSchema {
+  collectionName: 'components_abdoulaye_timeline_items';
+  info: {
+    displayName: 'Timeline item';
+    icon: 'calendar';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    period: Schema.Attribute.String & Schema.Attribute.Required;
+    place: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface FritziChallenge extends Struct.ComponentSchema {
   collectionName: 'components_fritzi_challenges';
   info: {
@@ -86,6 +144,10 @@ export interface FritziTextImageBlock extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
+      'abdoulaye.info-item': AbdoulayeInfoItem;
+      'abdoulaye.skill-item': AbdoulayeSkillItem;
+      'abdoulaye.stat-item': AbdoulayeStatItem;
+      'abdoulaye.timeline-item': AbdoulayeTimelineItem;
       'fritzi.challenge': FritziChallenge;
       'fritzi.meta-item': FritziMetaItem;
       'fritzi.offering': FritziOffering;

@@ -443,6 +443,168 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAbdoulayeAuditLogAbdoulayeAuditLog
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'abdoulaye_audit_logs';
+  info: {
+    description: "Journal des cr\u00E9ations/modifications/suppressions faites dans l'admin Strapi";
+    displayName: 'Abdoulaye Audit Log';
+    pluralName: 'abdoulaye-audit-logs';
+    singularName: 'abdoulaye-audit-log';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    action: Schema.Attribute.String & Schema.Attribute.Required;
+    at: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    author: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::abdoulaye-audit-log.abdoulaye-audit-log'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    target: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAbdoulayeHomeAbdoulayeHome extends Struct.SingleTypeSchema {
+  collectionName: 'abdoulaye_home';
+  info: {
+    description: "Contenu de la page d'accueil : terminal, statistiques, comp\u00E9tences, timeline";
+    displayName: 'Abdoulaye Home';
+    pluralName: 'abdoulaye-homes';
+    singularName: 'abdoulaye-home';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    aboutIntro: Schema.Attribute.Text & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    education: Schema.Attribute.Component<'abdoulaye.timeline-item', true>;
+    experience: Schema.Attribute.Component<'abdoulaye.timeline-item', true>;
+    infoItems: Schema.Attribute.Component<'abdoulaye.info-item', true>;
+    interests: Schema.Attribute.JSON & Schema.Attribute.Required;
+    languages: Schema.Attribute.JSON & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::abdoulaye-home.abdoulaye-home'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    skills: Schema.Attribute.Component<'abdoulaye.skill-item', true>;
+    stats: Schema.Attribute.Component<'abdoulaye.stat-item', true>;
+    techTags: Schema.Attribute.JSON & Schema.Attribute.Required;
+    terminalFilename: Schema.Attribute.String & Schema.Attribute.Required;
+    terminalLines: Schema.Attribute.JSON & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAbdoulayeProfileAbdoulayeProfile
+  extends Struct.SingleTypeSchema {
+  collectionName: 'abdoulaye_profile';
+  info: {
+    description: 'Identit\u00E9 et coordonn\u00E9es partag\u00E9es entre les pages abdoulaye';
+    displayName: 'Abdoulaye Profile';
+    pluralName: 'abdoulaye-profiles';
+    singularName: 'abdoulaye-profile';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    bioLong: Schema.Attribute.Text & Schema.Attribute.Required;
+    bioShort: Schema.Attribute.Text & Schema.Attribute.Required;
+    contactIntro: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    firstName: Schema.Attribute.String & Schema.Attribute.Required;
+    github: Schema.Attribute.String;
+    lastName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::abdoulaye-profile.abdoulaye-profile'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String & Schema.Attribute.Required;
+    statusActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    statusLabel: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAbdoulayeProjectAbdoulayeProject
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'abdoulaye_projects';
+  info: {
+    description: 'Projets affich\u00E9s sur la page Projets et leur page d\u00E9tail';
+    displayName: 'Abdoulaye Project';
+    pluralName: 'abdoulaye-projects';
+    singularName: 'abdoulaye-project';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    cover: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    demoUrl: Schema.Attribute.String;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    excerpt: Schema.Attribute.Text & Schema.Attribute.Required;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::abdoulaye-project.abdoulaye-project'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    periodLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    periodPlace: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    repoUrl: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    stack: Schema.Attribute.JSON & Schema.Attribute.Required;
+    state: Schema.Attribute.Enumeration<
+      ['draft', 'review', 'published', 'archived']
+    > &
+      Schema.Attribute.DefaultTo<'draft'>;
+    statusBadge: Schema.Attribute.String & Schema.Attribute.Required;
+    tags: Schema.Attribute.JSON & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFritziAboutFritziAbout extends Struct.SingleTypeSchema {
   collectionName: 'fritzi_about';
   info: {
@@ -671,6 +833,133 @@ export interface ApiFritziProjectFritziProject
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMathisAuditLogMathisAuditLog
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'mathis_audit_logs';
+  info: {
+    description: "Journal des cr\u00E9ations/modifications/suppressions faites dans l'admin Strapi";
+    displayName: 'Mathis Audit Log';
+    pluralName: 'mathis-audit-logs';
+    singularName: 'mathis-audit-log';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    action: Schema.Attribute.String & Schema.Attribute.Required;
+    at: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    author: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mathis-audit-log.mathis-audit-log'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    target: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMathisProfileMathisProfile extends Struct.SingleTypeSchema {
+  collectionName: 'mathis_profile';
+  info: {
+    description: 'Identit\u00E9, bio et coordonn\u00E9es de la page unique mathis';
+    displayName: 'Mathis Profile';
+    pluralName: 'mathis-profiles';
+    singularName: 'mathis-profile';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    bioLong: Schema.Attribute.Text & Schema.Attribute.Required;
+    bioShort: Schema.Attribute.Text & Schema.Attribute.Required;
+    contactIntro: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    firstName: Schema.Attribute.String & Schema.Attribute.Required;
+    github: Schema.Attribute.String;
+    heroPhoto: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    lastName: Schema.Attribute.String & Schema.Attribute.Required;
+    linkedin: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mathis-profile.mathis-profile'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String & Schema.Attribute.Required;
+    skillsFrameworks: Schema.Attribute.JSON & Schema.Attribute.Required;
+    skillsLanguages: Schema.Attribute.JSON & Schema.Attribute.Required;
+    skillsTools: Schema.Attribute.JSON & Schema.Attribute.Required;
+    statusActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    statusLabel: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMathisProjectMathisProject
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'mathis_projects';
+  info: {
+    description: 'Projets affich\u00E9s sur la section Mes Projets et leur page d\u00E9tail';
+    displayName: 'Mathis Project';
+    pluralName: 'mathis-projects';
+    singularName: 'mathis-project';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    collaborator: Schema.Attribute.String;
+    context: Schema.Attribute.Text & Schema.Attribute.Required;
+    cover: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    duration: Schema.Attribute.String & Schema.Attribute.Required;
+    excerpt: Schema.Attribute.Text & Schema.Attribute.Required;
+    heroImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    language: Schema.Attribute.String & Schema.Attribute.Required;
+    linkLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    linkUrl: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mathis-project.mathis-project'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String & Schema.Attribute.Required;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    state: Schema.Attribute.Enumeration<
+      ['draft', 'review', 'published', 'archived']
+    > &
+      Schema.Attribute.DefaultTo<'draft'>;
+    tags: Schema.Attribute.JSON & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    year: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -1185,12 +1474,19 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::abdoulaye-audit-log.abdoulaye-audit-log': ApiAbdoulayeAuditLogAbdoulayeAuditLog;
+      'api::abdoulaye-home.abdoulaye-home': ApiAbdoulayeHomeAbdoulayeHome;
+      'api::abdoulaye-profile.abdoulaye-profile': ApiAbdoulayeProfileAbdoulayeProfile;
+      'api::abdoulaye-project.abdoulaye-project': ApiAbdoulayeProjectAbdoulayeProject;
       'api::fritzi-about.fritzi-about': ApiFritziAboutFritziAbout;
       'api::fritzi-audit-log.fritzi-audit-log': ApiFritziAuditLogFritziAuditLog;
       'api::fritzi-contact.fritzi-contact': ApiFritziContactFritziContact;
       'api::fritzi-home.fritzi-home': ApiFritziHomeFritziHome;
       'api::fritzi-profile.fritzi-profile': ApiFritziProfileFritziProfile;
       'api::fritzi-project.fritzi-project': ApiFritziProjectFritziProject;
+      'api::mathis-audit-log.mathis-audit-log': ApiMathisAuditLogMathisAuditLog;
+      'api::mathis-profile.mathis-profile': ApiMathisProfileMathisProfile;
+      'api::mathis-project.mathis-project': ApiMathisProjectMathisProject;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
