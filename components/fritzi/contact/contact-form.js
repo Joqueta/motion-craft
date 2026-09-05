@@ -1,9 +1,5 @@
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Validation simple d'email via une extension du prototype String
- * (répond à la contrainte "utilisation des prototypes d'objet natif").
- */
 if (!String.prototype.isValidEmail) {
     Object.defineProperty(String.prototype, "isValidEmail", {
         value: function isValidEmail() {
@@ -13,12 +9,6 @@ if (!String.prototype.isValidEmail) {
     });
 }
 
-/**
- * Simule l'envoi du message (à remplacer par le vrai service de mailing
- * choisi dans l'appel d'offres Lot 2 — Services de communication).
- * @param {Object} payload
- * @returns {Promise<{ok: boolean}>}
- */
 function fakeSendMessage(payload) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -31,12 +21,6 @@ function fakeSendMessage(payload) {
     });
 }
 
-/**
- * Formulaire de contact.
- * @param {Object} props
- * @param {string} [props.sendLabel]
- * @returns {HTMLElement}
- */
 export function ContactForm(props = {}) {
     const sendLabel = props.sendLabel || "Send me";
 
@@ -83,10 +67,6 @@ export function ContactForm(props = {}) {
     return form;
 }
 
-/**
- * Validation + soumission du formulaire.
- * @param {HTMLFormElement} form
- */
 async function handleSubmit(form) {
     const data = Object.fromEntries(new FormData(form).entries());
     const errors = validateContactForm(data);
@@ -116,11 +96,6 @@ async function handleSubmit(form) {
     }
 }
 
-/**
- * Règles de validation des champs.
- * @param {Object} data
- * @returns {Object} erreurs par champ
- */
 function validateContactForm(data) {
     const errors = {};
 

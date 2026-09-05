@@ -1,18 +1,6 @@
 import { escapeHtml } from "../../../lib/text.js";
 import { isRouterActive } from "../../router/browser-router.js";
 
-/**
- * Une ligne "offering" (compétence) dans la liste.
- * @param {Object} props
- * @param {string} props.number
- * @param {string} props.title
- * @param {string} props.tag
- * @param {string} props.tools
- * @param {Array<string>} props.work
- * @param {Array<{label: string, slug: string}>} [props.relatedWork]
- * @param {Array<{slug: string, cover: {url: string, alt: string}}>} [props.projects]
- * @returns {HTMLElement}
- */
 export function OfferingRow(props) {
   validateOfferingProps(props);
 
@@ -84,11 +72,6 @@ function buildCoverByLabel(relatedWork, projects) {
   );
 }
 
-/**
- * Au survol d'un work-label relié à un projet, le tag de la ligne bascule
- * pour afficher la cover de ce projet, et revient au texte quand la souris
- * quitte le label.
- */
 function bindWorkCoverPreview(row) {
   const tag = row.querySelector(".offering-row__tag");
   const cover = row.querySelector(".offering-row__tag-cover");

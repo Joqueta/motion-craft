@@ -1,15 +1,6 @@
 import { isRouterActive } from "../../router/browser-router.js";
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Carte de projet mis en avant.
- * @param {Object} props
- * @param {string} props.slug
- * @param {string} props.client
- * @param {string} props.label
- * @param {{url: string, alt: string}} props.cover
- * @returns {HTMLElement}
- */
 export function FeaturedProjectCard(props) {
   validateProjectCardProps(props);
   const fromRouter = isRouterActive();

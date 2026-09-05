@@ -70,7 +70,6 @@ describe("EyeReveal", () => {
     trigger.dispatchEvent(new MouseEvent("mouseenter", { bubbles: true }));
     expect(el.classList.contains("is-open")).toBeTruthy();
     expect(el.classList.length).toBe(2);
-    // "eye-reveal" + "is-open", pas de classe dupliquée ou de 3e état
 
     document.body.removeChild(el);
   });
@@ -81,8 +80,6 @@ describe("EyeReveal", () => {
 
     const closedWidth = getComputedStyle(el).getPropertyValue("--window-width").trim();
     el.classList.add("is-open");
-    // --window-width transitions over 500ms (see eye-reveal.css); wait for it
-    // to settle before reading the final value instead of sampling mid-animation.
     await new Promise((resolve) => setTimeout(resolve, 600));
     const openWidth = getComputedStyle(el).getPropertyValue("--window-width").trim();
 

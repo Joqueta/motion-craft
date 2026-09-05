@@ -1,7 +1,6 @@
 @import url("./eye-reveal.css");
 @import url("./skills.css");
 
-/* ===== Design tokens ===== */
 :root {
     --color-olive: #7F7B62;
     --color-olive-dark: #6E6A55;
@@ -36,8 +35,6 @@ html {
     color: inherit;
 }
 
-/* Le skip-link hérite sinon `color: inherit` (crème) au lieu de rester
-   lisible sur le fond `--ink` posé par styles/base.css. */
 .page--fritzi .skip-link {
     color: var(--color-ink);
     background: var(--color-cream);
@@ -68,7 +65,6 @@ html {
     color: var(--color-cream);
 }
 
-/* ===== Nav ===== */
 .nav {
     position: absolute;
     top: 0;
@@ -118,10 +114,8 @@ html {
     font-style: normal;
     font-weight: 300;
     line-height: 80%;
-    /* 0.8rem */
 }
 
-/* ===== Hero ===== */
 .hero {
     position: relative;
     background-color: var(--color-olive);
@@ -244,7 +238,6 @@ html {
     border: 1px solid #D3C7AD;
 }
 
-/* ===== Featured Projects ===== */
 .featured {
     position: relative;
     background: var(--color-olive);
@@ -282,8 +275,6 @@ html {
     text-align: left;
 }
 
-/* Espaceur invisible : réserve la place entre "Featured" et "Projects" pour
-   .featured__frame-image (voir plus bas), qui y affiche le visuel réel. */
 .featured__frame {
     display: flex;
     width: 16rem;
@@ -315,24 +306,12 @@ html {
     justify-content: center;
 }
 
-/* Espaceur invisible : réserve la place entre les 2 cartes pour
-   .featured__frame-image, qui y atterrit une fois le scroll terminé. */
 .featured__grid-frame {
     display: block;
     width: 16rem;
     height: 30rem;
 }
 
-/*
- * .featured__frame-image démarre visuellement entre "Featured" et "Projects"
- * (par-dessus l'espaceur .featured__frame), reste épinglée (sticky) pendant
- * le scroll, puis se pose entre les 2 cartes (par-dessus l'espaceur
- * .featured__grid-frame). Le track est positionné en absolu par-dessus le
- * heading (100vh) + la moitié de la hauteur de .featured__grid-frame
- * (30rem / 2 = 15rem), pour que le point de chute du sticky (bas du track
- * moins la moitié de la hauteur de l'image) coïncide avec le centre du
- * cadre de la grille.
- */
 .featured__frame-track {
     position: absolute;
     top: 0;
@@ -347,7 +326,6 @@ html {
 .featured__frame-image {
     position: sticky;
     top: 6rem;
-    /* centre l'image sur la hauteur du heading (100vh) au repos */
     margin-top: calc(50vh - 15rem);
     width: 16rem;
     height: 30rem;
@@ -420,7 +398,6 @@ html {
     margin-bottom: 1.2rem;
 }
 
-/* ===== About Me ===== */
 .about-me {
     position: relative;
     height: 110rem;
@@ -447,11 +424,9 @@ html {
     position: relative;
     z-index: 1;
     max-width: 900px;
-    /* au lieu de 620px — laisse la place à "and a" de rester sur la même ligne */
     display: flex;
     flex-direction: column;
     gap: 0;
-    /* le line-height des gros titres suffit déjà à créer l'espacement, pas besoin de gap en plus */
 }
 
 .about-me__lead {
@@ -473,7 +448,6 @@ html {
     font-weight: 400;
     line-height: 90%;
     white-space: nowrap;
-    /* empêche "Front-end" et "and a" de se séparer sur 2 lignes */
 }
 
 .about-me__highlight .is-muted {
@@ -495,7 +469,6 @@ html {
     line-height: 140%;
 }
 
-/* ===== Contact / footer ===== */
 .contact {
     background: var(--color-page-bg);
     padding: var(--gutter);
@@ -608,7 +581,6 @@ html {
     text-underline-position: from-font;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 720px) {
     .hero__title-row {
         flex-direction: column;
@@ -688,7 +660,6 @@ html {
     }
 }
 
-/* Accessibilité : focus visible + réduction de mouvement */
 a:focus-visible,
 button:focus-visible {
     outline: 2px solid var(--color-accent);

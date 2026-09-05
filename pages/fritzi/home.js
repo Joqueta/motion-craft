@@ -7,10 +7,6 @@ import { attachA11yToggle } from "../../components/fritzi/a11y-toggle.js";
 
 import { fetchHomeData } from "../../services/fritzi-content-service.js";
 
-/**
- * Rendu de la page Home.
- * @returns {Promise<HTMLElement>}
- */
 export async function HomePage() {
     const shell = document.createElement("div");
     shell.className = "page page--fritzi page--home";

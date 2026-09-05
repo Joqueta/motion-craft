@@ -35,7 +35,6 @@
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
 
-    /* Découpe un trou rectangulaire au centre */
     clip-path: polygon(0% 0%,
             0% 100%,
             calc(var(--eye-x) - var(--window-width) / 2) 100%,

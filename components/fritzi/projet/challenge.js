@@ -1,14 +1,5 @@
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Section "The challenge" : photo de fond assombrie + texte centré en surimpression.
- * @param {Object} props
- * @param {string} props.eyebrow
- * @param {string} props.heading
- * @param {string[]} props.paragraphs
- * @param {{url: string, alt: string}} props.backgroundImage
- * @returns {HTMLElement}
- */
 export function ProjectChallenge(props) {
     validateChallengeProps(props);
 

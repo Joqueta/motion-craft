@@ -1,17 +1,6 @@
 import { OfferingRow } from "./offering-row.js";
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Section "Person and skills" — utilisée à l'identique par Home et About :
- * eyebrow discret + titre en 2 lignes, une ligne simple, une ligne avec
- * un connecteur discret (is-muted) suivi d'un mot en emphase.
- *
- * @param {Object} props
- * @param {Object} props.content  (eyebrow, line1, connector, line2, paragraphs, cvLabel, offeringsImage)
- * @param {Array} props.offerings
- * @param {Array} [props.projects]  projets (avec cover) pour le hover-preview des offering-rows
- * @returns {HTMLElement}
- */
 export function SkillsSection(props) {
   validateSkillsSectionProps(props);
   const { content, offerings, projects } = props;

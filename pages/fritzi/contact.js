@@ -4,10 +4,6 @@ import { ContactForm } from "../../components/fritzi/contact/contact-form.js";
 import { attachA11yToggle } from "../../components/fritzi/a11y-toggle.js";
 import { fetchContactData } from "../../services/fritzi-content-service.js";
 
-/**
- * Rendu de la page Contact.
- * @returns {Promise<HTMLElement>}
- */
 export async function ContactPage() {
     const page = document.createElement("div");
     page.className = "page page--fritzi page--contact";

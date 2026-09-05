@@ -18,10 +18,6 @@ async function uploadLocalAsset(strapi, baseDir, relativePath, alternativeText) 
     return null;
   }
 
-  // Encode the source folder into the filename so distinct assets that share
-  // a basename (e.g. home/bg-about-me.svg vs about/bg-about-me.svg) stay
-  // distinct, while the same relativePath reused across fields (e.g.
-  // default-image.svg used for 5 fritzi-project fields) dedupes to one file.
   const seedFilename = relativePath.replace(/[\\/]/g, '-');
 
   const existing = await strapi.query('plugin::upload.file').findOne({ where: { name: seedFilename } });

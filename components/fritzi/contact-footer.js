@@ -1,17 +1,6 @@
 import { escapeHtml } from "../../lib/text.js";
 import { getNavLinks } from "./nav-links.js";
 
-/**
- * Bloc de contact final ("Come say hi") avec cadre et liens.
- * @param {Object} props
- * @param {string[]} props.heading
- * @param {{url: string, alt: string}} props.logo
- * @param {string[]} props.nav
- * @param {string} props.linkedin
- * @param {string} props.email
- * @param {string} props.instagram
- * @returns {HTMLElement}
- */
 export function ContactFooter(props) {
   validateContactProps(props);
 

@@ -6,10 +6,6 @@ const NAV_ITEMS = [
   { label: "About / Services", route: "/fritzi/about", staticHref: "/fritzi/about.html" },
 ];
 
-/**
- * Résout les liens de navigation du site (route SPA ou fichier statique selon le contexte).
- * @returns {{label: string, href: string, dataRoute: boolean}[]}
- */
 export function getNavLinks() {
   const dataRoute = isRouterActive();
   return NAV_ITEMS.map(({ label, route, staticHref }) => ({

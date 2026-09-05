@@ -1,15 +1,6 @@
 import { EyeReveal } from "../eye-reveal.js";
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Section "About Me" — portrait plein cadre + titre géant en surimpression + citation.
- * @param {Object} props
- * @param {string} props.heading
- * @param {Object} props.quote
- * @param {string} props.caption
- * @param {{url: string, alt: string}} props.portrait
- * @returns {HTMLElement}
- */
 export function AboutMe(props) {
   validateAboutMeProps(props);
 

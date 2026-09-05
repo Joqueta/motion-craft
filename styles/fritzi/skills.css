@@ -1,4 +1,3 @@
-/* ===== Skills / Offerings ===== */
 .skills {
     background: var(--color-olive-dark);
     padding: 5rem var(--gutter);
@@ -7,13 +6,6 @@
     gap: 3rem;
 }
 
-/*
- * .skills__intro reste épinglée (sticky) pendant que .skills__image puis
- * .skills__list défilent dans la colonne de droite, et se libère une fois
- * la fin de la section atteinte (bas de .skills__list). grid-row: 1 / 3
- * étire sa boîte sur les 2 lignes de la grille (image + liste) pour que le
- * point de décrochage du sticky coïncide avec la fin de section, pas plus.
- */
 .skills__intro {
     grid-row: 1 / 3;
     align-self: start;
@@ -152,11 +144,6 @@
     font-size: 0.85rem;
 }
 
-/*
- * Au survol d'un .offering-row__work-label relié à un projet, ce cover
- * remplace le texte du tag (crossfade) — voir bindWorkCoverPreview dans
- * offering-row.js.
- */
 .offering-row__tag-cover {
     position: absolute;
     top: 50%;

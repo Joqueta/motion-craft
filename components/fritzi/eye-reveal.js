@@ -8,21 +8,6 @@ const ANGLE_BOTTOM_SVG = `<svg viewBox="0 0 133 118" fill="none" xmlns="http://w
   <path d="M0 117.219L116.616 116.713L5.86678 105.811L0 117.219Z" fill="#D3C7AD"/>
 </svg>`;
 
-/**
- * Effet "fenêtre qui s'ouvre" sur les yeux : un calque flou/assombri
- * recouvre la photo, une fenêtre de découpe s'élargit horizontalement au
- * premier survol (ou tap) et reste ouverte pour le reste de la session.
- *
- * @param {Object} props
- * @param {number} props.xPercent        - centre horizontal (0-100, % du conteneur)
- * @param {number} props.yPercent        - centre vertical (0-100, % du conteneur)
- * @param {number} [props.closedWidth]   - largeur de la fente fermée en px (défaut 28)
- * @param {number} [props.openWidth]     - largeur de la fenêtre ouverte en px (défaut 220)
- * @param {number} [props.fixedHeight]   - hauteur fixe de la fenêtre en px (défaut 40)
- * @param {number} [props.triggerWidth]  - largeur de la zone de hover/tap en px (défaut 140)
- * @param {number} [props.triggerHeight] - hauteur de la zone de hover/tap en px (défaut 90)
- * @returns {HTMLElement}
- */
 export function EyeReveal(props) {
   validateEyeRevealProps(props);
 

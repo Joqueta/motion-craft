@@ -1,13 +1,5 @@
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Bandeau sous le nav principal : label de collection + bouton "close project".
- * @param {Object} props
- * @param {string} props.eyebrow
- * @param {string} [props.closeLabel]
- * @param {string} [props.closeHref]
- * @returns {HTMLElement}
- */
 export function ProjectSubbar(props) {
     if (!props?.eyebrow) {
         throw new Error("[ProjectSubbar] props.eyebrow est requis");

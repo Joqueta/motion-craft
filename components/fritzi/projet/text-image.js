@@ -1,16 +1,6 @@
 import { FramedImage } from "./framed-image.js";
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Bloc texte + image côte à côte, orientation configurable.
- * @param {Object} props
- * @param {string} [props.eyebrow]
- * @param {string} [props.heading]
- * @param {string[]} props.paragraphs
- * @param {{url: string, alt: string}} props.image
- * @param {"text-first"|"image-first"} [props.order]
- * @returns {HTMLElement}
- */
 export function TextImageBlock(props) {
     validateBlockProps(props);
 

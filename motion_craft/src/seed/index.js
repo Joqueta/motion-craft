@@ -24,8 +24,6 @@ async function seedFritziContent(strapi) {
         }
       }
 
-      // A draft-only entry (e.g. created by hand in the admin, never published)
-      // blocks a fresh create — update and publish it instead of skipping.
       const draft = await strapi.documents(uid).findFirst();
       if (draft) {
         await strapi.documents(uid).update({ documentId: draft.documentId, data });

@@ -1,17 +1,6 @@
 import { isRouterActive } from "../../router/browser-router.js";
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Bloc "Next project" en bas de page détail.
- * @param {Object} props
- * @param {string} props.label
- * @param {string} props.title
- * @param {string} props.slug
- * @param {string} props.client
- * @param {string} props.tag
- * @param {{url: string, alt: string}} props.cover
- * @returns {HTMLElement}
- */
 export function NextProject(props) {
   validateNextProjectProps(props);
   const fromRouter = isRouterActive();

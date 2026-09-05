@@ -6,10 +6,6 @@ import { attachA11yToggle } from "../../components/fritzi/a11y-toggle.js";
 
 import { fetchWorkData, fetchProfile, fetchContactInfo } from "../../services/fritzi-content-service.js";
 
-/**
- * Rendu de la page Work.
- * @returns {Promise<HTMLElement>}
- */
 export async function WorkPage() {
     const page = document.createElement("div");
     page.className = "page page--fritzi page--work";

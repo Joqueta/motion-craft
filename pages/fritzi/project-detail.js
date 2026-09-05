@@ -11,12 +11,6 @@ import { attachA11yToggle } from "../../components/fritzi/a11y-toggle.js";
 
 import { fetchProjectDetail, fetchProfile, fetchContactInfo } from "../../services/fritzi-content-service.js";
 
-/**
- * Rendu de la page détail projet.
- * @param {string|{params: {slug: string}}} props - slug direct (appel historique,
- *   ex. fritzi/projet.html) ou props standard du routeur ({params, path, query, pattern}).
- * @returns {Promise<HTMLElement>}
- */
 export async function ProjectDetailPage(props) {
     const fromRouter = typeof props !== "string";
     const slug = fromRouter ? props?.params?.slug : props;

@@ -2,14 +2,6 @@ import { escapeHtml } from "../../lib/text.js";
 import { getNavLinks } from "./nav-links.js";
 import { SkipLink } from "./skip-link.js";
 
-/**
- * Navigation principale, précédée d'un lien d'évitement.
- * @param {Object} props
- * @param {{url: string, alt: string}} props.logo
- * @param {string} [props.year]
- * @param {string[]} [props.links]
- * @returns {DocumentFragment}
- */
 export function Nav(props) {
   validateNavProps(props);
   const links = props.links || getNavLinks();

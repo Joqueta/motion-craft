@@ -5,10 +5,6 @@ const LABEL = {
   off: "Activer le mode accessibilité",
 };
 
-/**
- * Bouton flottant qui active/désactive le mode accessibilité de /fritzi.
- * @returns {HTMLButtonElement}
- */
 export function A11yToggle() {
   const button = document.createElement("button");
   button.type = "button";
@@ -35,12 +31,6 @@ export function A11yToggle() {
   return button;
 }
 
-/**
- * Pose l'attribut data-a11y (état persisté) sur le conteneur de page et y
- * ajoute le bouton d'accessibilité.
- * @param {HTMLElement} page
- * @returns {HTMLElement} le même élément `page`, pour permettre le chaînage
- */
 export function attachA11yToggle(page) {
   page.setAttribute("data-a11y", getA11yMode());
   page.appendChild(A11yToggle());

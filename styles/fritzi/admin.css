@@ -1,7 +1,3 @@
-/* Thème visuel du back-office fritzi (/fritzi/admin/*).
-   Scopé sous .fritzi-admin pour ne pas toucher le back-office générique
-   du template (/admin) ni les back-offices des autres élèves.
-   CSS pur, sans préprocesseur ni dépendance externe. */
 
 .fritzi-admin {
   --fritzi-admin-bg: #5f5d47;
@@ -30,7 +26,6 @@
   outline-offset: 2px;
 }
 
-/* Layout */
 
 .fritzi-admin .admin-locked {
   grid-template-columns: 1fr;
@@ -44,7 +39,6 @@
   padding: clamp(1.5rem, 4vw, 2.75rem) 0;
 }
 
-/* Titles */
 
 .fritzi-admin h1,
 .fritzi-admin h2,
@@ -73,7 +67,6 @@
   font-size: 1rem;
 }
 
-/* Fields */
 
 .fritzi-admin .editor-grid {
   gap: 1.5rem 2rem;
@@ -124,7 +117,6 @@
   color-scheme: dark;
 }
 
-/* Toggle (statut actif / publié / featured) */
 
 .fritzi-admin .field--inline .field__label {
   order: 2;
@@ -176,7 +168,6 @@
   cursor: not-allowed;
 }
 
-/* Collection items (offerings, relatedWork, meta...) */
 
 .fritzi-admin .editor-list {
   gap: 0;
@@ -214,7 +205,6 @@
   font-weight: 500;
 }
 
-/* Icon buttons (↑ ↓ ✕ dans la toolbar, supprimer) */
 
 .fritzi-admin .icon-button {
   background: transparent;
@@ -245,7 +235,6 @@
   padding: 0;
 }
 
-/* Buttons */
 
 .fritzi-admin .button {
   border-radius: var(--fritzi-admin-radius);
@@ -298,7 +287,6 @@
   opacity: 0.4;
 }
 
-/* Top navigation bar */
 
 .fritzi-admin .admin__nav {
   display: flex;
@@ -336,7 +324,6 @@
   font-weight: 500;
 }
 
-/* Hub layout: profile card + project grid */
 
 .fritzi-admin .admin-hub {
   display: grid;
@@ -396,7 +383,6 @@
   color: var(--fritzi-admin-accent-soft);
 }
 
-/* Project cards */
 
 .fritzi-admin .project-grid {
   display: grid;

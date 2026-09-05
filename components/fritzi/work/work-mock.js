@@ -3,7 +3,6 @@ export const workPageMock = {
     title: "Work"
 };
 
-// Structure identique à ce que renverra GET /api/fritzi-projects (ordre = ordre d'affichage)
 export const allProjectsMock = [
     {
         id: 1,

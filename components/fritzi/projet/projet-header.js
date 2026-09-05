@@ -1,12 +1,5 @@
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * En-tête de la page détail projet : titre géant + ligne de métadonnées.
- * @param {Object} props
- * @param {string} props.title
- * @param {Array<{label: string, value: string}>} props.meta
- * @returns {HTMLElement}
- */
 export function ProjectHeader(props) {
     validateProjectHeaderProps(props);
 

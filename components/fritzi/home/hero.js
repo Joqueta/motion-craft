@@ -1,17 +1,5 @@
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Section Hero : nom en grand, rôle, bio courte, badges de statut.
- * @param {Object} props
- * @param {string} props.firstName
- * @param {string} props.lastName
- * @param {string} props.role
- * @param {string} props.bio
- * @param {{label: string, active: boolean}} props.status
- * @param {string} props.location
- * @param {{url: string, alt: string}} props.logo
- * @returns {HTMLElement}
- */
 export function Hero(props) {
   validateHeroProps(props);
 

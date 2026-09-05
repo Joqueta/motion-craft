@@ -12,7 +12,6 @@ export const aboutHeroMock = {
     ]
 };
 
-// Reprend la structure des offerings de la home, en ajoutant les liens "related work"
 export const offeringsWithLinksMock = [
     {
         id: 1,

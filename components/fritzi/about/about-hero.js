@@ -1,18 +1,6 @@
 import { EyeReveal } from "../eye-reveal.js";
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Hero "About Me" : portrait plein cadre en fond (assombri, effet eye-reveal),
- * titre géant en surimpression, bloc rôle en bas à gauche, bloc localisation
- * à droite, bio centrée en bas.
- * @param {Object} props
- * @param {string} props.role
- * @param {string} props.locationLabel
- * @param {string} props.location
- * @param {{url: string, alt: string}} props.portrait
- * @param {string[]} props.paragraphs
- * @returns {HTMLElement}
- */
 export function AboutHero(props) {
   validateAboutHeroProps(props);
 

@@ -1,11 +1,5 @@
 import { WorkProjectCard } from "./work-project-card.js";
 
-/**
- * Carrousel horizontal de projets (scroll-snap natif, pas de librairie).
- * @param {Object} props
- * @param {Array} props.projects
- * @returns {HTMLElement}
- */
 export function ProjectCarousel(props) {
     if (!Array.isArray(props?.projects) || props.projects.length === 0) {
         throw new Error("[ProjectCarousel] props.projects doit être un tableau non vide");

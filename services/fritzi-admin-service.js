@@ -210,8 +210,6 @@ const PROJECT_REQUIRED_FIELDS = [
   { get: (item) => item.eyebrow, label: "Eyebrow", kind: "text" },
   { get: (item) => item.cover, label: "Image de couverture", kind: "media" },
   { get: (item) => item.heroImage, label: "Image principale", kind: "media" },
-  // discovery/challenge/outcome images are required by the Strapi schema as soon as
-  // the corresponding component is sent (i.e. as soon as any of its text is filled in).
   { get: (item) => item.discovery.image, label: "Image de découverte", kind: "media" },
   { get: (item) => item.challenge.backgroundImage, label: "Image du défi", kind: "media" },
   { get: (item) => item.outcome.image, label: "Image du résultat", kind: "media" },

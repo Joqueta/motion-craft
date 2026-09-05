@@ -1,4 +1,3 @@
-/** @import { Core } from '@strapi/strapi' */
 
 const path = require('path');
 const { isDatabaseClientKind } = require('@strapi/database');
@@ -12,7 +11,6 @@ module.exports = ({ env }) => {
     );
   }
 
-  /** @type {Record<Core.Config.Database.ClientKind, Core.Config.Database['connection']>} */
   const connections = {
     mysql: {
       client: 'mysql',

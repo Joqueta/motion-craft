@@ -1,14 +1,5 @@
 import { escapeHtml } from "../../../lib/text.js";
 
-/**
- * Section "Overview" : label latéral + gros texte d'intro + paragraphes.
- * @param {Object} props
- * @param {string} props.sideLabel
- * @param {string} props.eyebrow
- * @param {string} props.heading
- * @param {string[]} props.paragraphs
- * @returns {HTMLElement}
- */
 export function ProjectOverview(props) {
   validateOverviewProps(props);
 

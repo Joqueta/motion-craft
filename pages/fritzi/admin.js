@@ -31,9 +31,6 @@ export default function FritziAdminPage(props) {
   const path = props?.path ?? "/fritzi/admin";
 
   if (!session) {
-    // Deferred: navigating synchronously during render re-enters the router
-    // (pushstate -> refresh) before this render call returns, and the outer
-    // refresh's render(result) call would then overwrite the login page.
     setTimeout(() => navigate(`/connexion?next=${encodeURIComponent(path)}`, { replace: true }), 0);
     return null;
   }

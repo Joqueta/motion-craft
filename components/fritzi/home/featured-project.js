@@ -5,16 +5,6 @@ import { escapeHtml } from "../../../lib/text.js";
 const FRAME_IMAGE_URL = "/assets/fritzi/home/rectangle.svg";
 const FRAME_IMAGE_HOVER_URL = "/assets/fritzi/home/logo-cadre-white.svg";
 
-/**
- * Section "Featured Projects" : titre en 3 colonnes (Featured / cadre / Projects)
- * puis une grille en 3 colonnes (carte gauche / cadre décoratif vide / carte droite),
- * avec décalage vertical en quinconce et coins cornés sur les cartes.
- *
- * @param {Object} props
- * @param {Array} propsprojects - exactement 2 attendus pour le layout gauche/droite
- * @param {string} props.note - texte affiché sous la grille de projets
- * @returns {HTMLElement}
- */
 export function FeaturedProjects(props) {
   validateFeaturedProjectsProps(props);
 
@@ -85,11 +75,6 @@ function validateFeaturedProjectsProps(props) {
   }
 }
 
-/**
- * Au premier survol (ou premier tap sur tactile), bascule définitivement
- * l'image du cadre vers logo-cadre-white.svg — jamais de retour en arrière,
- * même logique que EyeReveal (components/fritzi/eye-reveal.js).
- */
 function bindFrameImageSwap(img) {
   let isActive = false;
 

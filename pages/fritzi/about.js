@@ -6,10 +6,6 @@ import { attachA11yToggle } from "../../components/fritzi/a11y-toggle.js";
 
 import { fetchAboutData, fetchProfile, fetchContactInfo } from "../../services/fritzi-content-service.js";
 
-/**
- * Rendu de la page About.
- * @returns {Promise<HTMLElement>}
- */
 export async function AboutPage() {
     const page = document.createElement("div");
     page.className = "page page--fritzi page--about";
