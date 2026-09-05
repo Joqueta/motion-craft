@@ -295,6 +295,8 @@ Avant de déployer : remplacer le domaine `exemple.fr` dans `robots.txt` et `sit
 
 Le design suit la maquette Figma du workshop (MotionCraft). Tous les tokens sont dans `styles/base.css` : changer une variable suffit à répercuter la modification sur tout le site.
 
+Maquette Figma du portfolio de Fritzi : [PORTFOLIO](https://www.figma.com/design/FesYBLoM8oCOrr9min9cSD/PORTFOLIO?node-id=65-559&t=riY7lWYuygdUlaoM-1)
+
 | Token | Valeur claire | Rôle |
 | --- | --- | --- |
 | `--surface` | `#faf9f7` | Fond de page, off-white chaud |
