@@ -297,6 +297,7 @@ Le design suit la maquette Figma du workshop (MotionCraft). Tous les tokens sont
 
 Maquette Figma du portfolio de Fritzi : [PORTFOLIO](https://www.figma.com/design/FesYBLoM8oCOrr9min9cSD/PORTFOLIO?node-id=65-559&t=riY7lWYuygdUlaoM-1)
 Maquette Figma du portfolio de Mathis : [PORTFOLIO](https://www.figma.com/design/kdLVpbmzeVMVMUqLq7OOCl/3ADW---Portfolio-Mathis-VIDUEIRA?m=auto&t=HgwK4EgV6l4FlqMj-1)
+Maquette Figma du portfolio d'Abdoulaye : [PORTFOLIO](https://www.figma.com/design/N4voj58LBY4V3BQnGnSx6Y/Portfolio-Abdoulaye?node-id=1-70&t=jgWXqLsEckF3vlGa-1)
 
 | Token | Valeur claire | Rôle |
 | --- | --- | --- |
