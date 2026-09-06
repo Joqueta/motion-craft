@@ -219,13 +219,13 @@ Si le CMS est injoignable, l'application affiche les contenus locaux et signale 
 
 ### Types de contenu à créer
 
-**Single type `profile`** — `name`, `title` (texte), `bio`, `seoDescription` (texte long), `email`, `phone`, `location` (texte), `avatar` (média), `avatarAlt` (texte), `links` (JSON).
+**Single type `profile`** - `name`, `title` (texte), `bio`, `seoDescription` (texte long), `email`, `phone`, `location` (texte), `avatar` (média), `avatarAlt` (texte), `links` (JSON).
 
-**Collection `experiences`** — `role`, `company`, `location` (texte), `startDate`, `endDate` (texte, format `AAAA-MM`), `current` (booléen), `description` (texte long).
+**Collection `experiences`** - `role`, `company`, `location` (texte), `startDate`, `endDate` (texte, format `AAAA-MM`), `current` (booléen), `description` (texte long).
 
-**Collection `projects`** — `title`, `slug` (UID sur `title`), `summary` (texte), `description` (texte long), `image` (média), `imageAlt` (texte), `tags` (JSON), `url`, `repository` (texte), `date` (texte `AAAA-MM`), `featured` (booléen), `state` (énumération : `draft`, `review`, `published`, `archived`).
+**Collection `projects`** - `title`, `slug` (UID sur `title`), `summary` (texte), `description` (texte long), `image` (média), `imageAlt` (texte), `tags` (JSON), `url`, `repository` (texte), `date` (texte `AAAA-MM`), `featured` (booléen), `state` (énumération : `draft`, `review`, `published`, `archived`).
 
-**Collection `skills`** — `name` (texte), `category` (énumération : Front-end, Back-end, Gestion de projet, Design, Outils), `level` (entier 1–5).
+**Collection `skills`** - `name` (texte), `category` (énumération : Front-end, Back-end, Gestion de projet, Design, Outils), `level` (entier 1–5).
 
 Le champ `state` porte le workflow éditorial à quatre états exigé par le sujet. Si un contenu remonte de Strapi sans ce champ, l'application retombe sur `publishedAt` pour déduire l'état.
 
@@ -235,7 +235,7 @@ Dans *Settings → Users & Permissions → Roles* :
 
 - **Public** : `find` et `findOne` sur `profile`, `experiences`, `projects`, `skills`.
 - **Authenticated** : ajouter `create`, `update`, `delete` sur ces mêmes types, plus `upload` et `destroy` sur le plugin *Upload* pour la médiathèque.
-- **Authenticated** (fritzi) : `find`, `findOne`, `create`, `update`, `delete` sur `fritzi-project` ; `find`, `findOne`, `update` sur `fritzi-home`, `fritzi-about`, `fritzi-contact`, `fritzi-profile` ; `find` sur le plugin *Upload* (le rôle Public a `find`/`findOne` sur `fritzi-project` pour le site public, mais Strapi évalue les permissions selon le rôle de l'utilisateur connecté — être authentifié ne fait pas hériter des permissions de Public, donc `find`/`findOne` doivent être accordés explicitement au rôle Authenticated aussi, sans quoi `/fritzi/admin` échoue en 403 même en étant connecté).
+- **Authenticated** (fritzi) : `find`, `findOne`, `create`, `update`, `delete` sur `fritzi-project` ; `find`, `findOne`, `update` sur `fritzi-home`, `fritzi-about`, `fritzi-contact`, `fritzi-profile` ; `find` sur le plugin *Upload* (le rôle Public a `find`/`findOne` sur `fritzi-project` pour le site public, mais Strapi évalue les permissions selon le rôle de l'utilisateur connecté - être authentifié ne fait pas hériter des permissions de Public, donc `find`/`findOne` doivent être accordés explicitement au rôle Authenticated aussi, sans quoi `/fritzi/admin` échoue en 403 même en étant connecté).
 
 Le rôle `Reader` (lecteur) est reconnu par l'application : il donne accès au back-office en consultation, mais le bouton de publication reste désactivé.
 
@@ -296,6 +296,7 @@ Avant de déployer : remplacer le domaine `exemple.fr` dans `robots.txt` et `sit
 Le design suit la maquette Figma du workshop (MotionCraft). Tous les tokens sont dans `styles/base.css` : changer une variable suffit à répercuter la modification sur tout le site.
 
 Maquette Figma du portfolio de Fritzi : [PORTFOLIO](https://www.figma.com/design/FesYBLoM8oCOrr9min9cSD/PORTFOLIO?node-id=65-559&t=riY7lWYuygdUlaoM-1)
+Maquette Figma du portfolio de Mathis : [PORTFOLIO](https://www.figma.com/design/kdLVpbmzeVMVMUqLq7OOCl/3ADW---Portfolio-Mathis-VIDUEIRA?m=auto&t=HgwK4EgV6l4FlqMj-1)
 
 | Token | Valeur claire | Rôle |
 | --- | --- | --- |
