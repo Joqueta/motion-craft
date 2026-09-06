@@ -2,16 +2,16 @@ import defineComponent from "../../lib/props.js";
 import { applyTheme, nextTheme } from "../../lib/theme.js";
 import portfolioStore from "../../store/portfolio-store.js";
 
-const LABELS = {
-  auto: "Thème : système",
-  light: "Thème : clair",
-  dark: "Thème : sombre",
-};
-
 const ICONS = {
   auto: "◐",
   light: "☀",
   dark: "☾",
+};
+
+const LABELS = {
+  auto: `${ICONS.auto} Thème : système`,
+  light: `${ICONS.light} Thème : clair`,
+  dark: `${ICONS.dark} Thème : sombre`,
 };
 
 const ThemeToggle = defineComponent("ThemeToggle", {}, () => {
