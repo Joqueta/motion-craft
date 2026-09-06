@@ -8,7 +8,7 @@ import MarketingFooter from "../components/layout/marketing-footer.js";
 const TEAM = [
   { name: "FROIS Fritzi", role: "Dev fullstack", to: "/fritzi" },
   { name: "DIAGNE Abdoulaye", role: "Dev fullstack", to: "/abdoulaye" },
-  { name: "VIEDUEIRA Mathis", role: "Dev fullstack", to: "/mathis" },
+  { name: "VIDUEIRA Mathis", role: "Dev fullstack", to: "/mathis" },
 ];
 
 export default function MarketingHomePage({ path = "/" } = {}) {
