@@ -6,12 +6,15 @@ export function Layout(content, profile = {}) {
 
   wrapper.appendChild(Nav());
 
-  const skipTarget = content.nodeType === Node.DOCUMENT_FRAGMENT_NODE ? content.firstElementChild : content;
+  const main = document.createElement("main");
+  main.appendChild(content);
+
+  const skipTarget = main.firstElementChild;
   if (skipTarget) {
     skipTarget.id = "contenu";
     skipTarget.tabIndex = -1;
   }
-  wrapper.appendChild(content);
+  wrapper.appendChild(main);
 
   wrapper.appendChild(Footer({ name: `${profile.firstName ?? ""} ${profile.lastName ?? ""}`.trim() }));
 

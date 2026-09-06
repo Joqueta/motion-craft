@@ -11,6 +11,13 @@
   font-family: var(--font-sans);
   color: var(--ma-text);
   background: var(--ma-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page--mathis > main {
+  flex: 1 0 auto;
 }
 
 .page--mathis h1,
