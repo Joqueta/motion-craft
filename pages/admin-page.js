@@ -29,7 +29,7 @@ export default function AdminPage({ query }) {
   const active = SECTIONS.find((section) => section.id === query.section) ?? SECTIONS[0];
   const content = portfolioStore.get("content");
 
-  setMeta({ title: "Back-office — démo MotionCraft", description: "" });
+  setMeta({ title: "Back-office - démo MotionCraft", description: "" });
 
   return {
     type: "div",

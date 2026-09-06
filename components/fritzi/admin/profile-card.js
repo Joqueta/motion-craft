@@ -11,7 +11,7 @@ export function ProfileCard(profile) {
     ],
     children: [
       { type: "h2", attributes: [["id", "profile-card-heading"]], children: ["Profile"] },
-      { type: "p", attributes: [["class", ["profile-card__name"]]], children: [fullName || "—"] },
+      { type: "p", attributes: [["class", ["profile-card__name"]]], children: [fullName || "-"] },
       profile.role
         ? { type: "p", attributes: [["class", ["profile-card__role"]]], children: [profile.role] }
         : null,

@@ -8,7 +8,7 @@ export function Footer(props = {}) {
   footer.className = "abdoulaye-footer";
 
   footer.innerHTML = `
-    <p class="abdoulaye-footer__text">© ${year} ${escapeHtml(props.name ?? "")} — ${escapeHtml(tagline)}</p>
+    <p class="abdoulaye-footer__text">© ${year} ${escapeHtml(props.name ?? "")} - ${escapeHtml(tagline)}</p>
     <p class="abdoulaye-footer__signature">Fait par mes soins</p>
   `;
 

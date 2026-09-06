@@ -6,11 +6,11 @@ import { createEmptySkill } from "../../services/portfolio-service.js";
 import { AddButton, ItemToolbar, addItem, bindField, items } from "./collection.js";
 
 const LEVELS = [
-  { value: 1, label: "1 — Découverte" },
-  { value: 2, label: "2 — Notions" },
-  { value: 3, label: "3 — Autonome" },
-  { value: 4, label: "4 — Confirmé" },
-  { value: 5, label: "5 — Expert" },
+  { value: 1, label: "1 - Découverte" },
+  { value: 2, label: "2 - Notions" },
+  { value: 3, label: "3 - Autonome" },
+  { value: 4, label: "4 - Confirmé" },
+  { value: 5, label: "5 - Expert" },
 ];
 
 export default function SkillsSection() {

@@ -10,7 +10,7 @@ import {
   fetchProjectDetail,
 } from "../services/fritzi-content-service.js";
 
-describe("fritzi-content-service — mapping", () => {
+describe("fritzi-content-service - mapping", () => {
   it("mappe un offering complet", () => {
     const raw = {
       id: 1,
@@ -67,7 +67,7 @@ describe("fritzi-content-service — mapping", () => {
   });
 });
 
-describe("fritzi-content-service — fetchWorkData filtre sur l'état", () => {
+describe("fritzi-content-service - fetchWorkData filtre sur l'état", () => {
   it("exclut les projets non publiés et envoie le filtre state=published", async () => {
     const originalFind = client.find;
     let receivedQuery = null;
@@ -94,7 +94,7 @@ describe("fritzi-content-service — fetchWorkData filtre sur l'état", () => {
   });
 });
 
-describe("fritzi-content-service — fetchHomeData filtre featured + published", () => {
+describe("fritzi-content-service - fetchHomeData filtre featured + published", () => {
   it("combine featured=true et state=published dans la requête projets", async () => {
     const originalFind = client.find;
     const originalFindOne = client.findOne;
@@ -128,7 +128,7 @@ describe("fritzi-content-service — fetchHomeData filtre featured + published",
   });
 });
 
-describe("fritzi-content-service — fetchAboutData inclut les projets publiés", () => {
+describe("fritzi-content-service - fetchAboutData inclut les projets publiés", () => {
   it("récupère les projets publiés pour le survol/cover des offering-rows", async () => {
     const originalFind = client.find;
     const originalFindOne = client.findOne;
@@ -157,7 +157,7 @@ describe("fritzi-content-service — fetchAboutData inclut les projets publiés"
   });
 });
 
-describe("fritzi-content-service — fetchProjectDetail masque les projets non publiés", () => {
+describe("fritzi-content-service - fetchProjectDetail masque les projets non publiés", () => {
   it("lève la même erreur 404 pour un projet trouvé mais non publié", async () => {
     const originalFind = client.find;
     client.find = async (resource, query) => {

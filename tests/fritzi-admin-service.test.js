@@ -15,7 +15,7 @@ import {
   missingPageFields,
 } from "../services/fritzi-admin-service.js";
 
-describe("fritzi-admin-service — loadFritziProjects", () => {
+describe("fritzi-admin-service - loadFritziProjects", () => {
   it("mappe les projets avec cover, état et ordre, triés par order:asc", async () => {
     const originalFind = client.find;
     let receivedQuery = null;
@@ -94,7 +94,7 @@ describe("fritzi-admin-service — loadFritziProjects", () => {
   });
 });
 
-describe("fritzi-admin-service — loadMediaLibrary", () => {
+describe("fritzi-admin-service - loadMediaLibrary", () => {
   it("mappe la bibliothèque de médias en {id, name, url}", async () => {
     const originalFind = client.find;
     client.find = async (resource) => {
@@ -111,7 +111,7 @@ describe("fritzi-admin-service — loadMediaLibrary", () => {
   });
 });
 
-describe("fritzi-admin-service — saveFritziProjects", () => {
+describe("fritzi-admin-service - saveFritziProjects", () => {
   it("met à jour les projets existants et supprime les projets retirés, sans jamais créer", async () => {
     const originalUpdate = client.update;
     const originalCreate = client.create;
@@ -216,7 +216,7 @@ describe("fritzi-admin-service — saveFritziProjects", () => {
   });
 });
 
-describe("fritzi-admin-service — loadFritziProjectDetail", () => {
+describe("fritzi-admin-service - loadFritziProjectDetail", () => {
   it("mappe tous les champs d'un projet, paragraphes en texte multi-lignes", async () => {
     const originalFind = client.find;
     let receivedQuery = null;
@@ -309,7 +309,7 @@ describe("fritzi-admin-service — loadFritziProjectDetail", () => {
   });
 });
 
-describe("fritzi-admin-service — createEmptyProjectDetailItem", () => {
+describe("fritzi-admin-service - createEmptyProjectDetailItem", () => {
   it("retourne un projet vide avec des valeurs par défaut sûres", () => {
     const empty = createEmptyProjectDetailItem();
     expect(empty.id).toBe(null);
@@ -341,7 +341,7 @@ const detailFixture = {
   outcome: { eyebrow: "Outcome", heading: "", paragraphs: "", image: null },
 };
 
-describe("fritzi-admin-service — createFritziProject / saveFritziProjectDetail", () => {
+describe("fritzi-admin-service - createFritziProject / saveFritziProjectDetail", () => {
   it("crée un projet : découpe les paragraphes, résout les médias en id, omet les composants entièrement vides", async () => {
     const originalCreate = client.create;
     let receivedData = null;
@@ -387,7 +387,7 @@ describe("fritzi-admin-service — createFritziProject / saveFritziProjectDetail
   });
 });
 
-describe("fritzi-admin-service — deleteFritziProject", () => {
+describe("fritzi-admin-service - deleteFritziProject", () => {
   it("appelle client.remove avec le documentId du projet", async () => {
     const originalRemove = client.remove;
     let receivedResource = null;
@@ -405,7 +405,7 @@ describe("fritzi-admin-service — deleteFritziProject", () => {
   });
 });
 
-describe("fritzi-admin-service — missingProjectFields", () => {
+describe("fritzi-admin-service - missingProjectFields", () => {
   it("liste les champs requis manquants", () => {
     const incomplete = {
       client: "",
@@ -431,7 +431,7 @@ describe("fritzi-admin-service — missingProjectFields", () => {
   });
 });
 
-describe("fritzi-admin-service — loadFritziPage / saveFritziPage", () => {
+describe("fritzi-admin-service - loadFritziPage / saveFritziPage", () => {
   it("charge et mappe la page 'profil'", async () => {
     const originalFindOne = client.findOne;
     let receivedResource = null;
@@ -524,7 +524,7 @@ describe("fritzi-admin-service — loadFritziPage / saveFritziPage", () => {
   });
 });
 
-describe("fritzi-admin-service — missingPageFields", () => {
+describe("fritzi-admin-service - missingPageFields", () => {
   it("détecte les champs requis manquants pour 'profil'", () => {
     const missing = missingPageFields("profil", { firstName: "", lastName: "Frois", role: "R", bio: "B", email: "" });
     expect(missing).toEqual(["Prénom", "Email"]);

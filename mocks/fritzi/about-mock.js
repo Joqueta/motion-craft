@@ -8,7 +8,7 @@ export const aboutHeroMock = {
     },
     paragraphs: [
         "Born and raised in Paris, my journey into technology began quietly during the lockdown years, where I first started experimenting with code. Fast forward four years, and that early curiosity has evolved into formal fullstack development training, driven by a deep, natural sensitivity to design. Today, I work as an apprentice developer within the very institution where I study, bridging the gap between design and engineering on campus-wide products.",
-        "Outside of my day job, you'll find me channeling that same creative energy into tangible, tactile hobbies—whether I'm drawing, painting, learning the piano, or losing myself in a good book."
+        "Outside of my day job, you'll find me channeling that same creative energy into tangible, tactile hobbies-whether I'm drawing, painting, learning the piano, or losing myself in a good book."
     ]
 };
 

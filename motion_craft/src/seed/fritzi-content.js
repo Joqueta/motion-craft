@@ -105,7 +105,7 @@ const FRITZI_SEED = {
       aboutCaption:
         'A design approach led by curiosity, logic, and empathy. All digital experiences are crafted to be intuitive, functional, and quietly delightful.',
       featuredNote:
-        "A selection of projects that reflect how I think, design, and build — from early concept to shipped product.",
+        "A selection of projects that reflect how I think, design, and build - from early concept to shipped product.",
       skillsEyebrow: 'My offerings',
       skillsLine1: 'Person',
       skillsConnector: 'and',
@@ -113,7 +113,7 @@ const FRITZI_SEED = {
       skillsParagraphs: [
         'Three years of building at the intersection of design and code. From my early days supporting non-profits to my current role scaling digital tools for a major educational institution, I bridge the gap between "how it looks" and "how it works".',
         'I currently own the development of institutional sites, blogs, and internal applications used by the entire campus. My approach is rooted in logic; I spent my high school years immersed in Advanced Math, Chemistry and Engineering Sciences before I even write a line of CSS.',
-        "I thrive in environments where I can own the full scope — from the initial UI concept to the final shipped component. I'm not just looking for a task; I'm looking to build tools that people actually use.",
+        "I thrive in environments where I can own the full scope - from the initial UI concept to the final shipped component. I'm not just looking for a task; I'm looking to build tools that people actually use.",
       ],
       cvLabel: 'Upload my CV here',
       offerings: HOME_OFFERINGS,
@@ -131,7 +131,7 @@ const FRITZI_SEED = {
       heroLocation: 'Paris, France',
       heroParagraphs: [
         'Born and raised in Paris, my journey into technology began quietly during the lockdown years, where I first started experimenting with code. Fast forward four years, and that early curiosity has evolved into formal fullstack development training, driven by a deep, natural sensitivity to design. Today, I work as an apprentice developer within the very institution where I study, bridging the gap between design and engineering on campus-wide products.',
-        "Outside of my day job, you'll find me channeling that same creative energy into tangible, tactile hobbies—whether I'm drawing, painting, learning the piano, or losing myself in a good book.",
+        "Outside of my day job, you'll find me channeling that same creative energy into tangible, tactile hobbies-whether I'm drawing, painting, learning the piano, or losing myself in a good book.",
       ],
       offerings: ABOUT_OFFERINGS,
     },
@@ -178,7 +178,7 @@ const FRITZI_SEED = {
         heading: 'Understanding the problem',
         paragraphs: [
           "The discovery phase began with deep stakeholder alignment to uncover the project's true core: defining the why, the how, and the why. By challenging the client's initial brief, we mapped out the essential pillars of the application and pinpointed exactly what needed to be provided.",
-          'Through this collaborative process, it became clear the user personas had to bridge a unique gap—harmonizing the rigorous, functional requirements of a tech product with the established creative direction and brand identity of the school.',
+          'Through this collaborative process, it became clear the user personas had to bridge a unique gap-harmonizing the rigorous, functional requirements of a tech product with the established creative direction and brand identity of the school.',
         ],
       },
       challenge: {

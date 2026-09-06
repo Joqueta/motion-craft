@@ -64,7 +64,7 @@ export default {
     {
       id: "seed-proj-1",
       slug: "aurora",
-      title: "Aurora — expérience interactive",
+      title: "Aurora - expérience interactive",
       summary: "Micro-interactions au scroll et transitions de particules en Vanilla JS.",
       description:
         "Aurora est une expérience interactive pensée pour une navigation immersive : micro-interactions au scroll, transitions de particules et animations fluides, développées sans dépendance externe.",
@@ -80,7 +80,7 @@ export default {
     {
       id: "seed-proj-2",
       slug: "studio-volt-identite",
-      title: "Studio Volt — identité",
+      title: "Studio Volt - identité",
       summary: "Identité de marque et système d'animation pour un studio créatif.",
       description:
         "Déclinaison d'une identité de marque en interface web animée : système de motion design cohérent, du logo aux transitions de page.",

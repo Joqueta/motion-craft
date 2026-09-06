@@ -16,7 +16,7 @@ export async function ProjectDetailPage(routeProps) {
     const [project, profile] = await Promise.all([fetchProjectDetail(slug), fetchProfile()]);
 
     setMeta({
-      title: `${project.title} — ${profile.firstName} ${profile.lastName}`,
+      title: `${project.title} - ${profile.firstName} ${profile.lastName}`,
       description: project.description,
       image: project.heroImage.url,
     });

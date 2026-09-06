@@ -41,7 +41,7 @@ export const aboutMock = {
     paragraphs: [
         "Three years of building at the intersection of design and code. From my early days supporting non-profits to my current role scaling digital tools for a major educational institution, I bridge the gap between \"how it looks\" and \"how it works\".",
         "I currently own the development of institutional sites, blogs, and internal applications used by the entire campus. My approach is rooted in logic; I spent my high school years immersed in Advanced Math, Chemistry and Engineering Sciences before I even write a line of CSS.",
-        "I thrive in environments where I can own the full scope — from the initial UI concept to the final shipped component. I'm not just looking for a task; I'm looking to build tools that people actually use."
+        "I thrive in environments where I can own the full scope - from the initial UI concept to the final shipped component. I'm not just looking for a task; I'm looking to build tools that people actually use."
     ],
     cvLabel: "Upload my CV here",
     offeringsImage: {

@@ -30,7 +30,7 @@ export const projectDetailMock = {
         heading: "Understanding the problem",
         paragraphs: [
             "The discovery phase began with deep stakeholder alignment to uncover the project's true core: defining the why, the how, and the why. By challenging the client's initial brief, we mapped out the essential pillars of the application and pinpointed exactly what needed to be provided.",
-            "Through this collaborative process, it became clear the user personas had to bridge a unique gap—harmonizing the rigorous, functional requirements of a tech product with the established creative direction and brand identity of the school."
+            "Through this collaborative process, it became clear the user personas had to bridge a unique gap-harmonizing the rigorous, functional requirements of a tech product with the established creative direction and brand identity of the school."
         ],
         image: {
             url: "https://placehold.co/700x520/2a2a2a/EDE9DD?text=.decode",

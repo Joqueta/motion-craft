@@ -68,7 +68,7 @@ const ABDOULAYE_SEED = {
         'JWT',
         'REST API',
       ],
-      languages: ['Français — Natif C2', 'Anglais — Intermédiaire B2'],
+      languages: ['Français - Natif C2', 'Anglais - Intermédiaire B2'],
       interests: ['Accordéon (14 ans au conservatoire)', 'Football', 'Judo', 'Animation japonaise'],
       experience: [
         {
@@ -112,22 +112,22 @@ const ABDOULAYE_PROJECTS = [
     text: {
       state: 'published',
       slug: 'cms-headless-wiki',
-      title: 'CMS Headless — Wiki',
-      statusBadge: 'Projet École — Decode Paris',
+      title: 'CMS Headless - Wiki',
+      statusBadge: 'Projet École - Decode Paris',
       tags: ['CSS', 'PostgreSQL', 'SCRUM', 'GitHub Projects'],
       excerpt:
         'Backoffice CMS headless en PHP avec framework maison, ORM PostgreSQL, authentification JWT et permissions RBAC.',
       description:
         "Développement d'un CMS headless en PHP avec framework maison. ORM léger pour PostgreSQL, authentification JWT, gestion de contenus avec contrôle d'accès par rôles. Gestion de projet en SCRUM via GitHub Projects.",
-      stack: ['PHP', 'PostgreSQL 18 — ORM léger', 'GitHub Projects — SCRUM', 'Docker', 'SCSS'],
-      periodLabel: 'Janvier 2026 — Mars 2026',
+      stack: ['PHP', 'PostgreSQL 18 - ORM léger', 'GitHub Projects - SCRUM', 'Docker', 'SCSS'],
+      periodLabel: 'Janvier 2026 - Mars 2026',
       periodPlace: 'École Decode, Paris',
       repoUrl: 'https://github.com/abdoulayediagne-lab',
       demoUrl: 'https://github.com/abdoulayediagne-lab',
       order: 0,
       featured: true,
     },
-    media: { cover: { asset: 'abdoulaye-default-cover.svg', alt: 'Aperçu du projet CMS Headless — Wiki' } },
+    media: { cover: { asset: 'abdoulaye-default-cover.svg', alt: 'Aperçu du projet CMS Headless - Wiki' } },
   },
   {
     text: {
@@ -140,7 +140,7 @@ const ABDOULAYE_PROJECTS = [
       description:
         "Jeu de devinettes interactif inspiré de l'univers Harry Potter. L'objectif est de retrouver un personnage mystère en soumettant des propositions. Chaque tentative révèle des indices visuels : vert si la propriété correspond (maison, objet magique, taille...), rouge sinon. Développé principalement en JavaScript avec une logique de comparaison dynamique.",
       stack: ['Javascript', 'HTML', 'CSS'],
-      periodLabel: 'Décembre 2025 — Janvier 2026',
+      periodLabel: 'Décembre 2025 - Janvier 2026',
       periodPlace: 'Paris',
       repoUrl: 'https://github.com/abdoulayediagne-lab',
       demoUrl: 'https://github.com/abdoulayediagne-lab',
@@ -154,13 +154,13 @@ const ABDOULAYE_PROJECTS = [
       state: 'published',
       slug: 'simulateur-bayesien',
       title: 'Simulateur bayésien',
-      statusBadge: 'Projet École — Decode Paris',
+      statusBadge: 'Projet École - Decode Paris',
       tags: ['Maths', 'HTML/CSS'],
       excerpt: 'Simulateur pédagogique du théorème de Bayes : animation de probabilités conditionnelles en temps réel.',
       description:
         "Simulateur pédagogique illustrant le théorème de Bayes appliqué à des cas concrets (tests médicaux, probabilités conditionnelles). Réalisé en binôme dans le cadre du module mathématiques appliquées, l'outil permet de faire varier les paramètres (prévalence, sensibilité, spécificité) et visualise en temps réel l'impact sur la probabilité a posteriori.",
       stack: ['Javascript', 'Maths', 'HTML/CSS'],
-      periodLabel: 'Mars 2026 — Mai 2026',
+      periodLabel: 'Mars 2026 - Mai 2026',
       periodPlace: 'École Decode, Paris',
       repoUrl: 'https://github.com/abdoulayediagne-lab',
       demoUrl: 'https://github.com/abdoulayediagne-lab',
@@ -174,13 +174,13 @@ const ABDOULAYE_PROJECTS = [
       state: 'published',
       slug: 'site-ekipma',
       title: 'Site Ekipma',
-      statusBadge: 'Projet Stage — MKS Tatoun',
+      statusBadge: 'Projet Stage - MKS Tatoun',
       tags: ['Wordpress', 'PHP', 'SEO', 'CSS'],
       excerpt: "Site vitrine WordPress pour une entreprise de services et d'équipements, avec optimisation SEO.",
       description:
         "Site vitrine WordPress développé durant le stage chez MKS Tatoun, pour la marque Ekipma. Travail sur le thème (structure PHP, templates), l'intégration CSS responsive et l'optimisation SEO on-page (balises, structure sémantique, performance) afin d'améliorer la visibilité du site sur les moteurs de recherche.",
       stack: ['Wordpress', 'PHP', 'SEO', 'CSS'],
-      periodLabel: 'Janvier 2026 — Mars 2026',
+      periodLabel: 'Janvier 2026 - Mars 2026',
       periodPlace: 'MKS Tatoun',
       repoUrl: 'https://github.com/abdoulayediagne-lab',
       demoUrl: 'https://europakimache.fr/',

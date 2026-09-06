@@ -65,7 +65,7 @@ const MediaSelectField = defineComponent(
   },
   ({ id, label, value, media, hint, disabled, uploading, onSelect, onUpload }) => {
     const options = [
-      { value: "", label: "— Aucune image —" },
+      { value: "", label: "- Aucune image -" },
       ...media.map((file) => ({ value: String(file.id), label: file.name })),
     ];
 

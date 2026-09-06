@@ -25,7 +25,7 @@ function startLoad() {
 }
 
 export default function FritziAdminPage(props) {
-  setMeta({ title: "fritzi admin — Projects", description: "" });
+  setMeta({ title: "fritzi admin - Projects", description: "" });
 
   const session = portfolioStore.get("session");
   const path = props?.path ?? "/fritzi/admin";

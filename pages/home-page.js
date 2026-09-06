@@ -122,7 +122,7 @@ export default function HomePage({ path }) {
   const showcase = (highlighted.length > 0 ? highlighted : published).slice(0, 3);
 
   setMeta({
-    title: "{{ name }} — {{ title }}".interpolate(profile),
+    title: "{{ name }} - {{ title }}".interpolate(profile),
     description: profile.seoDescription || profile.bio,
     image: profile.avatar,
     type: "profile",

@@ -13,7 +13,7 @@ export async function ProjectsPage() {
     const [projects, profile] = await Promise.all([fetchProjects(), fetchProfile()]);
 
     setMeta({
-      title: `Projets — ${profile.firstName} ${profile.lastName}`,
+      title: `Projets - ${profile.firstName} ${profile.lastName}`,
       description: `${projects.length} projets réalisés par ${profile.firstName} ${profile.lastName}.`,
     });
 

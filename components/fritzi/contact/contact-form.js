@@ -87,7 +87,7 @@ async function handleSubmit(form) {
 
     try {
         await fakeSendMessage(data);
-        statusEl.textContent = "Message sent — thank you!";
+        statusEl.textContent = "Message sent - thank you!";
         form.reset();
     } catch (error) {
         statusEl.textContent = `Error: ${error.message}`;

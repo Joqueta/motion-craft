@@ -2,7 +2,7 @@ import { describe, expect, it } from "./runner.js";
 import client from "../services/abdoulaye-cms-client.js";
 import { toImage, toProjectCard, fetchProjects, fetchProjectDetail } from "../services/abdoulaye-content-service.js";
 
-describe("abdoulaye-content-service — mapping", () => {
+describe("abdoulaye-content-service - mapping", () => {
   it("mappe une image absente", () => {
     expect(toImage(null)).toEqual({ url: "", alt: "" });
   });
@@ -16,22 +16,22 @@ describe("abdoulaye-content-service — mapping", () => {
     const raw = {
       id: 1,
       slug: "cms-headless-wiki",
-      title: "CMS Headless — Wiki",
-      statusBadge: "Projet École — Decode Paris",
+      title: "CMS Headless - Wiki",
+      statusBadge: "Projet École - Decode Paris",
       tags: ["CSS", "PostgreSQL"],
       excerpt: "Backoffice CMS headless en PHP.",
-      periodLabel: "Janvier 2026 — Mars 2026",
+      periodLabel: "Janvier 2026 - Mars 2026",
       periodPlace: "École Decode, Paris",
       cover: { url: "/uploads/a.svg", alternativeText: "Aperçu" },
     };
     expect(toProjectCard(raw)).toEqual({
       id: 1,
       slug: "cms-headless-wiki",
-      title: "CMS Headless — Wiki",
-      statusBadge: "Projet École — Decode Paris",
+      title: "CMS Headless - Wiki",
+      statusBadge: "Projet École - Decode Paris",
       tags: ["CSS", "PostgreSQL"],
       excerpt: "Backoffice CMS headless en PHP.",
-      periodLabel: "Janvier 2026 — Mars 2026",
+      periodLabel: "Janvier 2026 - Mars 2026",
       periodPlace: "École Decode, Paris",
       cover: { url: "http://localhost:1337/uploads/a.svg", alt: "Aperçu" },
     });
@@ -53,7 +53,7 @@ describe("abdoulaye-content-service — mapping", () => {
   });
 });
 
-describe("abdoulaye-content-service — fetchProjects filtre sur l'état", () => {
+describe("abdoulaye-content-service - fetchProjects filtre sur l'état", () => {
   it("exclut les projets non publiés et envoie le filtre state=published", async () => {
     const originalFind = client.find;
     let receivedResource = null;
@@ -83,7 +83,7 @@ describe("abdoulaye-content-service — fetchProjects filtre sur l'état", () =>
   });
 });
 
-describe("abdoulaye-content-service — fetchProjectDetail masque les projets non publiés", () => {
+describe("abdoulaye-content-service - fetchProjectDetail masque les projets non publiés", () => {
   it("lève une erreur pour un projet trouvé mais non publié", async () => {
     const originalFind = client.find;
     client.find = async (resource, query) => {

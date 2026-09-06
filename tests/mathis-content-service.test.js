@@ -2,7 +2,7 @@ import { describe, expect, it } from "./runner.js";
 import client from "../services/mathis-cms-client.js";
 import { toImage, toProjectCard, fetchProjects, fetchProjectDetail } from "../services/mathis-content-service.js";
 
-describe("mathis-content-service — mapping", () => {
+describe("mathis-content-service - mapping", () => {
   it("mappe une image absente", () => {
     expect(toImage(null)).toEqual({ url: "", alt: "" });
   });
@@ -44,7 +44,7 @@ describe("mathis-content-service — mapping", () => {
   });
 });
 
-describe("mathis-content-service — fetchProjects filtre sur l'état", () => {
+describe("mathis-content-service - fetchProjects filtre sur l'état", () => {
   it("exclut les projets non publiés et envoie le filtre state=published, trié par order", async () => {
     const originalFind = client.find;
     let receivedResource = null;
@@ -75,7 +75,7 @@ describe("mathis-content-service — fetchProjects filtre sur l'état", () => {
   });
 });
 
-describe("mathis-content-service — fetchProjectDetail masque les projets non publiés", () => {
+describe("mathis-content-service - fetchProjectDetail masque les projets non publiés", () => {
   it("lève une erreur pour un projet trouvé mais non publié", async () => {
     const originalFind = client.find;
     client.find = async (resource, query) => {

@@ -54,7 +54,7 @@ export function expect(received) {
 function line(status, label, detail) {
   const element = document.createElement("li");
   element.className = `result result--${status}`;
-  element.textContent = detail ? `${label} — ${detail}` : label;
+  element.textContent = detail ? `${label} - ${detail}` : label;
   return element;
 }
 

@@ -152,7 +152,7 @@ function Showcase() {
         attributes: [["class", ["auth__card"]]],
         children: [
           { type: "div", attributes: [["class", ["auth__thumb"]]], children: ["▶"] },
-          { type: "h3", children: ["Projet — Aurora"] },
+          { type: "h3", children: ["Projet - Aurora"] },
           {
             type: "p",
             children: ["Démonstration animée intégrée directement à votre fiche projet."],
@@ -163,7 +163,7 @@ function Showcase() {
         type: "p",
         attributes: [["class", ["auth__tagline"]]],
         children: [
-          "Rejoignez les créateurs qui montrent leur travail — pas seulement qui le décrivent.",
+          "Rejoignez les créateurs qui montrent leur travail - pas seulement qui le décrivent.",
         ],
       },
     ],

@@ -13,7 +13,7 @@ const TEAM = [
 
 export default function MarketingHomePage({ path = "/" } = {}) {
   setMeta({
-    title: "MotionCraft — portfolios dynamiques pour créatifs",
+    title: "MotionCraft - portfolios dynamiques pour créatifs",
     description: "Un portfolio qui montre votre travail, pas seulement qui le décrit.",
   });
 

@@ -247,7 +247,7 @@ export default function FritziProjectFormPage(props) {
   }
 
   setMeta({
-    title: isNew ? "fritzi admin — new project" : "fritzi admin — edit project",
+    title: isNew ? "fritzi admin - new project" : "fritzi admin - edit project",
     description: "",
   });
 

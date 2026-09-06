@@ -18,7 +18,7 @@ export async function HomePage() {
     const { profile, projects } = await fetchHomeData();
 
     setMeta({
-      title: `${profile.firstName} ${profile.lastName} — ${profile.role}`,
+      title: `${profile.firstName} ${profile.lastName} - ${profile.role}`,
       description: profile.bioShort,
     });
 

@@ -14,7 +14,7 @@ export function ProjectCard(project) {
         type: "div",
         attributes: [["class", ["project-card__body"]]],
         children: [
-          { type: "p", attributes: [["class", ["project-card__client"]]], children: [project.client || "—"] },
+          { type: "p", attributes: [["class", ["project-card__client"]]], children: [project.client || "-"] },
           { type: "h3", children: [project.label || "Untitled project"] },
           {
             type: "div",

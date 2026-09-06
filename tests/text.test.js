@@ -9,7 +9,7 @@ describe("escapeHtml", () => {
   });
 
   it("laisse le texte normal inchangé", () => {
-    expect(escapeHtml("Aurora — Studio .decode")).toBe("Aurora — Studio .decode");
+    expect(escapeHtml("Aurora - Studio .decode")).toBe("Aurora - Studio .decode");
   });
 
   it("gère null et undefined comme une chaîne vide", () => {

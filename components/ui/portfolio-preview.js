@@ -52,7 +52,7 @@ const PortfolioPreview = defineComponent(
           children: skills.slice(0, 8).map((skill) => ({
             type: "li",
             key: String(skill.id),
-            children: [skill.name || "—"],
+            children: [skill.name || "-"],
           })),
         },
         {
@@ -67,7 +67,7 @@ const PortfolioPreview = defineComponent(
             type: "li",
             key: String(experience.id),
             children: [
-              `${experience.role || "—"} · ${formatPeriod(experience.startDate, experience.endDate, experience.current)}`,
+              `${experience.role || "-"} · ${formatPeriod(experience.startDate, experience.endDate, experience.current)}`,
             ],
           })),
         },
@@ -82,7 +82,7 @@ const PortfolioPreview = defineComponent(
           children: published.slice(0, 4).map((project) => ({
             type: "li",
             key: String(project.id),
-            children: [project.title || "—"],
+            children: [project.title || "-"],
           })),
         },
       ],

@@ -5,7 +5,7 @@ function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } });
 }
 
-describe("createCmsClient — rafraîchissement automatique du token", () => {
+describe("createCmsClient - rafraîchissement automatique du token", () => {
   it("sur un 401, rafraîchit le token via /api/auth/refresh puis rejoue la requête originale", async () => {
     const client = createCmsClient({ baseUrl: "http://test.local" });
     client.setToken("old-token");

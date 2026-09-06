@@ -20,7 +20,7 @@ const Footer = defineComponent(
             type: "p",
             attributes: [["class", ["site-footer__copy"]]],
             children: [
-              "© {{ year }} {{ name }} — site généré avec Vanilla-Engine".interpolate({
+              "© {{ year }} {{ name }} - site généré avec Vanilla-Engine".interpolate({
                 year: new Date().getFullYear(),
                 name: name || "Portfolio",
               }),

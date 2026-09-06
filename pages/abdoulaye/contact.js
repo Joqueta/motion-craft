@@ -15,7 +15,7 @@ export async function ContactPage() {
     const profile = await fetchProfile();
 
     setMeta({
-      title: `Contact — ${profile.firstName} ${profile.lastName}`,
+      title: `Contact - ${profile.firstName} ${profile.lastName}`,
       description: `Contactez ${profile.firstName} ${profile.lastName}.`,
     });
 
